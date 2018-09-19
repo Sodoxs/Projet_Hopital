@@ -17,6 +17,45 @@ Texte rédigé expliquant les options (complément de la maquette).
 
 
 
+Les diagrammes:
+
+Diagramme de cas d'utilisation : (UML)
+
+- contour du système acteurs (users, other system).
+
+- fonctionnalités (cas utilisation).
+
+- table des matières de l'expression des besoins.
+
+USER STORY :
+
+- Story name
+
+- value statement ( acteur,objectif, action)
+
+- what is required for the businessand product owner to accept the story
+
+- what is required by the team (quality, standars) before sending out for review. Does not change from story to another.
+
+- Documentation.
+
+- Estimation du temps de travail.
+
+Diagramme de séquence système (UML)
+
+- un seul objet (représentation), durée de vie du système, acteurs, représenter l'échange cliet, serveur).
+
+Diagramme d'activité (UML)
+
+- vue d'ensemmble du processes
+
+- Etude de l'existant ou étude des besoins.
+
+rond noir (start), losange (meneu, choix), rond noire dans cercle noir (end), barre noire synchronisation (deux chemins à complter jusqu'à la prochaine barre noire pour continuer).
+
+
+
+
 Type de propriété :
 
 aile_hopital.
@@ -46,3 +85,6 @@ Comment libérer de la place si archive remplit (espace illimité?)
 - Arrivé de patient gestion par l'urgentiste?
 
 - Table pour enregistrer le nombre d'utilisation d'un medicament lors des deux derniers mois.
+
+
+
