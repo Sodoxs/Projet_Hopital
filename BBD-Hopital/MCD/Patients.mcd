@@ -1,0 +1,21 @@
+Statut: idStatut, Service
+DateDiag: idDate, dateDignostic, dateGuerison
+
+Affecter, 11 Patient, 0N Statut
+:
+Infecter, 0N Patient, 0N DateDiag, 0N Maladie
+Maladie: idMaladie, nomMaladie
+
+Patient: idPatient, numSecu, nom, prenom, dateNaissance, adresse, dateEntree, dateSortie, telephone
+:
+Employe: login, nom, prenom, mdp
+Faire, 11 Employe, 0N Role
+Role: idRole, Nom
+
+Gerer, 0N Employe, 01 Traitement
+
+Prendre, 0N Patient, 11 Traitement
+:
+Traitement: idTraitement, dateTraitement, dateApplication, statut
+Composer, 1N Traitement, 0N Medicament: quantiteMedoc
+Medicament: nomMedicament, principeActif, stock
