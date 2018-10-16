@@ -1,18 +1,20 @@
 Statut: idStatut, Service
 DateDiag: idDate, dateDignostic, dateGuerison
 
+Lit: numLit, numBloc, numChambre, numEtage, nomAile
 Affecter, 11 Patient, 0N Statut
 :
-Infecter, 0N Patient, 0N DateDiag, 0N Maladie
+Infecter, 0N Patient, 0N DateDiag, 0N Maladie, 0N Employe
 Maladie: idMaladie, nomMaladie
 
+Allonger, 01 Patient, 0N Lit
 Patient: idPatient, numSecu, nom, prenom, dateNaissance, adresse, dateEntree, dateSortie, telephone
 :
 Employe: login, nom, prenom, mdp
 Faire, 11 Employe, 0N Role
 Role: idRole, Nom
 
-Gerer, 0N Employe, 01 Traitement
+Gerer, 0N Employe, 0N Traitement: datePrescription
 
 Prendre, 0N Patient, 11 Traitement
 :

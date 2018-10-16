@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `PATIENTS` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `PATIENTS`;
+CREATE DATABASE IF NOT EXISTS `EMPLOYES` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `EMPLOYES`;
 
 CREATE TABLE `STATUT` (
   `idstatut` VARCHAR(42),
@@ -14,11 +14,21 @@ CREATE TABLE `DATEDIAG` (
   PRIMARY KEY (`iddate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `LIT` (
+  `numlit` VARCHAR(42),
+  `numbloc` VARCHAR(42),
+  `numchambre` VARCHAR(42),
+  `numetage` VARCHAR(42),
+  `nomaile` VARCHAR(42),
+  PRIMARY KEY (`numlit`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `INFECTER` (
   `idpatient` VARCHAR(42),
   `iddate` VARCHAR(42),
   `idmaladie` VARCHAR(42),
-  PRIMARY KEY (`idpatient`, `iddate`, `idmaladie`)
+  `login` VARCHAR(42),
+  PRIMARY KEY (`idpatient`, `iddate`, `idmaladie`, `login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `MALADIE` (
@@ -37,6 +47,7 @@ CREATE TABLE `PATIENT` (
   `dateentree` VARCHAR(42),
   `datesortie` VARCHAR(42),
   `telephone` VARCHAR(42),
+  `numlit` VARCHAR(42),
   `idstatut` VARCHAR(42),
   PRIMARY KEY (`idpatient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -56,13 +67,19 @@ CREATE TABLE `ROLE` (
   PRIMARY KEY (`idrole`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `GERER` (
+  `login` VARCHAR(42),
+  `idtraitement` VARCHAR(42),
+  `dateprescription` VARCHAR(42),
+  PRIMARY KEY (`login`, `idtraitement`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `TRAITEMENT` (
   `idtraitement` VARCHAR(42),
   `datetraitement` VARCHAR(42),
   `dateapplication` VARCHAR(42),
   `statut` VARCHAR(42),
   `idpatient` VARCHAR(42),
-  `login` VARCHAR(42),
   PRIMARY KEY (`idtraitement`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -80,12 +97,15 @@ CREATE TABLE `MEDICAMENT` (
   PRIMARY KEY (`nommedicament`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `INFECTER` ADD FOREIGN KEY (`login`) REFERENCES `EMPLOYE` (`login`);
 ALTER TABLE `INFECTER` ADD FOREIGN KEY (`idmaladie`) REFERENCES `MALADIE` (`idmaladie`);
 ALTER TABLE `INFECTER` ADD FOREIGN KEY (`iddate`) REFERENCES `DATEDIAG` (`iddate`);
 ALTER TABLE `INFECTER` ADD FOREIGN KEY (`idpatient`) REFERENCES `PATIENT` (`idpatient`);
 ALTER TABLE `PATIENT` ADD FOREIGN KEY (`idstatut`) REFERENCES `STATUT` (`idstatut`);
+ALTER TABLE `PATIENT` ADD FOREIGN KEY (`numlit`) REFERENCES `LIT` (`numlit`);
 ALTER TABLE `EMPLOYE` ADD FOREIGN KEY (`idrole`) REFERENCES `ROLE` (`idrole`);
-ALTER TABLE `TRAITEMENT` ADD FOREIGN KEY (`login`) REFERENCES `EMPLOYE` (`login`);
+ALTER TABLE `GERER` ADD FOREIGN KEY (`idtraitement`) REFERENCES `TRAITEMENT` (`idtraitement`);
+ALTER TABLE `GERER` ADD FOREIGN KEY (`login`) REFERENCES `EMPLOYE` (`login`);
 ALTER TABLE `TRAITEMENT` ADD FOREIGN KEY (`idpatient`) REFERENCES `PATIENT` (`idpatient`);
 ALTER TABLE `COMPOSER` ADD FOREIGN KEY (`nommedicament`) REFERENCES `MEDICAMENT` (`nommedicament`);
 ALTER TABLE `COMPOSER` ADD FOREIGN KEY (`idtraitement`) REFERENCES `TRAITEMENT` (`idtraitement`);
