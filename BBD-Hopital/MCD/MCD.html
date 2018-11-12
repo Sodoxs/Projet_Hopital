@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>Statut</span> (
+    <span class='primary'>idStatut</span>,
+    <span class='normal'>service</span>
+  )
+</div>
+<div>
+  <span class='relation'>DateDiag</span> (
+    <span class='primary'>idDate</span>,
+    <span class='normal'>dateDignostic</span>,
+    <span class='normal'>dateGuerison</span>
+  )
+</div>
+<div>
+  <span class='relation'>Lit</span> (
+    <span class='primary'>numLit</span>,
+    <span class='normal'>numBloc</span>,
+    <span class='normal'>numChambre</span>,
+    <span class='normal'>numEtage</span>,
+    <span class='normal'>nomAile</span>
+  )
+</div>
+<div>
+  <span class='relation'>Infecter</span> (
+    <span class='foreign primary'>idPatient</span>,
+    <span class='foreign primary'>idDate</span>,
+    <span class='foreign primary'>idMaladie</span>,
+    <span class='foreign primary'>login</span>
+  )
+</div>
+<div>
+  <span class='relation'>Maladie</span> (
+    <span class='primary'>idMaladie</span>,
+    <span class='normal'>nomMaladie</span>
+  )
+</div>
+<div>
+  <span class='relation'>Patient</span> (
+    <span class='primary'>idPatient</span>,
+    <span class='normal'>numSecu</span>,
+    <span class='normal'>numMutuelle</span>,
+    <span class='normal'>civilite</span>,
+    <span class='normal'>nomPatient</span>,
+    <span class='normal'>prenomPatient</span>,
+    <span class='normal'>dateNaissance</span>,
+    <span class='normal'>adresse</span>,
+    <span class='normal'>dateEntree</span>,
+    <span class='normal'>dateSortie</span>,
+    <span class='normal'>telephone</span>,
+    <span class='foreign'>numLit</span>,
+    <span class='foreign'>idStatut</span>
+  )
+</div>
+<div>
+  <span class='relation'>Employe</span> (
+    <span class='primary'>login</span>,
+    <span class='normal'>nomEmploye</span>,
+    <span class='normal'>prenomEmploye</span>,
+    <span class='normal'>mdp</span>,
+    <span class='foreign'>idStatutMedecin</span>,
+    <span class='foreign'>idRole</span>
+  )
+</div>
+<div>
+  <span class='relation'>Role</span> (
+    <span class='primary'>idRole</span>,
+    <span class='normal'>nomRole</span>
+  )
+</div>
+<div>
+  <span class='relation'>Gerer</span> (
+    <span class='foreign primary'>login</span>,
+    <span class='foreign primary'>idTraitement</span>,
+    <span class='normal'>datePrescription</span>
+  )
+</div>
+<div>
+  <span class='relation'>Statut_medecin</span> (
+    <span class='primary'>idStatutMedecin</span>,
+    <span class='normal'>Statut</span>
+  )
+</div>
+<div>
+  <span class='relation'>Traitement</span> (
+    <span class='primary'>idTraitement</span>,
+    <span class='normal'>dateTraitement</span>,
+    <span class='normal'>dateApplication</span>,
+    <span class='normal'>statut</span>,
+    <span class='foreign'>idPatient</span>
+  )
+</div>
+<div>
+  <span class='relation'>Composer</span> (
+    <span class='foreign primary'>idTraitement</span>,
+    <span class='foreign primary'>idMedicament</span>,
+    <span class='normal'>quantiteMedoc</span>
+  )
+</div>
+<div>
+  <span class='relation'>Medicament</span> (
+    <span class='primary'>idMedicament</span>,
+    <span class='normal'>nomMedicament</span>,
+    <span class='normal'>principeActif</span>,
+    <span class='normal'>stock</span>
+  )
+</div>
+</div>
+</body>
+</html>

@@ -14,10 +14,13 @@ Employe: login[INT], nomEmploye[VARCHAR(30)], prenomEmploye[VARCHAR(30)], mdp[VA
 Faire, 11 Employe, 0N Role
 Role: idRole[INT], nomRole[VARCHAR(15)]
 
-Gerer, 0N Employe, 0N Traitement: datePrescription[DATE]
-
-Prendre, 0N Patient, 11 Traitement
 :
+Gerer, 0N Employe, 0N Traitement: datePrescription[DATE]
+Disponible, 11 Employe, 0N Statut_medecin
+Statut_medecin: idStatutMedecin[INT], Statut[VARCHAR(15)] 
+
+:
+Prendre, 0N Patient, 11 Traitement
 Traitement: idTraitement[INT], dateTraitement[DATE], dateApplication[DATE], statut[VARCHAR(15)]
 Composer, 1N Traitement, 0N Medicament: quantiteMedoc[INT]
 Medicament: idMedicament[INT], nomMedicament[VARCHAR(4096)], principeActif[VARCHAR(4096)], stock[INT]
