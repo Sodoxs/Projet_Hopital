@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# Généré par Mocodo 2.3.7 le Mon, 12 Nov 2018 01:39:20
+# Généré par Mocodo 2.3.7 le Mon, 12 Nov 2018 02:32:35
 
 from __future__ import division
 from math import hypot
@@ -9,7 +9,7 @@ import time, codecs
 
 import json
 
-with codecs.open('Employes_geo.json') as f:
+with codecs.open('MCD_geo.json') as f:
     geo = json.loads(f.read())
 (width,height) = geo.pop('size')
 for (name, l) in geo.items(): globals()[name] = dict(l)
@@ -269,6 +269,28 @@ lines += u"""\n	<line x1="%(x0)s" y1="%(y0)s" x2="%(x1)s" y2="%(y1)s" stroke="%(
 lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">Faire</text>""" % {'x': -16+x, 'y': -7.3+y, 'text_color': colors['association_cartouche_text_color']}
 lines += u"""\n</g>""" % {}
 
+lines += u"""\n\n<!-- Association Commander -->"""
+(x,y) = (cx[u"Commander"],cy[u"Commander"])
+(ex,ey) = (cx[u"Commande"],cy[u"Commande"])
+leg=straight_leg_factory(ex,ey,65,51,x,y,45,25,22+2*card_margin,15+2*card_margin)
+lines += u"""\n<line x1="%(ex)s" y1="%(ey)s" x2="%(ax)s" y2="%(ay)s" stroke="%(stroke_color)s" stroke-width="2"/>""" % {'ex': ex, 'ey': ey, 'ax': x, 'ay': y, 'stroke_color': colors['leg_stroke_color']}
+(tx,ty)=offset(*leg.card_pos(False,shift[u"Commander,Commande"]))
+lines += u"""\n<text x="%(tx)s" y="%(ty)s" fill="%(text_color)s" font-family="Verdana" font-size="12">0,N</text>""" % {'tx': tx, 'ty': ty, 'text_color': colors['card_text_color']}
+(ex,ey) = (cx[u"Medicament"],cy[u"Medicament"])
+leg=straight_leg_factory(ex,ey,55,51,x,y,45,25,21+2*card_margin,15+2*card_margin)
+lines += u"""\n<line x1="%(ex)s" y1="%(ey)s" x2="%(ax)s" y2="%(ay)s" stroke="%(stroke_color)s" stroke-width="2"/>""" % {'ex': ex, 'ey': ey, 'ax': x, 'ay': y, 'stroke_color': colors['leg_stroke_color']}
+(tx,ty)=offset(*leg.card_pos(False,shift[u"Commander,Medicament"]))
+lines += u"""\n<text x="%(tx)s" y="%(ty)s" fill="%(text_color)s" font-family="Verdana" font-size="12">1,1</text>""" % {'tx': tx, 'ty': ty, 'text_color': colors['card_text_color']}
+lines += u"""\n<g id="association-Commander">""" % {}
+path = upper_round_rect(-45+x,-25+y,90,25,14)
+lines += u"""\n	<path d="%(path)s" fill="%(color)s" stroke="%(stroke_color)s" stroke-width="0"/>""" % {'path': path, 'color': colors['association_cartouche_color'], 'stroke_color': colors['association_cartouche_color']}
+path = lower_round_rect(-45+x,0.0+y,90,25,14)
+lines += u"""\n	<path d="%(path)s" fill="%(color)s" stroke="%(stroke_color)s" stroke-width="0"/>""" % {'path': path, 'color': colors['association_color'], 'stroke_color': colors['association_color']}
+lines += u"""\n	<rect x="%(x)s" y="%(y)s" width="90" height="50" fill="%(color)s" rx="14" stroke="%(stroke_color)s" stroke-width="2"/>""" % {'x': -45+x, 'y': -25+y, 'color': colors['transparent_color'], 'stroke_color': colors['association_stroke_color']}
+lines += u"""\n	<line x1="%(x0)s" y1="%(y0)s" x2="%(x1)s" y2="%(y1)s" stroke="%(stroke_color)s" stroke-width="1"/>""" % {'x0': -45+x, 'y0': 0+y, 'x1': 45+x, 'y1': 0+y, 'stroke_color': colors['association_stroke_color']}
+lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">Commander</text>""" % {'x': -38+x, 'y': -7.3+y, 'text_color': colors['association_cartouche_text_color']}
+lines += u"""\n</g>""" % {}
+
 lines += u"""\n\n<!-- Association Allonger -->"""
 (x,y) = (cx[u"Allonger"],cy[u"Allonger"])
 (ex,ey) = (cx[u"Patient"],cy[u"Patient"])
@@ -511,6 +533,23 @@ lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Ver
 lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">statut</text>""" % {'x': -47+x, 'y': 42.8+y, 'text_color': colors['entity_attribute_text_color']}
 lines += u"""\n</g>""" % {}
 
+lines += u"""\n\n<!-- Entity Commande -->"""
+(x,y) = (cx[u"Commande"],cy[u"Commande"])
+lines += u"""\n<g id="entity-Commande">""" % {}
+lines += u"""\n	<g id="frame-Commande">""" % {}
+lines += u"""\n		<rect x="%(x)s" y="%(y)s" width="130" height="25" fill="%(color)s" stroke="%(stroke_color)s" stroke-width="0"/>""" % {'x': -65+x, 'y': -51+y, 'color': colors['entity_cartouche_color'], 'stroke_color': colors['entity_cartouche_color']}
+lines += u"""\n		<rect x="%(x)s" y="%(y)s" width="130" height="77" fill="%(color)s" stroke="%(stroke_color)s" stroke-width="0"/>""" % {'x': -65+x, 'y': -26.0+y, 'color': colors['entity_color'], 'stroke_color': colors['entity_color']}
+lines += u"""\n		<rect x="%(x)s" y="%(y)s" width="130" height="102" fill="%(color)s" stroke="%(stroke_color)s" stroke-width="2"/>""" % {'x': -65+x, 'y': -51+y, 'color': colors['transparent_color'], 'stroke_color': colors['entity_stroke_color']}
+lines += u"""\n		<line x1="%(x0)s" y1="%(y0)s" x2="%(x1)s" y2="%(y1)s" stroke="%(stroke_color)s" stroke-width="1"/>""" % {'x0': -65+x, 'y0': -26+y, 'x1': 65+x, 'y1': -26+y, 'stroke_color': colors['entity_stroke_color']}
+lines += u"""\n	</g>""" % {}
+lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">Commande</text>""" % {'x': -35+x, 'y': -33.3+y, 'text_color': colors['entity_cartouche_text_color']}
+lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">idCommande</text>""" % {'x': -60+x, 'y': -8.3+y, 'text_color': colors['entity_attribute_text_color']}
+lines += u"""\n	<line x1="%(x0)s" y1="%(y0)s" x2="%(x1)s" y2="%(y1)s" stroke="%(stroke_color)s" stroke-width="1"/>""" % {'x0': -60+x, 'y0': -6+y, 'x1': 20+x, 'y1': -6+y, 'stroke_color': colors['entity_attribute_text_color']}
+lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">dateCommande</text>""" % {'x': -60+x, 'y': 8.8+y, 'text_color': colors['entity_attribute_text_color']}
+lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">quantiteCommande</text>""" % {'x': -60+x, 'y': 25.8+y, 'text_color': colors['entity_attribute_text_color']}
+lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Verdana" font-size="12">etat</text>""" % {'x': -60+x, 'y': 42.8+y, 'text_color': colors['entity_attribute_text_color']}
+lines += u"""\n</g>""" % {}
+
 lines += u"""\n\n<!-- Entity Medicament -->"""
 (x,y) = (cx[u"Medicament"],cy[u"Medicament"])
 lines += u"""\n<g id="entity-Medicament">""" % {}
@@ -529,6 +568,6 @@ lines += u"""\n	<text x="%(x)s" y="%(y)s" fill="%(text_color)s" font-family="Ver
 lines += u"""\n</g>""" % {}
 lines += u'\n</svg>'
 
-with codecs.open("Employes.svg", "w", "utf8") as f:
+with codecs.open("MCD.svg", "w", "utf8") as f:
     f.write(lines)
-safe_print_for_PHP(u'Fichier de sortie "Employes.svg" généré avec succès.')
+safe_print_for_PHP(u'Fichier de sortie "MCD.svg" généré avec succès.')

@@ -24,3 +24,8 @@ Prendre, 0N Patient, 11 Traitement
 Traitement: idTraitement[INT], dateTraitement[DATE], dateApplication[DATE], statut[VARCHAR(15)]
 Composer, 1N Traitement, 0N Medicament: quantiteMedoc[INT]
 Medicament: idMedicament[INT], nomMedicament[VARCHAR(4096)], principeActif[VARCHAR(4096)], stock[INT]
+
+:
+:
+Commande: idCommande[INT], dateCommande[DATE], quantiteCommande[INT], etat[VARCHAR(10)]
+Commander, 0N Commande, 11 Medicament
