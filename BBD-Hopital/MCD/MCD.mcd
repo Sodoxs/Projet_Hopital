@@ -1,14 +1,16 @@
-Statut: idStatut[INT], service[VARCHAR(30)]
-DateDiag: idDate[INT], dateDignostic[DATE], dateGuerison[DATE]
-
 Lit: numLit[INT], numBloc[INT], numChambre[INT], numEtage[INT], nomAile[VARCHAR(10)]
+:
 Affecter, 11 Patient, 0N Statut
 :
-Infecter, 0N Patient, 0N DateDiag, 0N Maladie, 0N Employe
+Statut: idStatut[INT], service[VARCHAR(30)] 
+
+:
+:
+Infecter, 0N Patient, 0N Maladie, 0N Employe: dateDignostic[DATE], dateGuerison[DATE]
 Maladie: idMaladie[INT], nomMaladie[VARCHAR(4096)]
 
 Allonger, 01 Patient, 0N Lit
-Patient: idPatient[INT], numSecu[INT], numMutuelle[INT], civilite[VARCHAR(1)], nomPatient[VARCHAR(30)], prenomPatient[VACHAR(30)], dateNaissance[DATE], adresse[VARCHAR(70)], dateEntree[DATE], dateSortie[DATE], telephone[VARCHAR(15)]
+Patient: idPatient[INT], numSecu[INT], numMutuelle[INT], civilite[VARCHAR(1)], nomPatient[VARCHAR(30)], prenomPatient[VACHAR(30)], dateNaissance[DATE], adresse[VARCHAR(70)], dateEntree[DATE], dateSortie[DATE], telephone[VARCHAR(15)], nivUrgence[INT]
 :
 Employe: login[INT], nomEmploye[VARCHAR(30)], prenomEmploye[VARCHAR(30)], mdp[VARCHAR(50)]
 Faire, 11 Employe, 0N Role
