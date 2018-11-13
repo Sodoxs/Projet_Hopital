@@ -49,7 +49,7 @@ commit;
 
 CREATE TABLE SERVICE (
   id INTEGER,
-  service VARCHAR2(30),
+  service VARCHAR2(30)
 );
 
 CREATE TABLE LIT (
@@ -57,7 +57,7 @@ CREATE TABLE LIT (
   numbloc INTEGER,
   numchambre INTEGER,
   numetage INTEGER,
-  nomaile VARCHAR2(10),
+  nomaile VARCHAR2(10)
 );
 
 CREATE TABLE INFECTER (
@@ -66,13 +66,12 @@ CREATE TABLE INFECTER (
   idmaladie INTEGER,
   idemploye INTEGER,
   datedignostic DATE,
-  dateguerison DATE,
+  dateguerison DATE
 );
 
 CREATE TABLE MALADIE (
   id INTEGER,
   nommaladie VARCHAR2(4096),
-  PRIMARY KEY (idmaladie)
 );
 
 CREATE TABLE PATIENT (
@@ -89,7 +88,7 @@ CREATE TABLE PATIENT (
   telephone VARCHAR2(15),
   idlit INTEGER,
   idservice INTEGER,
-  nivurgence INTEGER,
+  nivurgence INTEGER
 );
 
 CREATE TABLE EMPLOYE (
@@ -99,18 +98,18 @@ CREATE TABLE EMPLOYE (
   prenomemploye VARCHAR2(30),
   mdp VARCHAR2(50),
   idrole INTEGER,
-  iddisponible INTEGER,
+  iddisponible INTEGER
 );
 
 CREATE TABLE ROLE (
   id INTEGER,
-  nomrole VARCHAR2(15),
+  nomrole VARCHAR2(15)
 );
 
 CREATE TABLE GERER (
   idemploye INTEGER,
   idtraitement INTEGER,
-  dateprescription DATE,
+  dateprescription DATE
 );
 
 CREATE TABLE TRAITEMENT (
@@ -118,13 +117,13 @@ CREATE TABLE TRAITEMENT (
   datetraitement DATE,
   dateapplication DATE,
   idstatut INTEGER,
-  idpatient INTEGER,
+  idpatient INTEGER
 );
 
 CREATE TABLE COMPOSER (
   idtraitement INTEGER,
   idmedicament INTEGER,
-  quantitemedoc INTEGER,
+  quantitemedoc INTEGER
 );
 
 CREATE TABLE MEDICAMENT (
@@ -132,7 +131,7 @@ CREATE TABLE MEDICAMENT (
   nommedicament VARCHAR2(4096),
   principeactif VARCHAR2(4096),
   stock INTEGER,
-  idcommande INTEGER,
+  idcommande INTEGER
 );
 
 CREATE TABLE DISPONIBLE (
@@ -144,7 +143,7 @@ CREATE TABLE COMMANDE (
   id INT,
   datecommande DATE,
   quantitecommande INTEGER,
-  idetat INTEGER,
+  idetat INTEGER
 );
 
 CREATE TABLE STATUT (
@@ -154,7 +153,7 @@ CREATE TABLE STATUT (
 
 CREATE TABLE ETATCOMMANDE (
   id INTEGER,
-  etat VARCHAR2(15);
+  etat VARCHAR2(15)
 );
 
 commit;
