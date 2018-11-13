@@ -63,14 +63,6 @@ CREATE TABLE LIT (
   nomaile VARCHAR2(10)
 );
 
-CREATE TABLE INFECTER (
-  idpatient INTEGER,
-  iddate INTEGER,
-  idmaladie INTEGER,
-  idemploye INTEGER,
-  dateguerison DATE
-);
-
 CREATE TABLE MALADIE (
   id INTEGER,
   nommaladie VARCHAR2(500)
@@ -158,9 +150,12 @@ CREATE TABLE ETATCOMMANDE (
   etat VARCHAR2(15)
 );
 
-CREATE TABLE DATEMALADIE (
-  id INTEGER,
-  dateDiagnostic DATE
+CREATE TABLE INFECTER (
+  idpatient INTEGER,
+  iddate INTEGER,
+  idmaladie INTEGER,
+  idemploye INTEGER,
+  dateguerison DATE
 );
 commit;
 
