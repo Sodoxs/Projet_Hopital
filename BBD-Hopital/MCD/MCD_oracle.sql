@@ -1,5 +1,5 @@
-CREATE TABLE STATUT (
-  idstatut INTEGER,
+CREATE TABLE SERVICE (
+  idservice INTEGER,
   service VARCHAR2(30),
 );
 
@@ -59,12 +59,11 @@ CREATE TABLE ROLE (
 CREATE TABLE GERER (
   login INTEGER,
   idtraitement INTEGER,
-  dateprescription DATE,
 );
 
 CREATE TABLE TRAITEMENT (
   idtraitement INTEGER,
-  datetraitement DATE,
+  dateprescription DATE,
   dateapplication DATE,
   statut VARCHAR2(15),
   idpatient INTEGER,
@@ -83,9 +82,9 @@ CREATE TABLE MEDICAMENT (
   stock INTEGER,
 );
 
-CREATE TABLE STATUT_MEDECIN (
-  idstatutmedecin INT,
-  statut VARCHAR(15),
+CREATE TABLE DISPONIBLE (
+  iddisponible INT,
+  disponible VARCHAR(15),
 );
 
 CREATE TABLE COMMANDE (
@@ -94,6 +93,13 @@ CREATE TABLE COMMANDE (
   quantitecommande INT,
   etat VARCHAR(10),
 );
+
+CREATE TABLE STATUT (
+  idstatut INT,
+  statut VARCHAR(15),
+);
+
+CREATE TABLE 
 
 ALTER TABLE STATUT ADD CONSTRAINT pkStatut PRIMARY KEY (idstatut);
 ALTER TABLE LIT ADD CONSTRAINT pkLit PRIMARY KEY (numlit);
