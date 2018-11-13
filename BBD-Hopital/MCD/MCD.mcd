@@ -17,13 +17,13 @@ Faire, 11 Employe, 0N Role
 Role: idRole[INT], nomRole[VARCHAR(15)]
 
 :
-Gerer, 0N Employe, 0N Traitement
+Gerer, 0N Employe, 0N Traitement: datePrescription[DATE]
 Disponibilite, 11 Employe, 0N Disponible
 Disponible: idDisponible[INT], Disponible[VARCHAR(15)] 
 
 :
 Prendre, 0N Patient, 11 Traitement
-Traitement: idTraitement[INT], datePrescription[DATE], dateApplication[DATE]
+Traitement: idTraitement[INT], dateTraitement[DATE], dateApplication[DATE]
 Composer, 0N Traitement, 0N Medicament : quantiteMedoc[INT]
 Medicament: idMedicament[INT], nomMedicament[VARCHAR(4096)], principeActif[VARCHAR(4096)], stock[INT]
 :
