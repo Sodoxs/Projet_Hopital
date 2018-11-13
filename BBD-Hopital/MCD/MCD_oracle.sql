@@ -40,7 +40,7 @@ CREATE TABLE PATIENT (
   telephone VARCHAR2(15),
   numlit INTEGER,
   idstatut INTEGER,
-  nivurgence,
+  nivurgence INTEGER,
 );
 
 CREATE TABLE EMPLOYE (
