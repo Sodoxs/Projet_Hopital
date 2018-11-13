@@ -91,7 +91,6 @@ CREATE TABLE COMMANDE (
   idcommande INT,
   datecommande DATE,
   quantitecommande INT,
-  etat VARCHAR(10),
 );
 
 CREATE TABLE STATUT (
