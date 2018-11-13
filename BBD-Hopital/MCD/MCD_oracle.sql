@@ -161,7 +161,7 @@ CREATE TABLE ETATCOMMANDE (
 
 CREATE TABLE DATEMALADIE (
   id INTEGER,
-  dateDiagnostic
+  dateDiagnostic DATE
 );
 commit;
 
