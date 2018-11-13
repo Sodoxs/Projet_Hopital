@@ -3,10 +3,10 @@ Lit: numLit[INT], numBloc[INT], numChambre[INT], numEtage[INT], nomAile[VARCHAR(
 Affecter, 11 Patient, 0N Service
 :
 Service: idService[INT], service[VARCHAR(30)] 
+DateMaladie:idDateMaladie[INT], dateDiagnostic[DATE], dateGuerison[DATE]
+:
 
-:
-:
-Infecter, 0N Patient, 0N Maladie, 0N Employe: dateDignostic[DATE], dateGuerison[DATE]
+Infecter, 0N Patient, 0N Maladie, 0N Employe, 0N DateMaladie
 Maladie: idMaladie[INT], nomMaladie[VARCHAR(4096)]
 
 Allonger, 01 Patient, 0N Lit
@@ -19,7 +19,7 @@ Role: idRole[INT], nomRole[VARCHAR(15)]
 :
 Gerer, 0N Employe, 0N Traitement: datePrescription[DATE]
 Disponibilite, 11 Employe, 0N Disponible
-Disponible: idDisponible[INT], Disponible[VARCHAR(15)] 
+Disponible: idDisponible[INT], disponible[VARCHAR(15)] 
 
 :
 Prendre, 0N Patient, 11 Traitement
