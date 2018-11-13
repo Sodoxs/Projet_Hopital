@@ -71,7 +71,7 @@ CREATE TABLE INFECTER (
 
 CREATE TABLE MALADIE (
   id INTEGER,
-  nommaladie VARCHAR2(4096),
+  nommaladie VARCHAR2(500),
 );
 
 CREATE TABLE PATIENT (
@@ -128,8 +128,8 @@ CREATE TABLE COMPOSER (
 
 CREATE TABLE MEDICAMENT (
   id INTEGER,
-  nommedicament VARCHAR2(4096),
-  principeactif VARCHAR2(4096),
+  nommedicament VARCHAR2(500),
+  principeactif VARCHAR2(500),
   stock INTEGER,
   idcommande INTEGER
 );
