@@ -1,8 +1,8 @@
 Lit: numLit[INT], numBloc[INT], numChambre[INT], numEtage[INT], nomAile[VARCHAR(10)]
 :
-Affecter, 11 Patient, 0N Statut
+Affecter, 11 Patient, 0N Service
 :
-Statut: idStatut[INT], service[VARCHAR(30)] 
+Service: idService[INT], service[VARCHAR(30)] 
 
 :
 :
@@ -17,17 +17,22 @@ Faire, 11 Employe, 0N Role
 Role: idRole[INT], nomRole[VARCHAR(15)]
 
 :
-Gerer, 0N Employe, 0N Traitement: datePrescription[DATE]
-Disponible, 11 Employe, 0N Statut_medecin
-Statut_medecin: idStatutMedecin[INT], Statut[VARCHAR(15)] 
+Gerer, 0N Employe, 0N Traitement
+Disponibilite, 11 Employe, 0N Disponible
+Disponible: idDisponible[INT], Disponible[VARCHAR(15)] 
 
 :
 Prendre, 0N Patient, 11 Traitement
-Traitement: idTraitement[INT], dateTraitement[DATE], dateApplication[DATE], statut[VARCHAR(15)]
-Composer, 1N Traitement, 0N Medicament: quantiteMedoc[INT]
+Traitement: idTraitement[INT], datePrescription[DATE], dateApplication[DATE]
+Composer, 0N Traitement, 0N Medicament : quantiteMedoc[INT]
 Medicament: idMedicament[INT], nomMedicament[VARCHAR(4096)], principeActif[VARCHAR(4096)], stock[INT]
+:
+Commander, 0N Commande, 11 Medicament
 
 :
+Statut: idStatut[INT], statut[VARCHAR(15)]
+Appliquer , 11 Traitement, 0N Statut
 :
-Commande: idCommande[INT], dateCommande[DATE], quantiteCommande[INT], etat[VARCHAR(10)]
-Commander, 0N Commande, 11 Medicament
+EtatCommande: idEtat[INT], etat[VARCHAR(10)]
+Se Trouve, 11 Commande, 0n EtatCommande
+Commande: idCommande[INT], dateCommande[DATE], quantiteCommande[INT]
