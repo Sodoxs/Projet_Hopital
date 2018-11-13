@@ -1,10 +1,10 @@
 CREATE TABLE SERVICE (
-  idservice INTEGER,
+  id INTEGER,
   service VARCHAR2(30),
 );
 
 CREATE TABLE LIT (
-  numlit INTEGER,
+  id INTEGER,
   numbloc INTEGER,
   numchambre INTEGER,
   numetage INTEGER,
@@ -21,13 +21,13 @@ CREATE TABLE INFECTER (
 );
 
 CREATE TABLE MALADIE (
-  idmaladie INTEGER,
+  id INTEGER,
   nommaladie VARCHAR2(4096),
   PRIMARY KEY (idmaladie)
 );
 
 CREATE TABLE PATIENT (
-  idpatient INTEGER,
+  id INTEGER,
   numsecu INTEGER,
   nummutuelle INTEGER,
   civilite VARCHAR2(1),
@@ -44,7 +44,8 @@ CREATE TABLE PATIENT (
 );
 
 CREATE TABLE EMPLOYE (
-  login INTEGER,
+  id INTEGER,
+  login VARCHAR2(30),
   nomemploye VARCHAR2(30),
   prenomemploye VARCHAR2(30),
   mdp VARCHAR2(50),
@@ -53,18 +54,18 @@ CREATE TABLE EMPLOYE (
 );
 
 CREATE TABLE ROLE (
-  idrole INTEGER,
+  id INTEGER,
   nomrole VARCHAR2(15),
 );
 
 CREATE TABLE GERER (
-  login INTEGER,
+  idemploye INTEGER,
   idtraitement INTEGER,
   dateprescription DATE,
 );
 
 CREATE TABLE TRAITEMENT (
-  idtraitement INTEGER,
+  id INTEGER,
   datetraitement DATE,
   dateapplication DATE,
   idstatut INTEGER,
@@ -78,7 +79,7 @@ CREATE TABLE COMPOSER (
 );
 
 CREATE TABLE MEDICAMENT (
-  idmedicament INTEGER,
+  id INTEGER,
   nommedicament VARCHAR2(4096),
   principeactif VARCHAR2(4096),
   stock INTEGER,
@@ -86,35 +87,35 @@ CREATE TABLE MEDICAMENT (
 );
 
 CREATE TABLE DISPONIBLE (
-  iddisponible INTEGER,
+  id INTEGER,
   disponible VARCHAR2(15),
 );
 
 CREATE TABLE COMMANDE (
-  idcommande INT,
+  id INT,
   datecommande DATE,
   quantitecommande INTEGER,
   idetat INTEGER,
 );
 
 CREATE TABLE STATUT (
-  idstatut INTEGER,
+  id INTEGER,
   statut VARCHAR2(15),
 );
 
 CREATE TABLE ETATCOMMANDE (
-  idetat INTEGER,
+  id INTEGER,
   etat VARCHAR2(15);
 );
 
-ALTER TABLE SERVICE ADD CONSTRAINT pkService PRIMARY KEY (idservice);
-ALTER TABLE LIT ADD CONSTRAINT pkLit PRIMARY KEY (numlit);
+ALTER TABLE SERVICE ADD CONSTRAINT pkService PRIMARY KEY (id);
+ALTER TABLE LIT ADD CONSTRAINT pkLit PRIMARY KEY (id);
 ALTER TABLE INFECTER ADD CONSTRAINT pkInfecter PRIMARY KEY (idpatient, iddate, idmaladie, login);
-ALTER TABLE PATIENT ADD CONSTRAINT pkPatient PRIMARY KEY (idpatient);
-ALTER TABLE EMPLOYE ADD CONSTRAINT pkEmploye PRIMARY KEY (login);
-ALTER TABLE ROLE ADD CONSTRAINT pkRole PRIMARY KEY (idrole);
-ALTER TABLE GERER ADD CONSTRAINT pkRole PRIMARY KEY (login, idtraitement);
-ALTER TABLE TRAITEMENT ADD CONSTRAINT pkTraitement PRIMARY KEY (idtraitement);
+ALTER TABLE PATIENT ADD CONSTRAINT pkPatient PRIMARY KEY (id);
+ALTER TABLE EMPLOYE ADD CONSTRAINT pkEmploye PRIMARY KEY (id);
+ALTER TABLE ROLE ADD CONSTRAINT pkRole PRIMARY KEY (id);
+ALTER TABLE GERER ADD CONSTRAINT pkRole PRIMARY KEY (idemploye, idtraitement);
+ALTER TABLE TRAITEMENT ADD CONSTRAINT pkTraitement PRIMARY KEY (id);
 ALTER TABLE COMPOSER ADD CONSTRAINT pkComposer PRIMARY KEY (idtraitement, idmedicament);
 ALTER TABLE MEDICAMENT ADD CONSTRAINT pkMedicament PRIMARY KEY (idmedicament);
 ALTER TABLE DISPONIBLE ADD CONSTRAINT pkDisponible PRIMARY KEY (iddisponible);
