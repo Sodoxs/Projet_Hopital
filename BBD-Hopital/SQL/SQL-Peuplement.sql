@@ -1,3 +1,5 @@
+INSERT INTO 
+
 INSERT INTO COMMANDE (ID,DATECOMMANDE,QUANTITECOMMANDE,IDETAT)
       VALUES(
         dbms_random.value(11,25),
@@ -6,6 +8,8 @@ INSERT INTO COMMANDE (ID,DATECOMMANDE,QUANTITECOMMANDE,IDETAT)
         dbms_random.value(1, 3)
         );
 commit;
+
+
 
 // pour un String dbms_random.string('A' ou 'X',taille) 
 //a pour Chaine de caractère Majuscule et minuscule
