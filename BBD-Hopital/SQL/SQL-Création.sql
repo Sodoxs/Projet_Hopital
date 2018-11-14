@@ -157,6 +157,11 @@ CREATE TABLE INFECTER (
   idemploye INTEGER,
   dateguerison DATE
 );
+
+CREATE TABLE DATEMALADIE (
+  id INTEGER,
+  datediagnostic DATE
+);
 commit;
 
 ALTER TABLE SERVICE ADD CONSTRAINT pkService PRIMARY KEY (id);
