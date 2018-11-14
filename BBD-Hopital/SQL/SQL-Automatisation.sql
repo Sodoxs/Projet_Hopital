@@ -1,4 +1,4 @@
-create sequence LIT_seq_AI
+CREATE sequence LIT_seq_AI
   start with 1 increment by 1 nomaxvalue;
 create trigger LIT_AI before insert on LIT for each row
 begin
