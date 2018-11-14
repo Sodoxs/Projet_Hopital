@@ -1,0 +1,8 @@
+INSERT
+        INTO EMPLOYEES (LASTNAME, FIRSTNAME, RECRUITMENT_DATE, SALARY)
+      SELECT
+        dbms_random.string('A', trunc(dbms_random.value(5, 50))),
+        dbms_random.string('A', trunc(dbms_random.value(5, 100))),
+        to_date('01/01/1980', 'DD/MM/YY') + trunc(dbms_random.value(0, (20*365))),
+        dbms_random.value(1500, 6500)
+   FROM dual
