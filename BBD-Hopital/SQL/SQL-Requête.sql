@@ -27,3 +27,7 @@ WHERE PATIENT.IDLIT = x; --remplacer x par un nombre
 commit;
 
 -------------------------------------------------------------------------------
+-- Affiche le traitement dont les médicament ont été commandé avant le 15/12/18
+SELECT TRAITEMENT.ID FROM COMPOSER JOIN TRAITEMENT ON COMPOSER.IDTRAITEMENT = TRAITEMENT.ID JOIN MEDICAMENT ON COMPOSER.IDMEDICAMENT = MEDICAMENT.ID JOIN COMMANDE ON MEDICAMENT.IDCOMMANDE= COMMANDE.ID
+WHERE COMMANDE.DATECOMMANDE < '15/12/18';
+commit;
