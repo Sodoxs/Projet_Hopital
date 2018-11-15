@@ -118,4 +118,4 @@ create trigger MALADIE_AI before insert on MALADIE for each row
 begin
   select MALADIE_SEQ_AI.nextval into:new.id from dual;
 end;
-commit;
+
