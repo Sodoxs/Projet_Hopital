@@ -20,3 +20,10 @@ CREATE VIEW user_mdp AS
 commit;
 
 -------------------------------------------------------------------------------
+-- Récupère l'id, le nom du bloc, de la chambre, de l'étage et de l'aile d'un lit selon l'idLit du patient
+SELECT LIT.ID, NUMBLOC, NUMCHAMBRE, NUMETAGE, NOMAILE FROM LIT
+JOIN PATIENT ON PATIENT.IDLIT = LIT.ID
+WHERE PATIENT.IDLIT = x; --remplacer x par un nombre
+commit;
+
+-------------------------------------------------------------------------------
