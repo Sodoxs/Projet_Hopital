@@ -27,8 +27,8 @@ BEGIN
     (
       dbms_random.value(1,500),
       dbms_random.value(1,50),
-      dbms_random.value(20),
-      dbms_random.string('A',15)
+      dbms_random.value(1, 20),
+      dbms_random.string('A',10)
     );
       
     INSERT INTO DATEMALADIE (DATEDIAGNOSTIC) VALUES (SYSDATE);
@@ -57,7 +57,7 @@ BEGIN
     INSERT INTO MEDICAMENT (IDCOMMANDE, NOMMEDICAMENT, PRINCIPEACTIF, STOCK)
     VALUES
     (
-      dbms_random.value(1,SELECT COUNT(ID) FROM COMMANDE),
+      dbms_random.value(1,100),
       dbms_random.string('A',500),
       dbms_random.string('A',500)
       dbms_random.value(0,10000)
