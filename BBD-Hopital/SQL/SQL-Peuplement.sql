@@ -31,16 +31,9 @@ BEGIN
       dbms_random.string('A',15)
     );
       
-    INSERT INTO DATEMALADIE (DATEDIAGNOSTIC)
-    (
-      SYSDATE
-    );
+    INSERT INTO DATEMALADIE (DATEDIAGNOSTIC) VALUES (SYSDATE);
   
-    INSERT INTO MALADIE (NOMMALADIE)
-    VALUES
-    (
-      dbms_random.string('A',100)
-    );
+    INSERT INTO MALADIE (NOMMALADIE) VALUES (dbms_random.string('A',100));
     
     INSERT INTO COMMANDE (DATECOMMANDE,QUANTITECOMMANDE,IDETAT)
     VALUES
