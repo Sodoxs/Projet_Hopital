@@ -43,6 +43,8 @@ BEGIN
       dbms_random.value(1, 3)
     );
     
+    INSERT INTO SERVICE (SERVICE) VALUES (dbms_random.string('A',30));
+    
     x := x + 1;  -- prevents infinite loop
     EXIT WHEN x > 50;
   END LOOP;
@@ -78,7 +80,7 @@ BEGIN
       SYSDATE,
       dbms_random.string('A',15),
       dbms_random.value(1,51),
-      dbms_random.value(1,4),
+      dbms_random.value(1,51),
       dbms_random.value(1,10)
     );
     
