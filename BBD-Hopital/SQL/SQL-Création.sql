@@ -58,9 +58,9 @@ CREATE TABLE SERVICE (
 CREATE TABLE LIT (
   id INTEGER,
   numbloc INTEGER,
-  numchambre INTEGER,
-  numetage INTEGER,
-  nomaile VARCHAR2(10)
+  numchambre INTEGER NOT NULL,
+  numetage INTEGER NOT NULL,
+  nomaile VARCHAR2(10) NOT NULL
 );
 
 CREATE TABLE MALADIE (
@@ -72,26 +72,26 @@ CREATE TABLE PATIENT (
   id INTEGER,
   numsecu INTEGER,
   nummutuelle INTEGER,
-  civilite VARCHAR2(1),
-  nompatient VARCHAR2(30),
-  prenompatient VARCHAR2(30),
-  datenaissance DATE,
+  civilite VARCHAR2(1) NOT NULL,
+  nompatient VARCHAR2(30) NOT NULL,
+  prenompatient VARCHAR2(30) NOT NULL,
+  datenaissance DATE NOT NULL,
   adresse VARCHAR2(70),
-  dateentree DATE,
+  dateentree DATE NOT NULL,
   datesortie DATE,
   telephone VARCHAR2(15),
   idlit INTEGER,
-  idservice INTEGER,
-  nivurgence INTEGER
+  idservice INTEGER NOT NULL,
+  nivurgence INTEGER NOT NULL
 );
 
 CREATE TABLE EMPLOYE (
   id INTEGER,
   login VARCHAR2(30),
-  nomemploye VARCHAR2(30),
-  prenomemploye VARCHAR2(30),
-  mdp VARCHAR2(50),
-  idrole INTEGER,
+  nomemploye VARCHAR2(30) NOT NULL,
+  prenomemploye VARCHAR2(30) NOT NULL,
+  mdp VARCHAR2(50) NOT NULL,
+  idrole INTEGER NOT NULL,
   iddisponible INTEGER
 );
 
@@ -101,30 +101,30 @@ CREATE TABLE ROLE (
 );
 
 CREATE TABLE GERER (
-  idemploye INTEGER,
+  idemploye INTEGER NOT NULL,
   idtraitement INTEGER,
-  dateprescription DATE
+  dateprescription DATE NOT NULL
 );
 
 CREATE TABLE TRAITEMENT (
   id INTEGER,
   datetraitement DATE,
-  dateapplication DATE,
-  idstatut INTEGER,
-  idpatient INTEGER
+  datefintraitement DATE,
+  idstatut INTEGER NOT NULL,
+  idpatient INTEGER NOT NULL
 );
 
 CREATE TABLE COMPOSER (
-  idtraitement INTEGER,
-  idmedicament INTEGER,
-  quantitemedoc INTEGER
+  idtraitement INTEGER NOT NULL,
+  idmedicament INTEGER NOT NULL,
+  quantitemedoc INTEGER NOT NULL
 );
 
 CREATE TABLE MEDICAMENT (
   id INTEGER,
   nommedicament VARCHAR2(500),
-  principeactif VARCHAR2(500),
-  stock INTEGER,
+  principeactif VARCHAR2(500) NOT NULL,
+  stock INTEGER NOT NULL,
   idcommande INTEGER
 );
 
@@ -135,9 +135,9 @@ CREATE TABLE DISPONIBLE (
 
 CREATE TABLE COMMANDE (
   id INT,
-  datecommande DATE,
-  quantitecommande INTEGER,
-  idetat INTEGER
+  datecommande DATE NOT NULL,
+  quantitecommande INTEGER NOT NULL,
+  idetat INTEGER NOT NULL
 );
 
 CREATE TABLE STATUT (
@@ -151,16 +151,16 @@ CREATE TABLE ETATCOMMANDE (
 );
 
 CREATE TABLE INFECTER (
-  idpatient INTEGER,
-  iddate INTEGER,
-  idmaladie INTEGER,
-  idemploye INTEGER,
+  idpatient INTEGER NOT NULL,
+  iddate INTEGER NOT NULL,
+  idmaladie INTEGER NOT NULL,
+  idemploye INTEGER NOT NULL,
   dateguerison DATE
 );
 
 CREATE TABLE DATEMALADIE (
   id INTEGER,
-  datediagnostic DATE
+  datediagnostic DATE NOT NULL
 );
 commit;
 
@@ -206,6 +206,7 @@ ALTER TABLE DISPONIBLE ADD CONSTRAINT ukDisponible UNIQUE (disponible);
 ALTER TABLE SERVICE ADD CONSTRAINT ukService UNIQUE (service);
 ALTER TABLE STATUT ADD CONSTRAINT ukStatut UNIQUE (statut);
 ALTER TABLE ETATCOMMANDE ADD CONSTRAINT ukEtatCommande UNIQUE (etat);
+ALTER TABLE ROLE ADD CONSTRAINT ukRole UNIQUE (nomrole);
 commit;
 
 CREATE INDEX IDX_PATIENT ON PATIENT (nompatient, prenompatient);
