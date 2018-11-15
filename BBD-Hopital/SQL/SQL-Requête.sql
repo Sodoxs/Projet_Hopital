@@ -13,3 +13,10 @@ WHERE IDETAT = 3; -- 1 = à faire   2 = En cours   3 = Livré
 commit;
 
 -------------------------------------------------------------------------------
+-- Créer une vue qui affiche le mot de passe de l'utilisateur dont on a entré le login
+CREATE VIEW user_mdp AS
+    SELECT MDP FROM EMPLOYE
+    WHERE LOGIN = 'Sodoxs';
+commit;
+
+-------------------------------------------------------------------------------
