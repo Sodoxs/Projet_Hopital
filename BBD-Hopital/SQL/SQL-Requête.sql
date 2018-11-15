@@ -1,2 +1,7 @@
-Guillaume est beau.
-mais PD
+--Guillaume est beau.
+--mais PD
+
+SELECT NOMEMPLOYE, PRENOMEMPLOYE FROM EMPLOYE
+WHERE IDROLE = (SELECT ID FROM ROLE WHERE NOMROLE = 'Medecin') 
+    AND IDDISPONIBLE = (SELECT ID FROM DISPONIBLE WHERE DISPONIBLE = 'En pause');
+commit;
