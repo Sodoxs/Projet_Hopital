@@ -48,9 +48,7 @@ BEGIN
   END LOOP;
 END;
     
-
-DECLARE
-  x NUMBER := 0;
+x := 0;
 BEGIN
   LOOP
   
