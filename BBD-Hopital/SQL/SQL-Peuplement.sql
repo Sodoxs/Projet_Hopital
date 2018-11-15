@@ -46,7 +46,7 @@ BEGIN
     INSERT INTO SERVICE (SERVICE) VALUES (dbms_random.string('A',30));
     
     x := x + 1;  -- prevents infinite loop
-    EXIT WHEN x > 50;
+    EXIT WHEN x > 299;
   END LOOP;
 END;
 -- lancer un nouveau script en adaptant la valeur max d'id commande.
@@ -59,7 +59,7 @@ BEGIN
     INSERT INTO MEDICAMENT (IDCOMMANDE, NOMMEDICAMENT, PRINCIPEACTIF, STOCK)
     VALUES
     (
-      dbms_random.value(1,51),
+      dbms_random.value(1,300),
       dbms_random.string('A',500),
       dbms_random.string('A',500),
       dbms_random.value(0,10000)
@@ -79,8 +79,8 @@ BEGIN
       SYSDATE,
       SYSDATE,
       dbms_random.string('A',15),
-      dbms_random.value(1,51),
-      dbms_random.value(1,51),
+      dbms_random.value(1,300),
+      dbms_random.value(1,300),
       dbms_random.value(1,10)
     );
     
@@ -96,7 +96,7 @@ BEGIN
     );
     
     x := x + 1;  -- prevents infinite loop
-    EXIT WHEN x > 50;
+    EXIT WHEN x > 299;
   END LOOP;
 END;
 -- lancer un nouveau script en adaptant la valeur max d'id commande.
@@ -109,10 +109,10 @@ BEGIN
     INSERT INTO INFECTER (IDPATIENT, IDMALADIE, IDEMPLOYE, IDDATE, DATEGUERISON)
     VALUES
     (
-      dbms_random.value(1,51),
-      dbms_random.value(1,51),
-      dbms_random.value(1,51),
-      dbms_random.value(1,51),
+      dbms_random.value(1,300),
+      dbms_random.value(1,300),
+      dbms_random.value(1,300),
+      dbms_random.value(1,300),
       SYSDATE
     );
     
@@ -121,12 +121,12 @@ BEGIN
     (
       SYSDATE,
       SYSDATE,
-      dbms_random.value(1,51),
+      dbms_random.value(1,300),
       dbms_random.value(1,4)
     );
     
     x := x + 1;  -- prevents infinite loop
-    EXIT WHEN x > 50;
+    EXIT WHEN x > 299;
   END LOOP;
 END;
 -- lancer un nouveau script en adaptant la valeur max d'id commande.
@@ -139,21 +139,21 @@ BEGIN
     INSERT INTO COMPOSER (IDMEDICAMENT, IDTRAITEMENT, QUANTITEMEDOC)
     VALUES
     (
-      dbms_random.value(1,51),
-      dbms_random.value(1,51),
+      dbms_random.value(1,300),
+      dbms_random.value(1,300),
       dbms_random.value(0,1000)
     );
     
     INSERT INTO GERER (IDEMPLOYE, IDTRAITEMENT, DATEPRESCRIPTION)
     VALUES
     (
-      dbms_random.value(1,51),
-      dbms_random.value(1,51),
+      dbms_random.value(1,300),
+      dbms_random.value(1,300),
       SYSDATE
     );
     
     x := x + 1;  -- prevents infinite loop
-    EXIT WHEN x > 50;
+    EXIT WHEN x > 49;
   END LOOP;
 END;
 
