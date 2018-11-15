@@ -72,7 +72,7 @@ CREATE TABLE PATIENT (
   id INTEGER,
   numsecu INTEGER,
   nummutuelle INTEGER,
-  civilite VARCHAR2(1) NOT NULL,
+  civilite CHAR NOT NULL,
   nompatient VARCHAR2(30) NOT NULL,
   prenompatient VARCHAR2(30) NOT NULL,
   datenaissance DATE NOT NULL,
