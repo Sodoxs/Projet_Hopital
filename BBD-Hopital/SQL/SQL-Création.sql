@@ -81,8 +81,9 @@ CREATE TABLE PATIENT (
   datesortie DATE,
   telephone VARCHAR2(15),
   idlit INTEGER,
-  idservice INTEGER NOT NULL,
-  nivurgence INTEGER NOT NULL
+  idservice INTEGER,
+  nivurgence INTEGER NOT NULL,
+  etatalerte CHAR NOT NULL
 );
 
 CREATE TABLE EMPLOYE (
