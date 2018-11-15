@@ -49,7 +49,7 @@ BEGIN
     EXIT WHEN x > 50;
   END LOOP;
 END;
-commit; -- lancer un nouveau script en adaptant la valeur max d'id commande.
+-- lancer un nouveau script en adaptant la valeur max d'id commande.
     
 DECLARE
   x NUMBER := 0;
@@ -99,7 +99,7 @@ BEGIN
     EXIT WHEN x > 50;
   END LOOP;
 END;
-commit; -- lancer un nouveau script en adaptant la valeur max d'id commande.
+-- lancer un nouveau script en adaptant la valeur max d'id commande.
     
 DECLARE
   x NUMBER := 0;
@@ -129,7 +129,7 @@ BEGIN
     EXIT WHEN x > 50;
   END LOOP;
 END;
-commit; -- lancer un nouveau script en adaptant la valeur max d'id commande.
+-- lancer un nouveau script en adaptant la valeur max d'id commande.
     
 DECLARE
   x NUMBER := 0;
@@ -156,7 +156,7 @@ BEGIN
     EXIT WHEN x > 50;
   END LOOP;
 END;
-commit;
+
 
 
 --SYSDATE (pour mettre la date actuel)
