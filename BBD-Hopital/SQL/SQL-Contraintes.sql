@@ -1,4 +1,4 @@
-create function f_PATIENT_INOPERABLE() as
+create function f_PATIENT_INOPERABLE()
     service_actu char;
     patient INT;
     service INT;
