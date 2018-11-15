@@ -9,8 +9,8 @@ DateMaladie:idDateMaladie[INT], dateDiagnostic[DATE], dateGuerison[DATE]
 Infecter, 0N Patient, 0N Maladie, 0N Employe, 0N DateMaladie
 Maladie: idMaladie[INT], nomMaladie[VARCHAR(4096)]
 
-Allonger, 01 Patient, 0N Lit
-Patient: idPatient[INT], numSecu[INT], numMutuelle[INT], civilite[VARCHAR(1)], nomPatient[VARCHAR(30)], prenomPatient[VACHAR(30)], dateNaissance[DATE], adresse[VARCHAR(70)], dateEntree[DATE], dateSortie[DATE], telephone[VARCHAR(15)], nivUrgence[INT]
+Allonger, 01 Patient, 01 Lit
+Patient: idPatient[INT], numSecu[INT], numMutuelle[INT], civilite[CHAR], nomPatient[VARCHAR(30)], prenomPatient[VACHAR(30)], dateNaissance[DATE], adresse[VARCHAR(70)], dateEntree[DATE], dateSortie[DATE], telephone[VARCHAR(15)], nivUrgence[INT],etatUrgence[CHAR]
 :
 Employe: login[INT], nomEmploye[VARCHAR(30)], prenomEmploye[VARCHAR(30)], mdp[VARCHAR(50)]
 Faire, 11 Employe, 0N Role
@@ -23,7 +23,7 @@ Disponible: idDisponible[INT], disponible[VARCHAR(15)]
 
 :
 Prendre, 0N Patient, 11 Traitement
-Traitement: idTraitement[INT], dateTraitement[DATE], dateApplication[DATE]
+Traitement: idTraitement[INT], dateTraitement[DATE], dateFinTraitement[DATE]
 Composer, 0N Traitement, 0N Medicament : quantiteMedoc[INT]
 Medicament: idMedicament[INT], nomMedicament[VARCHAR(4096)], principeActif[VARCHAR(4096)], stock[INT]
 :
