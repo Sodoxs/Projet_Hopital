@@ -63,8 +63,8 @@ BEGIN
       dbms_random.value(0,10000)
     );
     
-    INSERT INTO PATIENT (NUMSECU, NUMMUTUELLE, CIVILITE, NOM, PRENOM, DATENAISSANCE, 
-                         NIVURGENCE, ADRESSE, DATEENTRE, DATESORTIE, TELEPHONE, IDLIT, IDSERVICE)
+    INSERT INTO PATIENT (NUMSECU, NUMMUTUELLE, CIVILITE, NOMPATIENT, PRENOMPATIENT, DATENAISSANCE, 
+                         NIVURGENCE, ADRESSE, DATEENTREE, DATESORTIE, TELEPHONE, IDLIT, IDSERVICE)
     VALUES
     (
       dbms_random.value(1,9999999999),
@@ -90,7 +90,7 @@ BEGIN
       dbms_random.string('A',30),
       dbms_random.string('P',50),
       dbms_random.value(1,51),
-      dbms_random.value(1,51),
+      dbms_random.value(1,51)
     );
     
     x := x + 1;  -- prevents infinite loop
