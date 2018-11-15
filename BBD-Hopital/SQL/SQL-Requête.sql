@@ -1,5 +1,3 @@
---Guillaume est beau... non c'est faux ! :)
--- Et Florian pas très productif
 
 -- Sélectionne le nom et le prenom des employés qui sont médecins et en pause.
 SELECT NOMEMPLOYE, PRENOMEMPLOYE FROM EMPLOYE
