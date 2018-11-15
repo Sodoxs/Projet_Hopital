@@ -66,7 +66,7 @@ BEGIN
     );
     
     INSERT INTO PATIENT (NUMSECU, NUMMUTUELLE, CIVILITE, NOMPATIENT, PRENOMPATIENT, DATENAISSANCE, 
-                         ADRESSE, DATEENTREE, DATESORTIE, TELEPHONE, IDLIT, IDSERVICE, NIVURGENCE)
+                         ADRESSE, DATEENTREE, DATESORTIE, TELEPHONE, IDLIT, IDSERVICE, NIVURGENCE, ETATURGENCE)
     VALUES
     (
       dbms_random.value(1,9999999999),
@@ -81,7 +81,8 @@ BEGIN
       dbms_random.string('A',15),
       dbms_random.value(1,300),
       dbms_random.value(1,300),
-      dbms_random.value(1,10)
+      dbms_random.value(1,10),
+      F
     );
     
     INSERT INTO EMPLOYE (LOGIN, NOMEMPLOYE, PRENOMEMPLOYE, MDP, IDROLE, IDDISPONIBLE)
