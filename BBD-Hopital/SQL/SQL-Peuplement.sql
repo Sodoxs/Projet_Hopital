@@ -59,7 +59,7 @@ BEGIN
     (
       dbms_random.value(1,100),
       dbms_random.string('A',500),
-      dbms_random.string('A',500)
+      dbms_random.string('A',500),
       dbms_random.value(0,10000)
     );
        
