@@ -44,25 +44,27 @@ BEGIN
     );
     
     x := x + 1;  -- prevents infinite loop
-    EXIT WHEN x > 5;
+    EXIT WHEN x > 50;
   END LOOP;
 END;
+commit; -- lancer un nouveau script en adaptant la valeur max d'id commande.
     
-x := 0;
+DECLARE
+  x NUMBER := 0;
 BEGIN
   LOOP
   
     INSERT INTO MEDICAMENT (IDCOMMANDE, NOMMEDICAMENT, PRINCIPEACTIF, STOCK)
     VALUES
     (
-      dbms_random.value(1,100),
+      dbms_random.value(1,51),
       dbms_random.string('A',500),
       dbms_random.string('A',500),
       dbms_random.value(0,10000)
     );
        
     x := x + 1;  -- prevents infinite loop
-    EXIT WHEN x > 5;
+    EXIT WHEN x > 50;
   END LOOP;
 END;
 commit;
