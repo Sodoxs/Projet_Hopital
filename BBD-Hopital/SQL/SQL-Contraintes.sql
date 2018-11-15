@@ -1,4 +1,5 @@
 create function f_PATIENT_INOPERABLE()
+AS
     service_actu char;
     patient INT;
     service INT;
@@ -19,6 +20,6 @@ end;
 create trigger PATIENT_INOPERABLE before update on  LIT for each row
   declare
   begin
-    execute procedure f_PATIENT_INOPERABLE();
+    execute function f_PATIENT_INOPERABLE();
 end;
 
