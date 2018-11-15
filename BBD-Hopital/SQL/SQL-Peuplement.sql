@@ -91,8 +91,8 @@ BEGIN
       dbms_random.string('A',30),
       dbms_random.string('A',30),
       dbms_random.string('P',50),
-      dbms_random.value(1,51),
-      dbms_random.value(1,51)
+      dbms_random.value(1,5),
+      dbms_random.value(1,3)
     );
     
     x := x + 1;  -- prevents infinite loop
