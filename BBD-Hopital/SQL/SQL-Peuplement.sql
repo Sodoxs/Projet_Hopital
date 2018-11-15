@@ -122,7 +122,7 @@ BEGIN
       SYSDATE,
       SYSDATE,
       dbms_random.value(1,51),
-      dbms_random.value(1,51)
+      dbms_random.value(1,4)
     );
     
     x := x + 1;  -- prevents infinite loop
