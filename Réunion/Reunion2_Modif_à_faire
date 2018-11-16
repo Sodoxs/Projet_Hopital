@@ -1,10 +1,5 @@
 José  - Inverser cardinalité médoc/commander (MCD et DF a modifier)
       - Ajouter un id à infecter
-      
-Théotime    - DDD (Dico de données) --> inversé la doc et le domaine de téléphone et adresse
-            - DDD --> enlevé le "hasher" de mot de passe car ce n'est pas de la doc
-            - DDD --> quantitéMedoc, besoin de doc car ambiguité
-            - DDD --> rajouter de la doc si besoin
 
 - DGC (diagramme de classe) : ajouter une table entre employé/infecter
 - Alerte --> alerter tous les médecin en service si le médecin référent est hors-service, 
