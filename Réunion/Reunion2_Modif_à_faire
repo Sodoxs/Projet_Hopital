@@ -10,4 +10,16 @@ un bouton "valider" à faire (1er arrivé 1er servi)
 - DGC --> verifier les méthodes de la table Traitement
 - DDD (Dico de données) --> inversé la doc et le domaine de téléphone et adresse
 - DDD --> enlevé le "haser" de mot de passe car ce n'est pas de la doc
-- DDD --> quantitéMedoc
+- DDD --> quantitéMedoc, besoin de doc car ambiguité
+- DDD --> rajouter de la doc si besoin
+- Corriger l'orthographe du dico de contraintes 
+- Savoir où a été codé les contraintes
+- Quand un patient meurt il va dans le service de morgue --> le patient ne doit pas pouvoir revenir à l'hopital --> contrainte
+- Modifier le patient --> tout modifier (et pas modifier les attributs 1 par 1)
+- Une fois que le numéro de sécu est validé, c'est fini pas besoin de validé le reste
+- Date de Naissance ou autre : ne peuvent pas être modifié
+- Celui qui code ne teste pas son code (question d'organisation)
+- 1 ligne developpeur / 1 ligne test / 1 ligne réalisation (organisation aussi)
+- Moins détailler les tâches --> simplifier
+- Rajouter une colone pour savoir dans quel sprint la tâche a été fait
+- Comprendre juste en voyant le tableau, combien il y a de vert, orange, rouge etc.. Savoir où on en est rapidement
