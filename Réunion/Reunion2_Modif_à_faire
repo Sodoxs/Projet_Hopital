@@ -12,7 +12,6 @@ un bouton "valider" à faire (1er arrivé 1er servi)
 - DDD --> enlevé le "haser" de mot de passe car ce n'est pas de la doc
 - DDD --> quantitéMedoc, besoin de doc car ambiguité
 - DDD --> rajouter de la doc si besoin
-- Corriger l'orthographe du dico de contraintes 
 - Savoir où a été codé les contraintes
 - Quand un patient meurt il va dans le service de morgue --> le patient ne doit pas pouvoir revenir à l'hopital --> contrainte
 - Modifier le patient --> tout modifier (et pas modifier les attributs 1 par 1)
