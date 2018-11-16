@@ -83,7 +83,7 @@ CREATE TABLE PATIENT (
   idlit INTEGER,
   idservice INTEGER,
   nivurgence INTEGER NOT NULL,
-  etatalerte CHAR(1) NOT NULL
+  etaturgence CHAR(1) NOT NULL
 );
 
 CREATE TABLE EMPLOYE (
