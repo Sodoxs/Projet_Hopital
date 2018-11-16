@@ -11,6 +11,7 @@ drop sequence "L3PRO6"."MEDICAMENT_SEQ_AI";
 drop sequence "L3PRO6"."COMMANDE_SEQ_AI";
 drop sequence "L3PRO6"."ETATCOMMANDE_SEQ_AI";
 drop sequence "L3PRO6"."STATUT_SEQ_AI";
+drop sequence "L3PRO6"."INFECTION_SEQ_AI";
 commit;
 
 drop trigger "L3PRO6"."LIT_AI";
@@ -26,6 +27,7 @@ drop trigger "L3PRO6"."STATUT_AI";
 drop trigger "L3PRO6"."MEDICAMENT_AI";
 drop trigger "L3PRO6"."COMMANDE_AI";
 drop trigger "L3PRO6"."ETATCOMMANDE_AI";
+drop trigger "L3PRO6"."INFECTION_AI";
 commit;
 
 create sequence LIT_SEQ_AI
@@ -33,6 +35,13 @@ create sequence LIT_SEQ_AI
 create trigger LIT_AI before insert on LIT for each row
 begin
   select LIT_SEQ_AI.nextval into:new.id from dual;
+end;
+
+create sequence INFECTION_SEQ_AI
+  start with 1 increment by 1 nomaxvalue;
+create trigger INFECTION_AI before insert on INFECTION for each row
+begin
+  select INFECTION_SEQ_AI.nextval into:new.id from dual;
 end;
 
 create sequence PATIENT_SEQ_AI
