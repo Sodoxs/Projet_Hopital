@@ -82,7 +82,7 @@ BEGIN
       dbms_random.value(1,300),
       dbms_random.value(1,300),
       dbms_random.value(1,10),
-      F
+      'F'
     );
     
     INSERT INTO EMPLOYE (LOGIN, NOMEMPLOYE, PRENOMEMPLOYE, MDP, IDROLE, IDDISPONIBLE)
