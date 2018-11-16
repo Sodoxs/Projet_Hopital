@@ -5,7 +5,7 @@ Affecter, 11 Patient, 0N Service
 Service: idService[INT], service[VARCHAR(30)] 
 :
 Infecter, 0N Patient, 11 Infection
-Infection: idInfecter[INT], dateDiagnostic[DATE], dateGuerison[DATE]
+Infection: idInfection[INT], dateDiagnostic[DATE], dateGuerison[DATE]
 
 Cause de, 11 Infection, 0N Maladie 
 Maladie: idMaladie[INT], nomMaladie[VARCHAR(4096)]
