@@ -3,8 +3,6 @@ José  - Inverser cardinalité médoc/commander (MCD et DF a modifier)
       
 - MPD --> ajouter une table entre employé/infecter
 - DGC (diagramme de classe) : ajouter une table entre employé/infecter
-- DGC --> cardinalité médoc-commander à revoir (0..* --> 1..*)
-- Rajouter les attributs dans les classes
 - Alerte --> alerter tous les médecin en service si le médecin référent est hors-service, 
 un bouton "valider" à faire (1er arrivé 1er servi)
 - DGC ajouter de la doc
