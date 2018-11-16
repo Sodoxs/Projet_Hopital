@@ -9,7 +9,7 @@ un bouton "valider" à faire (1er arrivé 1er servi)
 - DGC ajouter de la doc
 - DGC --> verifier les méthodes de la table Traitement
 - DDD (Dico de données) --> inversé la doc et le domaine de téléphone et adresse
-- DDD --> enlevé le "haser" de mot de passe car ce n'est pas de la doc
+- DDD --> enlevé le "hasher" de mot de passe car ce n'est pas de la doc
 - DDD --> quantitéMedoc, besoin de doc car ambiguité
 - DDD --> rajouter de la doc si besoin
 - Savoir où a été codé les contraintes
