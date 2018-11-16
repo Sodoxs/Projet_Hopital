@@ -1,5 +1,6 @@
 José  - Inverser cardinalité médoc/commander (MCD et DF a modifier)
-- Ajouter un id à infecter
+      - Ajouter un id à infecter
+      
 - MPD --> ajouter une table entre employé/infecter
 - DGC (diagramme de classe) : ajouter une table entre employé/infecter
 - DGC --> cardinalité médoc-commander à revoir (0..* --> 1..*)
