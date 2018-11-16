@@ -1,6 +1,5 @@
 drop sequence "L3PRO6"."LIT_SEQ_AI";
 drop sequence "L3PRO6"."PATIENT_SEQ_AI";
-drop sequence "L3PRO6"."DATEMALADIE_SEQ_AI";
 drop sequence "L3PRO6"."MALADIE_SEQ_AI";
 drop sequence "L3PRO6"."DISPONIBLE_SEQ_AI";
 drop sequence "L3PRO6"."ROLE_SEQ_AI";
@@ -16,7 +15,6 @@ commit;
 
 drop trigger "L3PRO6"."LIT_AI";
 drop trigger "L3PRO6"."PATIENT_AI";
-drop trigger "L3PRO6"."DATEMALADIE_AI";
 drop trigger "L3PRO6"."MALADIE_AI";
 drop trigger "L3PRO6"."DISPONIBLE_AI";
 drop trigger "L3PRO6"."ROLE_AI";
