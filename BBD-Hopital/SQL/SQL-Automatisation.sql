@@ -51,13 +51,6 @@ begin
   select PATIENT_SEQ_AI.nextval into:new.id from dual;
 end;
 
-create sequence DATEMALADIE_SEQ_AI
-  start with 1 increment by 1 nomaxvalue;
-create trigger DATEMALADIE_AI before insert on DATEMALADIE for each row
-begin
-  select DATEMALADIE_SEQ_AI.nextval into:new.id from dual;
-end;
-
 create sequence DISPONIBLE_SEQ_AI
   start with 1 increment by 1 nomaxvalue;
 create trigger DISPONIBLE_AI before insert on DISPONIBLE for each row
