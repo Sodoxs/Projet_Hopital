@@ -5,8 +5,7 @@ Théotime    - DDD (Dico de données) --> inversé la doc et le domaine de tél�
             - DDD --> enlevé le "hasher" de mot de passe car ce n'est pas de la doc
             - DDD --> quantitéMedoc, besoin de doc car ambiguité
             - DDD --> rajouter de la doc si besoin
-      
-- MPD --> ajouter une table entre employé/infecter
+
 - DGC (diagramme de classe) : ajouter une table entre employé/infecter
 - Alerte --> alerter tous les médecin en service si le médecin référent est hors-service, 
 un bouton "valider" à faire (1er arrivé 1er servi)
