@@ -21,13 +21,27 @@ create trigger PATIENT_INOPERABLE before update on  LIT for each row
   declare
   begin
     execute function f_PATIENT_INOPERABLE();
-end;
+end;/
 
 CREATE TRIGGER ToMajPatient BEFORE INSERT ON PATIENT 
 for each row 
 begin 
     :new.NOMPATIENT:= UPPER(:new.NOMPATIENT); 
     :new.PRENOMPATIENT := UPPER(:new.PRENOMPATIENT); 
+end;/
+
+CREATE TRIGGER ValidNumSecu BEFORE INSERT on PATIENT
+for each row
+declare
+    nb INT;
+    cleSecu INT;
+begin
+    nb := :new.NUMSECU/100;
+    cleSecu := (97-(nb/97));
+    if(nb*100+cleSecu !=:new.NUMSECU) then
+        raise_application_error(-20001,'Le numéro de Securité sociable n''est pas valide.' );  
+    end if;
 end;
+/
 
 
