@@ -23,3 +23,11 @@ create trigger PATIENT_INOPERABLE before update on  LIT for each row
     execute function f_PATIENT_INOPERABLE();
 end;
 
+CREATE TRIGGER ToMajPatient BEFORE INSERT ON PATIENT 
+for each row 
+begin 
+    :new.NOMPATIENT:= UPPER(:new.NOMPATIENT); 
+    :new.PRENOMPATIENT := UPPER(:new.PRENOMPATIENT); 
+end;
+
+
