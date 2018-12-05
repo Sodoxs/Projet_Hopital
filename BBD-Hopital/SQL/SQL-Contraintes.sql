@@ -59,3 +59,19 @@ end if;
 end;/
 
 
+create or replace TRIGGER date_guerison_validation BEFORE INSERT 
+ON INFECTION FOR EACH ROW
+BEGIN
+    IF :new.DATEGUERISON < :new.DATEDIAGNOSTIC THEN
+        raise_application_error(-20000, 'La date de guérison du patient n''est pas valide');
+    END IF;
+END;
+
+
+create or replace TRIGGER "DATE_SORTIE_PATIENT_VALIDATION" BEFORE INSERT 
+ON PATIENT FOR EACH ROW
+BEGIN
+    IF :new.DATESORTIE < :new.DATEENTREE THEN
+        raise_application_error(-20000, 'La date de sortie du patient n''est pas valide');
+    END IF;
+END;
