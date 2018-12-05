@@ -32,15 +32,7 @@ BEGIN
     );
   
     INSERT INTO MALADIE (NOMMALADIE) VALUES (dbms_random.string('A',100));
-    
-    INSERT INTO COMMANDE (DATECOMMANDE,QUANTITECOMMANDE,IDETAT)
-    VALUES
-    (
-      SYSDATE,
-      dbms_random.value(100,200),
-      dbms_random.value(1, 3)
-    );
-    
+   
     INSERT INTO SERVICE (SERVICE) VALUES (dbms_random.string('A',30));
     
     x := x + 1;  -- prevents infinite loop
@@ -54,10 +46,9 @@ DECLARE
 BEGIN
   LOOP
   
-    INSERT INTO MEDICAMENT (IDCOMMANDE, NOMMEDICAMENT, PRINCIPEACTIF, STOCK)
+    INSERT INTO MEDICAMENT (NOMMEDICAMENT, PRINCIPEACTIF, STOCK)
     VALUES
     (
-      dbms_random.value(1,300),
       dbms_random.string('A',500),
       dbms_random.string('A',500),
       dbms_random.value(0,10000)
@@ -105,6 +96,15 @@ DECLARE
 BEGIN
   LOOP
        
+    INSERT INTO COMMANDE (DATECOMMANDE,QUANTITECOMMANDE,IDETAT, IDMEDICAMENT)
+    VALUES
+    (
+      SYSDATE,
+      dbms_random.value(100,200),
+      dbms_random.value(1, 3),
+      dbms_random.value(1, 300)
+    );
+    
     INSERT INTO INFECTER (IDPATIENT, IDMALADIE, IDEMPLOYE, IDDATE, DATEGUERISON)
     VALUES
     (
