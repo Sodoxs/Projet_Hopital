@@ -37,7 +37,7 @@ declare
     cleSecu INT;
 begin
     nb := :new.NUMSECU/100;
-    cleSecu := (97-MOD(nb,97);
+    cleSecu := (97-MOD(nb,97));
     if(nb*100+cleSecu !=:new.NUMSECU) then
         raise_application_error(-20001,'Le numéro de Securité sociable n''est pas valide.' );  
     end if;
