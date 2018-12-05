@@ -30,8 +30,6 @@ BEGIN
       dbms_random.value(1, 20),
       dbms_random.string('A',10)
     );
-      
-    INSERT INTO DATEMALADIE (DATEDIAGNOSTIC) VALUES (SYSDATE);
   
     INSERT INTO MALADIE (NOMMALADIE) VALUES (dbms_random.string('A',100));
     
