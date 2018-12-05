@@ -11,6 +11,7 @@ drop sequence "L3PRO6"."COMMANDE_SEQ_AI";
 drop sequence "L3PRO6"."ETATCOMMANDE_SEQ_AI";
 drop sequence "L3PRO6"."STATUT_SEQ_AI";
 drop sequence "L3PRO6"."INFECTION_SEQ_AI";
+drop sequence "L3PRO6"."DATEMALADIE_SEQ_AI";
 commit;
 
 drop trigger "L3PRO6"."LIT_AI";
