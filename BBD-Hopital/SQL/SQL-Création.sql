@@ -134,7 +134,7 @@ CREATE TABLE DISPONIBLE (
 );
 
 CREATE TABLE COMMANDE (
-  id INT,
+  id INTEGER,
   datecommande DATE NOT NULL,
   quantitecommande INTEGER NOT NULL,
   idetat INTEGER NOT NULL,
