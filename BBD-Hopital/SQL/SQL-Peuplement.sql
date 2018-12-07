@@ -21,8 +21,8 @@ DECLARE
   x NUMBER := 0;
   b NUMBER := 0;
   strResult NUMBER;
-  
   str VARCHAR2(20);
+  
 BEGIN
   LOOP
   
@@ -35,22 +35,22 @@ BEGIN
       dbms_random.string('A',10)
     );
     
-    b = 0;
-    WHILE (b = 0)
-       str = dbms_random.string('A',20);
+    b := 0;
+    WHILE (b = 0) LOOP
+       str := dbms_random.string('A',20);
        SELECT COUNT (NOMMALADIE) INTO strResult FROM MALADIE WHERE NOMMALADIE = str;
        if strResult = 0 then
-        b = 1;
+        b := 1;
        end if; 
     END LOOP;
     INSERT INTO MALADIE (NOMMALADIE) VALUES (str);
    
-    b = 0;
-    WHILE (b = 0)
-       str = dbms_random.string('A',20);
+    b := 0;
+    WHILE (b = 0) LOOP
+       str := dbms_random.string('A',20);
        SELECT COUNT (SERVICE) INTO strResult FROM SERVICE WHERE SERVICE = str;
        if strResult = 0 then
-        b = 1;
+        b := 1;
        end if; 
     END LOOP;
     INSERT INTO SERVICE (SERVICE) VALUES (str);
@@ -63,13 +63,24 @@ END;
     
 DECLARE
   x NUMBER := 0;
+  b NUMBER := 0;
+  strResult NUMBER;
+  str VARCHAR2(20);
 BEGIN
   LOOP
   
+    b := 0;
+    WHILE (b = 0) LOOP
+       str := dbms_random.string('A',20);
+       SELECT COUNT (NOMMEDICAMENT) INTO strResult FROM MEDICAMENT WHERE NOMMEDICAMENT = str;
+       if strResult = 0 then
+        b := 1;
+       end if; 
+    END LOOP;
     INSERT INTO MEDICAMENT (NOMMEDICAMENT, PRINCIPEACTIF, STOCK)
     VALUES
     (
-      dbms_random.string('A',500),
+      dbms_random.string(str),
       dbms_random.string('A',500),
       dbms_random.value(0,10000)
     );
