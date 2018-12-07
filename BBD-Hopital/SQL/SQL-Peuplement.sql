@@ -19,6 +19,10 @@ INSERT INTO STATUT (STATUT) VALUES ('Appliqué');
 
 DECLARE
   x NUMBER := 0;
+  b NUMBER := 0;
+  strResult NUMBER;
+  
+  str VARCHAR2(20);
 BEGIN
   LOOP
   
@@ -30,10 +34,26 @@ BEGIN
       dbms_random.value(1, 20),
       dbms_random.string('A',10)
     );
-  
-    INSERT INTO MALADIE (NOMMALADIE) VALUES (dbms_random.string('A',100));
+    
+    b = 0;
+    WHILE (b = 0)
+       str = dbms_random.string('A',20);
+       SELECT COUNT (NOMMALADIE) INTO strResult FROM MALADIE WHERE NOMMALADIE = str;
+       if strResult = 0 then
+        b = 1;
+       end if; 
+    END LOOP;
+    INSERT INTO MALADIE (NOMMALADIE) VALUES (str);
    
-    INSERT INTO SERVICE (SERVICE) VALUES (dbms_random.string('A',30));
+    b = 0;
+    WHILE (b = 0)
+       str = dbms_random.string('A',20);
+       SELECT COUNT (SERVICE) INTO strResult FROM SERVICE WHERE SERVICE = str;
+       if strResult = 0 then
+        b = 1;
+       end if; 
+    END LOOP;
+    INSERT INTO SERVICE (SERVICE) VALUES (str);
     
     x := x + 1;  -- prevents infinite loop
     EXIT WHEN x > 299;
