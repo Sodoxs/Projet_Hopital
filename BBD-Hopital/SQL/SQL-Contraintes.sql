@@ -75,7 +75,7 @@ Create trigger patient_inoperable before insert or update on PATIENT
 for each row
 declare
     num_bloc INT;
-    nomservice varchar(50);
+    nomservice varchar(30);
 begin
     select NUMBLOC into num_bloc from LIT where ID = :new.IDLIT;
     select SERVICE into nomservice from SERVICE where ID = :new.IDSERVICE;
