@@ -57,6 +57,18 @@ if(p>:new.DATEPRESCRIPTION)then
 end if;
 end;/
 
+create or replace TRIGGER date_prescription_traitement BEFORE INSERT 
+ON GERER FOR EACH ROW
+declare
+p DATE;
+
+BEGIN
+SELECT DATETRAITEMENT into p from TRAITEMENT where ID=:new.IDTRAITEMENT;
+    IF (p < :new.DATEPRESCRIPTION) THEN
+        raise_application_error(-20000, 'La date de traitement n''est pas valide');
+    END IF;
+END;/
+
 ALTER TABLE PATIENT
 ADD CONSTRAINT CHK_Sortie Check (DATESORTIE > DATEENTREE);
 
