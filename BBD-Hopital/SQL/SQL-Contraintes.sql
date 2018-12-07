@@ -80,7 +80,7 @@ begin
     select NUMBLOC into num_bloc from LIT where ID = :new.IDLIT;
     select SERVICE into nomservice from SERVICE where ID = :new.IDSERVICE;
     
-    if num_bloc is null and nomservice = 'chirurgie' then
+    if num_bloc is null and nomservice = 'Chirurgie' then
         raise_application_error(-20551,'Le patient n''est pas attribué a un bloc' );
     end if;
 end;/
