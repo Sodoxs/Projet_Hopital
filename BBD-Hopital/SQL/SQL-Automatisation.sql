@@ -136,8 +136,11 @@ end;/
 
 
 
-
-create trigger Actu_Stock after insert on COMPOSER
+create trigger Actu_Stock before insert on COMPOSER
 begin
-    UPDATE MEDICAMENT SET STOCK = STOCK - :new.QUANTITEMEDOC WHERE ID = :new.IDMEDICAMENT;
-end;/
+    if (SELECT STOCK FROM MEDICAMENT WHERE ID=:new.IDMEDICAMENT)<:new.QUANTITEMEDOC then
+        raise_application_error(-20010,'Le Stock ne dispose pas d''assez de médicament' );
+    ELSE
+        UPDATE MEDICAMENT SET STOCK = STOCK - :new.QUANTITEMEDOC WHERE ID = :new.IDMEDICAMENT;
+    END IF;
+end;
