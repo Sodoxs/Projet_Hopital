@@ -78,3 +78,8 @@ BEGIN
         raise_application_error(-20000, 'La date de sortie du patient n''est pas valide');
     END IF;
 END;
+
+
+
+ALTER TABLE PATIENT
+ADD CONSTRAINT CHK_Urgence Check (NIVURGENCE >=0 AND NIVURGENCE<=11)
