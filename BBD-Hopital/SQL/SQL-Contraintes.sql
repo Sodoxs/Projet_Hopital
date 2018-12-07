@@ -75,7 +75,6 @@ Create trigger patient_inoperable before insert or update on PATIENT
 for each row
 declare
     num_bloc INT;
-    id_LIT INT;
 begin
     select NUMBLOC into num_bloc from PATIENT natural join LIT where PATIENT.id = :new.id;
     
