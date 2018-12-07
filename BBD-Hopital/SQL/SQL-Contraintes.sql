@@ -79,8 +79,8 @@ declare
 begin
     select NUMBLOC into num_bloc from PATIENT natural join LIT where PATIENT.id = :new.id;
     
-    if(num_bloc != null)then
-        raise_application_error(-20551,'Le patient n''pas attribué a un bloc' );
+    if(num_bloc = null)then
+        raise_application_error(-20551,'Le patient n''est pas attribué a un bloc' );
     end if;
 end;/
 
