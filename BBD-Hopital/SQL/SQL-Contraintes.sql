@@ -75,6 +75,15 @@ end;/
 
 
 
+
+create trigger Stock_faible after insert on MEDICAMENT
+begin
+    Count QUANTITEMEDOC into quantite FROM COMPOSER Where (SELECT ID From TRAITEMENT WHERE DATETRAITEMENT > SYSDATE-120)
+    
+end;
+
+
+
 ALTER TABLE PATIENT
 ADD CONSTRAINT CHK_Sortie Check (DATESORTIE > DATEENTREE);
 
