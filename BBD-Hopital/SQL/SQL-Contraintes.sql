@@ -46,6 +46,9 @@ begin
 end;
 /
 
+ALTER TABLE PATIENT
+ADD CONSTRAINT CHK_Sortie Check (DATESORTIE > DATEENTREE);
+
 
 create trigger date_prescription before insert on GERER
 for each row
