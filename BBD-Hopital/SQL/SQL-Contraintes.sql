@@ -75,10 +75,12 @@ Create trigger patient_inoperable before insert or update on PATIENT
 for each row
 declare
     num_bloc INT;
+    nomservice varchar(50);
 begin
-    select NUMBLOC into num_bloc from PATIENT natural join LIT where PATIENT.ID = :new.ID;
+    select NUMBLOC into num_bloc from LIT where ID = :new.IDLIT;
+    select SERVICE into nomservice from SERVICE where ID = :new.IDSERVICE;
     
-    if(num_bloc = null)then
+    if num_bloc is null and nomservice = 'chirurgie' then
         raise_application_error(-20551,'Le patient n''est pas attribué a un bloc' );
     end if;
 end;/
