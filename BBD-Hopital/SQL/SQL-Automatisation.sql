@@ -131,4 +131,13 @@ begin
     IF(:new.STOCK < quantite*0.05) THEN
         INSERT INTO COMMANDE(DATECOMMANDE,QUANTITECOMMANDE,IDETAT,IDMEDICAMENT) VALUES (SYSDATE,CAST(quantite*0.1 as INTEGER)+1,1,:new.ID);
     END IF;
-end;
+end;/
+
+
+
+
+
+create trigger Actu_Stock after insert on COMPOSER
+begin
+    UPDATE MEDICAMENT SET STOCK = STOCK - :new.QUANTITEMEDOC WHERE ID = :new.IDMEDICAMENT;
+end;/
