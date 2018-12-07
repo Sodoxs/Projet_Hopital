@@ -69,6 +69,23 @@ SELECT DATETRAITEMENT into p from TRAITEMENT where ID=:new.IDTRAITEMENT;
     END IF;
 END;/
 
+
+
+Create trigger patient_inoperable before insert or update on PATIENT
+for each row
+declare
+    num_bloc INT;
+    id_LIT INT;
+begin
+    select NUMBLOC into num_bloc from PATIENT natural join LIT where PATIENT.id = :new.id;
+    
+    if(num_bloc != null)then
+        raise_application_error(-20551,'Le patient n''pas attribué a un bloc' );
+    end if;
+end;/
+
+
+
 ALTER TABLE PATIENT
 ADD CONSTRAINT CHK_Sortie Check (DATESORTIE > DATEENTREE);
 
