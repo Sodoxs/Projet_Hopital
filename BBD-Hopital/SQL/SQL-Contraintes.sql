@@ -76,7 +76,7 @@ for each row
 declare
     num_bloc INT;
 begin
-    select NUMBLOC into num_bloc from PATIENT natural join LIT where PATIENT.id = :new.id;
+    select NUMBLOC into num_bloc from PATIENT natural join LIT where PATIENT.ID = :new.ID;
     
     if(num_bloc = null)then
         raise_application_error(-20551,'Le patient n''est pas attribué a un bloc' );
