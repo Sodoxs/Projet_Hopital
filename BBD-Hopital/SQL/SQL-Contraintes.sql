@@ -46,10 +46,6 @@ begin
 end;
 /
 
-ALTER TABLE PATIENT
-ADD CONSTRAINT CHK_Sortie Check (DATESORTIE > DATEENTREE);
-
-
 create trigger date_prescription before insert on GERER
 for each row
 declare
@@ -61,25 +57,11 @@ if(p>:new.DATEPRESCRIPTION)then
 end if;
 end;/
 
+ALTER TABLE PATIENT
+ADD CONSTRAINT CHK_Sortie Check (DATESORTIE > DATEENTREE);
 
-create or replace TRIGGER date_guerison_validation BEFORE INSERT 
-ON INFECTION FOR EACH ROW
-BEGIN
-    IF :new.DATEGUERISON < :new.DATEDIAGNOSTIC THEN
-        raise_application_error(-20000, 'La date de guérison du patient n''est pas valide');
-    END IF;
-END;
-
-
-create or replace TRIGGER "DATE_SORTIE_PATIENT_VALIDATION" BEFORE INSERT 
-ON PATIENT FOR EACH ROW
-BEGIN
-    IF :new.DATESORTIE < :new.DATEENTREE THEN
-        raise_application_error(-20000, 'La date de sortie du patient n''est pas valide');
-    END IF;
-END;
-
-
+ALTER TABLE INFECTION
+ADD CONSTRAINT CHK_date_guerison CHECK (DATEGUERISON > DATEDIAGNOSTIC);
 
 ALTER TABLE PATIENT
 ADD CONSTRAINT CHK_Urgence Check (NIVURGENCE >=0 AND NIVURGENCE<=10)
