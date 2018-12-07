@@ -119,3 +119,17 @@ begin
   select MALADIE_SEQ_AI.nextval into:new.id from dual;
 end;
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+create trigger Stock_faible after insert or update on MEDICAMENT
+declare
+    quantite int;
+
+begin
+    SELECT SUM(QUANTITEMEDOC) into quantite FROM COMPOSER Where IDMEDICAMENT=:new.ID AND IDTRAITEMENT = (SELECT ID FROM TRAITEMENT WHERE DATETRAITEMENT > SYSDATE - 120);
+    IF(:new.STOCK < quantite*0.05) THEN
+        INSERT INTO COMMANDE(DATECOMMANDE,QUANTITECOMMANDE,IDETAT,IDMEDICAMENT) VALUES (SYSDATE,quantite*0.1,1,:old.ID);
+    END IF;
+end;
