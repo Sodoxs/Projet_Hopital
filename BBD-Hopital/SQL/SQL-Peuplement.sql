@@ -66,6 +66,7 @@ DECLARE
   b NUMBER := 0;
   strResult NUMBER;
   str VARCHAR2(20);
+  num NUMBER;
 BEGIN
   LOOP
   
