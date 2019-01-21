@@ -66,6 +66,7 @@ DECLARE
   b NUMBER := 0;
   strResult NUMBER;
   str VARCHAR2(20);
+  str2 VARCHAR2(30);
   intResult NUMBER;
   numero NUMBER;
 BEGIN
@@ -117,8 +118,8 @@ BEGIN
     
     b := 0;
     WHILE (b = 0) LOOP
-       str := dbms_random.string('P',30);
-       SELECT COUNT (LOGIN) INTO strResult FROM EMPLOYE WHERE LOGIN = str;
+       str2 := dbms_random.string('P',30);
+       SELECT COUNT (LOGIN) INTO strResult FROM EMPLOYE WHERE LOGIN = str2;
        if strResult = 0 then
         b := 1;
        end if; 
@@ -126,7 +127,7 @@ BEGIN
     INSERT INTO EMPLOYE (LOGIN, NOMEMPLOYE, PRENOMEMPLOYE, MDP, IDROLE, IDDISPONIBLE)
     VALUES
     (
-      dbms_random.string(str),
+      dbms_random.string(str2),
       dbms_random.string('A',30),
       dbms_random.string('A',30),
       dbms_random.string('P',50),
