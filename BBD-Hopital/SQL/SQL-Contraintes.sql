@@ -74,14 +74,6 @@ begin
 end;/
 
 
-
-
-create trigger Stock_faible after insert on MEDICAMENT
-begin
-    Count QUANTITEMEDOC into quantite FROM COMPOSER Where (SELECT ID From TRAITEMENT WHERE DATETRAITEMENT > SYSDATE-120)
-    
-end;
-
 create trigger Stock_faible after insert or update on MEDICAMENT
 begin
    Select Count QUANTITEMEDOC into quantite FROM COMPOSER Where IDTRAITEMENT = (SELECT ID From TRAITEMENT WHERE DATETRAITEMENT > SYSDATE-120) AND IDMEDICAMENT = :new.ID;
