@@ -20,6 +20,14 @@ begin
 end;/
 
 
+CREATE TRIGGER ToMajEmploye BEFORE INSERT ON EMPLOYE 
+for each row 
+begin 
+    :new.NOMEMPLOYE:= UPPER(:new.NOMEMPLOYE); 
+    :new.PRENOMEMPLOYE := UPPER(:new.PRENOMEMPLOYE); 
+end;/
+
+
 CREATE TRIGGER ValidNumSecu BEFORE INSERT on PATIENT
 for each row
 declare
