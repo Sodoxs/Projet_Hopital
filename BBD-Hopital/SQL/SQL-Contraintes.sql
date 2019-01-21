@@ -82,7 +82,13 @@ begin
     
 end;
 
-
+create trigger Stock_faible after insert or update on MEDICAMENT
+begin
+   Select Count QUANTITEMEDOC into quantite FROM COMPOSER Where IDTRAITEMENT = (SELECT ID From TRAITEMENT WHERE DATETRAITEMENT > SYSDATE-120) AND IDMEDICAMENT = :new.ID;
+   if(:new.STOCK < 200)then
+        INSERT INTO COMMANDE(IDMEDICAMENT,DATECOMMANDE,QUANTITECOMMANDE,ETAT) VALUES (:new.ID,SYSDATE,quantite,0);
+   end if; 
+end;/
 
 ALTER TABLE PATIENT
 ADD CONSTRAINT CHK_Sortie Check (DATESORTIE > DATEENTREE);
