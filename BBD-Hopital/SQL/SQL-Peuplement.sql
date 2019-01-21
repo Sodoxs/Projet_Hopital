@@ -66,7 +66,8 @@ DECLARE
   b NUMBER := 0;
   strResult NUMBER;
   str VARCHAR2(20);
-  num NUMBER;
+  intResult NUMBER;
+  numero NUMBER;
 BEGIN
   LOOP
   
@@ -88,8 +89,8 @@ BEGIN
     
     b := 0;
     WHILE (b = 0) LOOP
-       num := dbms_random.value(1,9999999999);
-       SELECT COUNT (NUMSECU) INTO intResult FROM PATIENT WHERE NUMSECU = num;
+       numero := dbms_random.value(1,9999999999);
+       SELECT COUNT (NUMSECU) INTO intResult FROM PATIENT WHERE NUMSECU = numero;
        if intResult = 0 then
         b := 1;
        end if; 
@@ -98,7 +99,7 @@ BEGIN
                          ADRESSE, DATEENTREE, DATESORTIE, TELEPHONE, IDLIT, IDSERVICE, NIVURGENCE, ETATURGENCE)
     VALUES
     (
-      num,
+      numero,
       dbms_random.value(1,9999999999),
       dbms_random.string('A',1),
       dbms_random.string('A',30),
