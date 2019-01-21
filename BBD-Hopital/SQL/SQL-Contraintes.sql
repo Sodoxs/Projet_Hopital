@@ -65,7 +65,12 @@ SELECT DATETRAITEMENT into p from TRAITEMENT where ID=:new.IDTRAITEMENT;
     END IF;
 END;/
 
-
+create trigger SortiePatient after update on PATIENT
+begin
+   if(:new.IDSERVICE = (SELECT id FROM SERVICE WHERE service="ARCHIVE"))then
+        :new.DATESORTIE := SYSDATE;
+    end if;
+end;/
 
 Create trigger patient_inoperable before insert or update on PATIENT
 for each row
