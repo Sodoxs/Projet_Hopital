@@ -85,11 +85,19 @@ BEGIN
       dbms_random.value(0,10000)
     );
     
+    b := 0;
+    WHILE (b = 0) LOOP
+       num := dbms_random.value(1,9999999999);
+       SELECT COUNT (NUMSECU) INTO intResult FROM PATIENT WHERE NUMSECU = num;
+       if intResult = 0 then
+        b := 1;
+       end if; 
+    END LOOP;
     INSERT INTO PATIENT (NUMSECU, NUMMUTUELLE, CIVILITE, NOMPATIENT, PRENOMPATIENT, DATENAISSANCE, 
                          ADRESSE, DATEENTREE, DATESORTIE, TELEPHONE, IDLIT, IDSERVICE, NIVURGENCE, ETATURGENCE)
     VALUES
     (
-      dbms_random.value(1,9999999999),
+      num,
       dbms_random.value(1,9999999999),
       dbms_random.string('A',1),
       dbms_random.string('A',30),
@@ -105,10 +113,18 @@ BEGIN
       'F'
     );
     
+    b := 0;
+    WHILE (b = 0) LOOP
+       str := dbms_random.string('P',30);
+       SELECT COUNT (LOGIN) INTO strResult FROM EMPLOYE WHERE LOGIN = str;
+       if strResult = 0 then
+        b := 1;
+       end if; 
+    END LOOP;                                                                
     INSERT INTO EMPLOYE (LOGIN, NOMEMPLOYE, PRENOMEMPLOYE, MDP, IDROLE, IDDISPONIBLE)
     VALUES
     (
-      dbms_random.string('P',30),
+      dbms_random.string(str),
       dbms_random.string('A',30),
       dbms_random.string('A',30),
       dbms_random.string('P',50),
