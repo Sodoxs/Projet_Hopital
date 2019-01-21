@@ -35,7 +35,7 @@ BEGIN
       dbms_random.string('A',10)
     );
     
-    b := 0;
+    b := 0; 
     WHILE (b = 0) LOOP
        str := dbms_random.string('A',20);
        SELECT COUNT (NOMMALADIE) INTO strResult FROM MALADIE WHERE NOMMALADIE = str;
