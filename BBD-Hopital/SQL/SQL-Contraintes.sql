@@ -41,7 +41,7 @@ p DATE;
 begin
 select DATEENTREE into p from PATIENT where ID=:new.IDPATIENT;
 if(p>:new.DATEPRESCRIPTION)then
-    raise_application_error(-20666, 'ca marche pas');
+    raise_application_error(-20666, 'On peut prescrire un traitement avant l'entrée du patient');
 end if;
 end;/
 
