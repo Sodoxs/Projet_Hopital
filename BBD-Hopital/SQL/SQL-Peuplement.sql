@@ -83,7 +83,7 @@ BEGIN
     INSERT INTO MEDICAMENT (NOMMEDICAMENT, PRINCIPEACTIF, STOCK)
     VALUES
     (
-      dbms_random.string(str),
+      str,
       dbms_random.string('A',500),
       dbms_random.value(0,10000)
     );
@@ -127,7 +127,7 @@ BEGIN
     INSERT INTO EMPLOYE (LOGIN, NOMEMPLOYE, PRENOMEMPLOYE, MDP, IDROLE, IDDISPONIBLE)
     VALUES
     (
-      dbms_random.string(str2),
+      str2,
       dbms_random.string('A',30),
       dbms_random.string('A',30),
       dbms_random.string('P',50),
