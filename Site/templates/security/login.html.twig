@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}<h1>Connexion</h1>{% endblock %}
+{% block body %}
+
+    <h3>Veuillez vous connecter pour pouvoir parcourir le site !</h3>
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path('app_login_check') }}" method="post">
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'Nom d\'utilisateur'|trans }}" />
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="_password" placeholder="{{ 'Mot de passe'|trans }}">
+
+        <button type="submit">{{ 'Connexion'|trans }}</button>
+    </form>
+{% endblock %}
