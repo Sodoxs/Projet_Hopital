@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="navbar-colapse">
                 {% if is_granted('ROLE_MEDECIN') or is_granted('ROLE_INFIRMIER') or is_granted('ROLE_ACCUEIL') or is_granted('ROLE_GESTIONNAIRE') or is_granted('ROLE_PHARMACIEN') %}
-                    <a href="{{ path('app_logout') }}">{{ app.user }} ({{ 'Deconnexion'|trans }})</a>
+                    <a href="{{ path('app_logout') }}">{{ app.user }} (Déconnexion)</a>
                 {% endif %}
             </div>
         </div>

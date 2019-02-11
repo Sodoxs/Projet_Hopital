@@ -11,11 +11,11 @@
 
     <form action="{{ path('app_login_check') }}" method="post">
         <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'Nom d\'utilisateur'|trans }}" />
+        <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Nom d\'utilisateur" />
 
         <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="_password" placeholder="{{ 'Mot de passe'|trans }}">
+        <input type="password" id="password" name="_password" placeholder="Mot de passe">
 
-        <button type="submit">{{ 'Connexion'|trans }}</button>
+        <button type="submit">Connexion</button>
     </form>
 {% endblock %}
