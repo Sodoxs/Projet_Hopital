@@ -1,13 +1,44 @@
 security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        my_provider_in_memory:
+            memory:
+                users:
+                    medecin:
+                        # Mot de passe = medecin
+                        password: $2y$13$OYi/bHJ07sQ8sFU3uGNz1uKNkyXgD5h09jGbdSj6.plEnyKKtoBx6
+                        roles: ROLE_MEDECIN
+                    infirmier:
+                        # Mot de passe = infirmier
+                        password: $2y$13$I/1EbZn/0.PWBgudjw/6TOGDOSh44QRM7zjzH5VPf3AQlbp3M4GRi
+                        roles: ROLE_INFIRMIER
+                    accueil:
+                        # Mot de passe = accueil
+                        password: $2y$13$JmPUCkR2H.959Ps9z83i6.QXZ.ekmHmIQ1.Aj25tjPXWFABv2Z6ee
+                        roles: ROLE_ACCUEIL
+                    pharmacien:
+                        # Mot de passe = pharmacien
+                        password: $2y$13$3DhOv2K5r8ZtiWGmTmDTVeXX1g91RBoRWKFYF8bUhsbgWEFGmKJfu
+                        roles: ROLE_PHARMACIEN
+                    gestionnaire:
+                        # Mot de passe = gestionnaire
+                        password: $2y$13$7Tt9g5TNOr5MP7RyOtqhYOF3UVXk.zxInDXOr1H1vOdncOHVwmHsS
+                        roles: ROLE_GESTIONNAIRE
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            pattern: ^/
+            form_login:
+                check_path: app_login_check
+                login_path: app_login
             anonymous: true
+            logout:
+                path: app_logout
+                target: app_login
 
             # activate different ways to authenticate
 
@@ -22,3 +53,10 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+
+    role_hierarchy:
+                ROLE_MEDECIN: ROLE_MEDECIN
+                ROLE_INFIRMIER: ROLE_INFIRMIER
+                ROLE_ACCUEIL: ROLE_ACCUEIL
+                ROLE_PHARMACIEN: ROLE_PHARMACIEN
+                ROLE_GESTIONNAIRE: ROLE_GESTIONNAIRE
