@@ -2,17 +2,30 @@
 <html>
     <head>
         <meta charset="UTF-8">
+
         <title>{% block title %}Bienvenue!{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
         {% block stylesheets %}{% endblock %}
+
+        {% block css %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        {% endblock %}
     </head>
 
     <body>
-        <nav class="navbar navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1"></span>
-            {% block nav %}{% endblock %}
-        </nav>
+
+    <nav class="navbar navbar-default">
+        {% block navbar %}
+        {% endblock %}
+
+        <div class="container-fluid">
+            <div class="navbar-colapse">
+                {% if is_granted('ROLE_MEDECIN') or is_granted('ROLE_INFIRMIER') or is_granted('ROLE_ACCUEIL') or is_granted('ROLE_GESTIONNAIRE') or is_granted('ROLE_PHARMACIEN') %}
+                    <a href="{{ path('app_logout') }}">{{ app.user }} ({{ 'Deconnexion'|trans }})</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
 
 
         {% block body %}{% endblock %}
