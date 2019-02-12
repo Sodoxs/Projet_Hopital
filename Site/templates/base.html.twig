@@ -19,6 +19,8 @@
         {% endblock %}
 
         <div class="nav-wrapper right">
+
+            {# SI NOUS SOMMES CONNECTÉ #}
             {% if is_granted('ROLE_MEDECIN') or is_granted('ROLE_INFIRMIER') or is_granted('ROLE_ACCUEIL') or is_granted('ROLE_GESTIONNAIRE') or is_granted('ROLE_PHARMACIEN') %}
                 <a href="{{ path('app_logout') }}">{{ app.user }} (Déconnexion)</a>
             {% endif %}

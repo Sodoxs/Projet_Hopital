@@ -22,23 +22,27 @@ class HomeController extends AbstractController
      */
     public function indexAction(Request $request, AuthorizationCheckerInterface $authChecker) {
 
+        // REDIRECTION VERS LES PAGES RESPECTIVES AU ROLE DE L'UTILISATEUR
         if (true === $authChecker->isGranted('ROLE_MEDECIN')) {
             return $this->redirectToRoute('medecin');
         }
-        if (true === $authChecker->isGranted('ROLE_ACCUEIL')) {
+        else if (true === $authChecker->isGranted('ROLE_ACCUEIL')) {
             return $this->redirectToRoute('accueil');
         }
-        if (true === $authChecker->isGranted('ROLE_PHARMACIEN')) {
+        else if (true === $authChecker->isGranted('ROLE_PHARMACIEN')) {
             return $this->redirectToRoute('pharmacien');
         }
-        if (true === $authChecker->isGranted('ROLE_INFIRMIER')) {
+        else if (true === $authChecker->isGranted('ROLE_INFIRMIER')) {
             return $this->redirectToRoute('infirmier');
         }
-        if (true === $authChecker->isGranted('ROLE_GESTIONNAIRE')) {
+        else if (true === $authChecker->isGranted('ROLE_GESTIONNAIRE')) {
             return $this->redirectToRoute('gestionnaire');
         }
-        return $this->render('base.html.twig');
 
+        // SINON IL FAUT SE CONNECTER
+        else {
+            return $this->redirectToRoute('app_login');
+        }
     }
 
 }
