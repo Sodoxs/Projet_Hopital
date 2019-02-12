@@ -7,19 +7,19 @@ security:
             memory:
                 users:
                     medecin:
-                        # Mot de passe = medecin
+                        # Mot de passe = Medecin
                         password: $2y$13$OYi/bHJ07sQ8sFU3uGNz1uKNkyXgD5h09jGbdSj6.plEnyKKtoBx6
                         roles: ROLE_MEDECIN
                     infirmier:
-                        # Mot de passe = infirmier
+                        # Mot de passe = Infirmier
                         password: $2y$13$I/1EbZn/0.PWBgudjw/6TOGDOSh44QRM7zjzH5VPf3AQlbp3M4GRi
                         roles: ROLE_INFIRMIER
                     accueil:
-                        # Mot de passe = accueil
+                        # Mot de passe = accueil.html.twig
                         password: $2y$13$JmPUCkR2H.959Ps9z83i6.QXZ.ekmHmIQ1.Aj25tjPXWFABv2Z6ee
                         roles: ROLE_ACCUEIL
                     pharmacien:
-                        # Mot de passe = pharmacien
+                        # Mot de passe = Pharmacien
                         password: $2y$13$3DhOv2K5r8ZtiWGmTmDTVeXX1g91RBoRWKFYF8bUhsbgWEFGmKJfu
                         roles: ROLE_PHARMACIEN
                     gestionnaire:

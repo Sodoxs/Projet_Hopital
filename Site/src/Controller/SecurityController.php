@@ -15,10 +15,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+/**
+ * Class SecurityController
+ * @package App\Controller
+ *
+ * @Route("/")
+ */
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("login", name="app_login")
+     * @Route("/login", name="app_login")
      *
      * @param Request $request
      * @param AuthenticationUtils $authUtils
@@ -30,7 +36,7 @@ class SecurityController extends AbstractController
 
         $lastUserName = $authUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', array(
+        return $this->render('Security/login.html.twig', array(
             'last_username' => $lastUserName,
             'error' => $error,
         ));
