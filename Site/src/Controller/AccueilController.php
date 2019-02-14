@@ -24,16 +24,16 @@ class AccueilController extends AbstractController
     public function indexAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
-        #$patient = $em->getRepository('App:quelquechose')->find($id);
+        /*$patient = new Patient();*/
 
-        $form = $this->createForm(AjoutPatient::class/*, $article*/);
+        $form = $this->createForm(AjoutPatient::class/*, $patient*/);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            #$patient->setquelquechose(new \DateTime('now'));
-            #$em->persist($patient);
-            #$em->flush();
+            /*$patient->setquelquechose(new \DateTime('now'));
+            $em->persist($patient);
+            $em->flush();*/
 
             $this->addFlash('info', "Le patient a bien été ajouté !");
             return $this->redirectToRoute('home');
@@ -41,7 +41,7 @@ class AccueilController extends AbstractController
 
         return $this->render('Accueil/accueil.html.twig', array(
             'form' => $form->createView(),
-            #'patient' => $patient
+            /*'patient' => $patient*/
         ));
 
     }

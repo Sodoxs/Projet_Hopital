@@ -14,21 +14,30 @@
 
     <body>
 
-    <nav class="black">
-        {% block navbar %}
+        <nav class="black">
+            {% block navbar %}
+            {% endblock %}
+
+            <div class="nav-wrapper right">
+
+                {# SI NOUS SOMMES CONNECTÉ #}
+                {% if is_granted('ROLE_MEDECIN') or is_granted('ROLE_INFIRMIER') or is_granted('ROLE_ACCUEIL') or is_granted('ROLE_GESTIONNAIRE') or is_granted('ROLE_PHARMACIEN') %}
+                    <a href="{{ path('app_logout') }}">{{ app.user }} (Déconnexion)</a>
+                {% endif %}
+            </div>
+        </nav>
+
+        {% block message_flash %}
+            {% for msg in app.session.flashBag.get('info') %}
+                <div class="message-flash">
+                    <p>{{ msg }}</p>
+                </div>
+            {% endfor %}
         {% endblock %}
 
-        <div class="nav-wrapper right">
+        {% block body %}
 
-            {# SI NOUS SOMMES CONNECTÉ #}
-            {% if is_granted('ROLE_MEDECIN') or is_granted('ROLE_INFIRMIER') or is_granted('ROLE_ACCUEIL') or is_granted('ROLE_GESTIONNAIRE') or is_granted('ROLE_PHARMACIEN') %}
-                <a href="{{ path('app_logout') }}">{{ app.user }} (Déconnexion)</a>
-            {% endif %}
-        </div>
-    </nav>
-
-
-        {% block body %}{% endblock %}
+        {% endblock %}
 
         <script src="{{ asset('jquery-3.3.1.min.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
