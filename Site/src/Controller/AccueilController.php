@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Forms\AjoutPatient;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +23,26 @@ class AccueilController extends AbstractController
      */
     public function indexAction(Request $request) {
 
-        return $this->render('Accueil/accueil.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        #$patient = $em->getRepository('App:quelquechose')->find($id);
+
+        $form = $this->createForm(AjoutPatient::class/*, $article*/);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            #$patient->setquelquechose(new \DateTime('now'));
+            #$em->persist($patient);
+            #$em->flush();
+
+            $this->addFlash('info', "Le patient a bien été ajouté !");
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('Accueil/accueil.html.twig', array(
+            'form' => $form->createView(),
+            #'patient' => $patient
+        ));
 
     }
 

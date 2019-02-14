@@ -23,7 +23,6 @@ class MedecinController extends AbstractController
     public function indexAction(Request $request) {
 
         return $this->render('Medecin/medecin.html.twig');
-
     }
 
 }

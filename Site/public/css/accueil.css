@@ -1,0 +1,8 @@
+#ajout-patient {
+    background-color: lightgray;
+    position:absolute;
+    left:30px;
+    right:30px;
+    top: 100px;
+    border: solid black 5px;
+}
