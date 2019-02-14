@@ -24,6 +24,7 @@ class AjoutPatient extends AbstractType
                 'required' => true,
                 'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
+                'attr' => array('placeholder' => 'dd/MM/yyyy'),
             ))
             ->add('num_tel', NumberType::class, ['required' => true])
             ->add('sexe', TextType::class, ['required' => true])
