@@ -3,6 +3,7 @@
 namespace App\Forms;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -26,6 +27,11 @@ class AjoutPatient extends AbstractType
             ))
             ->add('num_tel', NumberType::class, ['required' => true])
             ->add('sexe', TextType::class, ['required' => true])
+            ->add('sexe', ChoiceType::class, array(
+                'choices' => array(
+                    'M' => 0,
+                    'F' => 1,
+            )))
             /*->add('date_ajout', DateType::class, ['required' => true])*/
             ->add('statut', TextType::class, ['required' => true])
             ->add('submit', SubmitType::class, array(
