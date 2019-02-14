@@ -4,10 +4,11 @@
     position: absolute;
     left: 40%;
     right: 40%;
+    top: 100px;
     text-align: center;
 
     color: white;
-    background-color: red;
+    background-color: #26a69a;
     border-radius: 100px;
 
     min-height: 5%;
