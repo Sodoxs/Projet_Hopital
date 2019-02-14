@@ -24,14 +24,14 @@ class Medicament
     /**
      * @var string|null
      *
-     * @ORM\Column(name="nommedicament", type="string", length=500, nullable=true)
+     * @ORM\Column(name="nommedicament", type="string", length=64, nullable=true)
      */
     private $nommedicament;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="principeactif", type="string", length=500, nullable=false)
+     * @ORM\Column(name="principeactif", type="string", length=64, nullable=false)
      */
     private $principeactif;
 
