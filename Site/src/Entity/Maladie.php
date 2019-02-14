@@ -24,7 +24,7 @@ class Maladie
     /**
      * @var string|null
      *
-     * @ORM\Column(name="nommaladie", type="string", length=500, nullable=true)
+     * @ORM\Column(name="nommaladie", type="string", length=64, nullable=true)
      */
     private $nommaladie;
 
