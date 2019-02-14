@@ -22,7 +22,7 @@
                 {# SI NOUS SOMMES CONNECTÉ #}
                 {% if is_granted('ROLE_MEDECIN') or is_granted('ROLE_INFIRMIER') or is_granted('ROLE_ACCUEIL') or is_granted('ROLE_GESTIONNAIRE') or is_granted('ROLE_PHARMACIEN') %}
                     <div id="deconnexion">
-                        <a class="btn btn-outline-light" href="{{ path('app_logout') }}">{{ app.user }} (Déconnexion)</a>
+                        <a class="btn btn-outline-light" href="{{ path('app_logout') }}">{{ app.user.username }} (Déconnexion)</a>
                     </div>
                 {% endif %}
             </div>

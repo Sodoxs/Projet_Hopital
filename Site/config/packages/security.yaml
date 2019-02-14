@@ -1,8 +1,13 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: bcrypt
+        App\Entity\Employe:
+            algorithm: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
+        mysql:
+            entity:
+                class: App\Entity\Employe
+                property: username
         my_provider_in_memory:
             memory:
                 users:
@@ -31,6 +36,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            provider: mysql
             pattern: ^/
             form_login:
                 check_path: app_login_check
