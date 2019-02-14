@@ -5,16 +5,17 @@
 {% endblock %}
 
 {% block navbar %}
-    <ul class="brand-logo left">
-        <li class="white-text">
-            Gestionnaire
-        </li>
-    </ul>
+    <p class="nav-brand">Gestionnaire</p>
+
 {% endblock %}
 {% block body %}
 
     <div id="ajout-commande">
-     {% include ('Forms/ajoutCommande.html.twig') %}
+        {% include ('Forms/ajoutCommande.html.twig') %}
+    </div>
+
+    <div id="content">
+        <label>Coucou</label>
     </div>
 
 {% endblock %}

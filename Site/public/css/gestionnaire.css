@@ -2,11 +2,27 @@
     display: inline;
 }
 
+#ajout_commande_submit{
+    margin-top: 12%;
+}
+
 #ajout-commande {
     background-color: lightgray;
     position:absolute;
-    left:30px;
-    right:30px;
+    left:15%;
     top: 100px;
+    width: 70%;
     border: solid black 5px;
+}
+
+#content{
+    position:absolute;
+    top:250px; bottom:25px; left:15%;
+    width:70%;
+    border: solid black 5px;
+    background-color: lightgray;
+}
+
+label{
+    color: black;
 }
