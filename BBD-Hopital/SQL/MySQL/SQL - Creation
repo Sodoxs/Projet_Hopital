@@ -1,1 +1,143 @@
 -- Ici c'est le script pour une base en mySQL
+CREATE TABLE SERVICE (
+  id INTEGER auto_increment PRIMARY KEY,
+  service VARCHAR(30),
+  UNIQUE(service)
+);
+
+CREATE TABLE LIT (
+  id INTEGER auto_increment PRIMARY KEY,
+  numbloc INTEGER,
+  numchambre INTEGER NOT NULL,
+  numetage INTEGER NOT NULL,
+  nomaile VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE MALADIE (
+  id INTEGER auto_increment PRIMARY KEY,
+  nommaladie VARCHAR(500),
+  UNIQUE(nommaladie)
+);
+
+CREATE TABLE PATIENT (
+  id INTEGER auto_increment PRIMARY KEY,
+  numsecu INTEGER,
+  nummutuelle INTEGER,
+  civilite CHAR(1) NOT NULL,
+  nompatient VARCHAR(30) NOT NULL,
+  prenompatient VARCHAR(30) NOT NULL,
+  datenaissance DATE NOT NULL,
+  adresse VARCHAR(70),
+  dateentree DATE NOT NULL,
+  datesortie DATE,
+  telephone VARCHAR(15),
+  idlit INTEGER,
+  idservice INTEGER,
+  nivurgence INTEGER NOT NULL,
+  etaturgence CHAR(1) NOT NULL,
+  UNIQUE(numsecu)
+);
+
+CREATE TABLE EMPLOYE (
+  id INTEGER auto_increment PRIMARY KEY,
+  login VARCHAR(30),
+  nomemploye VARCHAR(30) NOT NULL,
+  prenomemploye VARCHAR(30) NOT NULL,
+  mdp VARCHAR(50) NOT NULL,
+  idrole INTEGER NOT NULL,
+  iddisponible INTEGER,
+  UNIQUE(login)
+);
+
+CREATE TABLE ROLE (
+  id INTEGER auto_increment PRIMARY KEY,
+  nomrole VARCHAR(15),
+  UNIQUE(nomrole)
+);
+
+CREATE TABLE GERER (
+  idemploye INTEGER NOT NULL,
+  idtraitement INTEGER,
+  dateprescription DATE NOT NULL,
+  PRIMARY KEY(idemploye, idtraitement)
+);
+
+CREATE TABLE TRAITEMENT (
+  id INTEGER auto_increment PRIMARY KEY,
+  datetraitement DATE,
+  datefintraitement DATE,
+  idstatut INTEGER NOT NULL,
+  idpatient INTEGER NOT NULL
+);
+
+CREATE TABLE COMPOSER (
+  idtraitement INTEGER NOT NULL,
+  idmedicament INTEGER NOT NULL,
+  quantitemedoc INTEGER NOT NULL,
+  PRIMARY KEY(idtraitement, idmedicament)
+);
+
+CREATE TABLE MEDICAMENT (
+  id INTEGER auto_increment PRIMARY KEY,
+  nommedicament VARCHAR(500),
+  principeactif VARCHAR(500) NOT NULL,
+  stock INTEGER NOT NULL,
+  UNIQUE(nommedicament)
+);
+
+CREATE TABLE DISPONIBLE (
+  id INTEGER auto_increment PRIMARY KEY,
+  disponible VARCHAR(15),
+  UNIQUE(disponible)
+);
+
+CREATE TABLE COMMANDE (
+  id INTEGER auto_increment PRIMARY KEY,
+  datecommande DATE NOT NULL,
+  quantitecommande INTEGER NOT NULL,
+  idetat INTEGER NOT NULL,
+  idmedicament INTEGER NOT NULL
+);
+
+CREATE TABLE STATUT (
+  id INTEGER auto_increment PRIMARY KEY,
+  statut VARCHAR(15),
+  UNIQUE(statut)
+);
+
+CREATE TABLE ETATCOMMANDE (
+  id INTEGER auto_increment PRIMARY KEY,
+  etat VARCHAR(15),
+  UNIQUE(etat)
+);
+
+CREATE TABLE INFECTION (
+  id INTEGER auto_increment PRIMARY KEY,
+  idpatient INTEGER NOT NULL,
+  idmaladie INTEGER NOT NULL,
+  dateGuerison DATE,
+  dateDiagnostic DATE
+);
+
+CREATE TABLE DIAGNOSTIQUER (
+  idinfection INTEGER NOT NULL,
+  idemploye INTEGER NOT NULL,
+  PRIMARY KEY(idinfection, idemploye)
+);
+
+ALTER TABLE PATIENT ADD CONSTRAINT fkPatientService FOREIGN KEY (idservice) REFERENCES SERVICE (id);
+ALTER TABLE PATIENT ADD CONSTRAINT fkPatientLit FOREIGN KEY (idlit) REFERENCES LIT (id);
+ALTER TABLE EMPLOYE ADD CONSTRAINT fkEmployeRole FOREIGN KEY (idrole) REFERENCES ROLE (id);
+ALTER TABLE EMPLOYE ADD CONSTRAINT fkEmployeDisponible FOREIGN KEY (iddisponible) REFERENCES DISPONIBLE (id);
+ALTER TABLE GERER ADD CONSTRAINT fkGererTraitement FOREIGN KEY (idtraitement) REFERENCES TRAITEMENT (id);
+ALTER TABLE GERER ADD CONSTRAINT fkGererEmploye FOREIGN KEY (idemploye) REFERENCES EMPLOYE (id);
+ALTER TABLE TRAITEMENT ADD CONSTRAINT fkTraitementPatient FOREIGN KEY (idpatient) REFERENCES PATIENT (id);
+ALTER TABLE TRAITEMENT ADD CONSTRAINT fkTraitementStatut FOREIGN KEY (idstatut) REFERENCES STATUT (id);
+ALTER TABLE COMPOSER ADD CONSTRAINT fkComposerMedicament FOREIGN KEY (idmedicament) REFERENCES MEDICAMENT (id);
+ALTER TABLE COMPOSER ADD CONSTRAINT fkComposerTraitement FOREIGN KEY (idtraitement) REFERENCES TRAITEMENT (id);
+ALTER TABLE COMMANDE ADD CONSTRAINT fkMedicamentCommande FOREIGN KEY (idmedicament) REFERENCES MEDICAMENT (id);
+ALTER TABLE INFECTION ADD CONSTRAINT fkInfectionPatient FOREIGN KEY (idpatient) REFERENCES PATIENT (id);
+ALTER TABLE INFECTION ADD CONSTRAINT fkInfectionMaladie FOREIGN KEY (idmaladie) REFERENCES MALADIE (id);
+ALTER TABLE DIAGNOSTIQUER ADD CONSTRAINT fkDiagnostiquerEmploye FOREIGN KEY (idemploye) REFERENCES EMPLOYE (id);
+ALTER TABLE DIAGNOSTIQUER ADD CONSTRAINT fkDiagnostiquerInfection FOREIGN KEY (idinfection) REFERENCES INFECTION (id);
+ALTER TABLE COMMANDE ADD CONSTRAINT fkCommandeEtatCommande FOREIGN KEY (idetat) REFERENCES ETATCOMMANDE (id);
