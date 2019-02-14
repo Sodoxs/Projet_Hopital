@@ -138,7 +138,7 @@ CREATE TABLE COMMANDE (
   datecommande DATE NOT NULL,
   quantitecommande INTEGER NOT NULL,
   idetat INTEGER NOT NULL,
-  idMedicament INTEGER NOT NULL
+  idmedicament INTEGER NOT NULL
 );
 
 CREATE TABLE STATUT (
