@@ -16,7 +16,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class GererRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry, string $entityClass)
+    public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Gerer::class);
     }
