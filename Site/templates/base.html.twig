@@ -12,7 +12,9 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg">
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             {% block navbar %}
             {% endblock %}
 
@@ -24,6 +26,8 @@
                 {% endif %}
             </div>
         </nav>
+    </header>
+    <main class="text-center mt-5">
 
         {% block message_flash %}
             {% for msg in app.session.flashBag.get('info') %}
@@ -36,11 +40,13 @@
         {% block body %}
 
         {% endblock %}
+    </main>
 
         <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ asset('js/base.js') }}"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
         {% block javascripts %}{% endblock %}
+
     </body>
 </html>
