@@ -1,0 +1,12 @@
+#ajout_commande_etat{
+    display: inline;
+}
+
+#ajout-commande {
+    background-color: lightgray;
+    position:absolute;
+    left:30px;
+    right:30px;
+    top: 100px;
+    border: solid black 5px;
+}

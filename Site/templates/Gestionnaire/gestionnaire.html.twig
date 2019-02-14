@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/gestionnaire.css') }}">
+{% endblock %}
+
 {% block navbar %}
     <ul class="brand-logo left">
         <li class="white-text">
@@ -9,5 +13,8 @@
 {% endblock %}
 {% block body %}
 
+    <div id="ajout-commande">
+     {% include ('Forms/ajoutCommande.html.twig') %}
+    </div>
 
 {% endblock %}
