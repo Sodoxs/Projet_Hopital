@@ -13,16 +13,17 @@
 
     <body>
 
-    <header>
+    <header class="">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             {% block navbar %}
             {% endblock %}
 
             <div class="navbar-nav">
-
                 {# SI NOUS SOMMES CONNECTÉ #}
                 {% if is_granted('ROLE_MEDECIN') or is_granted('ROLE_INFIRMIER') or is_granted('ROLE_ACCUEIL') or is_granted('ROLE_GESTIONNAIRE') or is_granted('ROLE_PHARMACIEN') %}
-                    <a class="nav-link" href="{{ path('app_logout') }}">{{ app.user }} (Déconnexion)</a>
+                    <div id="deconnexion">
+                        <a class="btn btn-outline-light" href="{{ path('app_logout') }}">{{ app.user }} (Déconnexion)</a>
+                    </div>
                 {% endif %}
             </div>
         </nav>
