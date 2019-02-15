@@ -154,4 +154,9 @@ class Employe implements UserInterface
     {
         return null;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 }

@@ -26,7 +26,7 @@ class Gerer
     /**
      * @var PersistentCollection
      *
-     * @ORM\OneToMany(targetEntity="Gerer", mappedBy="gerer")
+     * @ORM\OneToMany(targetEntity="Employe", mappedBy="gerer")
      */
     private $employes;
 
