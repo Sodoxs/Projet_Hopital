@@ -22,6 +22,113 @@ class Patient
     private $id;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(name="numsecu", type="integer", nullable=true)
+     */
+    private $numsecu;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="nummutuelle", type="integer", nullable=true)
+     */
+    private $nummutuelle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="civilite", type="string", length=1, nullable=false, options={"fixed"=true})
+     */
+    private $civilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nompatient", type="string", length=30, nullable=false)
+     */
+    private $nompatient;
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenompatient", type="string", length=30, nullable=false)
+     */
+    private $prenompatient;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datenaissance", type="date", nullable=false)
+     */
+    private $datenaissance;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="adresse", type="string", length=70, nullable=true)
+     */
+    private $adresse;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateentree", type="date", nullable=false)
+     */
+    private $dateentree;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="datesortie", type="date", nullable=true)
+     */
+    private $datesortie;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="telephone", type="string", length=15, nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nivurgence", type="integer", nullable=false)
+     */
+    private $nivurgence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etaturgence", type="string", length=1, nullable=false, options={"fixed"=true})
+     */
+    private $etaturgence;
+
+    /**
+     * @var Lit
+     *
+     * @ORM\ManyToOne(targetEntity="Lit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idlit", referencedColumnName="id")
+     * })
+     */
+    private $idlit;
+
+    /**
+     * @var Service
+     *
+     * @ORM\ManyToOne(targetEntity="Service")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idservice", referencedColumnName="id")
+     * })
+     */
+    private $idservice;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -35,6 +142,38 @@ class Patient
     public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNompatient(): string
+    {
+        return $this->nompatient;
+    }
+
+    /**
+     * @param string $nompatient
+     */
+    public function setNompatient(string $nompatient): void
+    {
+        $this->nompatient = $nompatient;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenompatient(): string
+    {
+        return $this->prenompatient;
+    }
+
+    /**
+     * @param string $prenompatient
+     */
+    public function setPrenompatient(string $prenompatient): void
+    {
+        $this->prenompatient = $prenompatient;
     }
 
     /**
@@ -83,38 +222,6 @@ class Patient
     public function setCivilite(string $civilite): void
     {
         $this->civilite = $civilite;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNompatient(): string
-    {
-        return $this->nompatient;
-    }
-
-    /**
-     * @param string $nompatient
-     */
-    public function setNompatient(string $nompatient): void
-    {
-        $this->nompatient = $nompatient;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPrenompatient(): string
-    {
-        return $this->prenompatient;
-    }
-
-    /**
-     * @param string $prenompatient
-     */
-    public function setPrenompatient(string $prenompatient): void
-    {
-        $this->prenompatient = $prenompatient;
     }
 
     /**
@@ -230,142 +337,34 @@ class Patient
     }
 
     /**
-     * @return \Lit
+     * @return Lit
      */
-    public function getIdlit(): \Lit
+    public function getIdlit(): Lit
     {
         return $this->idlit;
     }
 
     /**
-     * @param \Lit $idlit
+     * @param Lit $idlit
      */
-    public function setIdlit(\Lit $idlit): void
+    public function setIdlit(Lit $idlit): void
     {
         $this->idlit = $idlit;
     }
 
     /**
-     * @return \Service
+     * @return Service
      */
-    public function getIdservice(): \Service
+    public function getIdservice(): Service
     {
         return $this->idservice;
     }
 
     /**
-     * @param \Service $idservice
+     * @param Service $idservice
      */
-    public function setIdservice(\Service $idservice): void
+    public function setIdservice(Service $idservice): void
     {
         $this->idservice = $idservice;
     }
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="numsecu", type="integer", nullable=true)
-     */
-    private $numsecu;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="nummutuelle", type="integer", nullable=true)
-     */
-    private $nummutuelle;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="civilite", type="string", length=1, nullable=false, options={"fixed"=true})
-     */
-    private $civilite;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nompatient", type="string", length=30, nullable=false)
-     */
-    private $nompatient;
-
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenompatient", type="string", length=30, nullable=false)
-     */
-    private $prenompatient;
-
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="datenaissance", type="date", nullable=false)
-     */
-    private $datenaissance;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="adresse", type="string", length=70, nullable=true)
-     */
-    private $adresse;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateentree", type="date", nullable=false)
-     */
-    private $dateentree;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="datesortie", type="date", nullable=true)
-     */
-    private $datesortie;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="telephone", type="string", length=15, nullable=true)
-     */
-    private $telephone;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="nivurgence", type="integer", nullable=false)
-     */
-    private $nivurgence;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etaturgence", type="string", length=1, nullable=false, options={"fixed"=true})
-     */
-    private $etaturgence;
-
-    /**
-     * @var \Lit
-     *
-     * @ORM\ManyToOne(targetEntity="Lit")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idlit", referencedColumnName="id")
-     * })
-     */
-    private $idlit;
-
-    /**
-     * @var \Service
-     *
-     * @ORM\ManyToOne(targetEntity="Service")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idservice", referencedColumnName="id")
-     * })
-     */
-    private $idservice;
-
 }
