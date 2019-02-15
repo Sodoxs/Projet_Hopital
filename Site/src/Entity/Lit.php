@@ -50,4 +50,36 @@ class Lit
     private $nomaile;
 
 
+
+
+
+
+    /**
+     * @return int
+     */
+    public function getNumchambre(): int
+    {
+        return $this->numchambre;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumetage(): int
+    {
+        return $this->numetage;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNomaile(): string
+    {
+        return $this->nomaile;
+    }
+
+
+
+
+
 }

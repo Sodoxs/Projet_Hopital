@@ -4,12 +4,20 @@
 
 {% block navbar %}
     <ul>
-        <li class="white-text">
+        <li class="navbar-brand">
             Infirmier
         </li>
     </ul>
 {% endblock %}
 {% block body %}
 
+    <ul>
+    {% for traitement in traitements  %}
+        <li>
+            {{ traitement.id }},    {{ traitement.datetraitement|date('d-m-Y') }}
+
+        </li>
+    {% endfor %}
+    </ul>
 
 {% endblock %}
