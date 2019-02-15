@@ -1,0 +1,48 @@
+<form method="POST">
+    <div id="search-on">
+        <div class="input-field ui-widget">
+            <input name="search-barre" class="autocomplete search" type="text" id="search-barre" autocomplete="off" placeholder="Rechercher un mot" />
+        </div>
+    </div>
+</form>
+
+<script>
+
+    $(".autocomplete").each(function () {
+        $('#search-barre').on("input change", function () {
+            $.ajax({
+                url: "{{ path('auto_complete') }}",
+                type: 'POST',
+                cache: false,
+                data: {'word':$('#search-barre').val()},
+                success: function (response) {
+                    var mots = response['words'];
+                    if (!mots || !mots.length) return;
+                    var words = mots.map(function (item) {
+                        return "\"" + item['word'] + "\": null";
+                    });
+                    words = "{" + words + "}";
+                    submitSearch();
+                    $('#search-barre').autocomplete({
+                        data: JSON.parse(words)
+                    });
+                },
+                error: function (err) {
+                }
+            });
+        });
+    });
+
+
+
+
+    function submitSearch(){
+        var  word = $('#search-barre').val();
+
+        if(word){
+
+        }else{
+
+        }
+    }
+</script>

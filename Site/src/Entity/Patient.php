@@ -22,6 +22,246 @@ class Patient
     private $id;
 
     /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getNumsecu(): ?int
+    {
+        return $this->numsecu;
+    }
+
+    /**
+     * @param int|null $numsecu
+     */
+    public function setNumsecu(?int $numsecu): void
+    {
+        $this->numsecu = $numsecu;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getNummutuelle(): ?int
+    {
+        return $this->nummutuelle;
+    }
+
+    /**
+     * @param int|null $nummutuelle
+     */
+    public function setNummutuelle(?int $nummutuelle): void
+    {
+        $this->nummutuelle = $nummutuelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCivilite(): string
+    {
+        return $this->civilite;
+    }
+
+    /**
+     * @param string $civilite
+     */
+    public function setCivilite(string $civilite): void
+    {
+        $this->civilite = $civilite;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNompatient(): string
+    {
+        return $this->nompatient;
+    }
+
+    /**
+     * @param string $nompatient
+     */
+    public function setNompatient(string $nompatient): void
+    {
+        $this->nompatient = $nompatient;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenompatient(): string
+    {
+        return $this->prenompatient;
+    }
+
+    /**
+     * @param string $prenompatient
+     */
+    public function setPrenompatient(string $prenompatient): void
+    {
+        $this->prenompatient = $prenompatient;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatenaissance(): \DateTime
+    {
+        return $this->datenaissance;
+    }
+
+    /**
+     * @param \DateTime $datenaissance
+     */
+    public function setDatenaissance(\DateTime $datenaissance): void
+    {
+        $this->datenaissance = $datenaissance;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param null|string $adresse
+     */
+    public function setAdresse(?string $adresse): void
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateentree(): \DateTime
+    {
+        return $this->dateentree;
+    }
+
+    /**
+     * @param \DateTime $dateentree
+     */
+    public function setDateentree(\DateTime $dateentree): void
+    {
+        $this->dateentree = $dateentree;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDatesortie(): ?\DateTime
+    {
+        return $this->datesortie;
+    }
+
+    /**
+     * @param \DateTime|null $datesortie
+     */
+    public function setDatesortie(?\DateTime $datesortie): void
+    {
+        $this->datesortie = $datesortie;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param null|string $telephone
+     */
+    public function setTelephone(?string $telephone): void
+    {
+        $this->telephone = $telephone;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNivurgence(): int
+    {
+        return $this->nivurgence;
+    }
+
+    /**
+     * @param int $nivurgence
+     */
+    public function setNivurgence(int $nivurgence): void
+    {
+        $this->nivurgence = $nivurgence;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtaturgence(): string
+    {
+        return $this->etaturgence;
+    }
+
+    /**
+     * @param string $etaturgence
+     */
+    public function setEtaturgence(string $etaturgence): void
+    {
+        $this->etaturgence = $etaturgence;
+    }
+
+    /**
+     * @return \Lit
+     */
+    public function getIdlit(): \Lit
+    {
+        return $this->idlit;
+    }
+
+    /**
+     * @param \Lit $idlit
+     */
+    public function setIdlit(\Lit $idlit): void
+    {
+        $this->idlit = $idlit;
+    }
+
+    /**
+     * @return \Service
+     */
+    public function getIdservice(): \Service
+    {
+        return $this->idservice;
+    }
+
+    /**
+     * @param \Service $idservice
+     */
+    public function setIdservice(\Service $idservice): void
+    {
+        $this->idservice = $idservice;
+    }
+
+    /**
      * @var int|null
      *
      * @ORM\Column(name="numsecu", type="integer", nullable=true)

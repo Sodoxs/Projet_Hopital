@@ -3,6 +3,7 @@
 {% block title %}Espace Médecin{% endblock %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/medecin.css') }}">
 {% endblock %}
 
 {% block navbar %}
@@ -14,5 +15,15 @@
 {% endblock %}
 
 {% block body %}
+
+    <h3 class>Prendre en charge un patient</h3>
+
+    <div>
+        {% include ('Forms/recherchePatient.html.twig') %}
+    </div>
+
+    <div>
+        {% include ('SearchBar/SearchBar.html.twig') %}
+    </div>
 
 {% endblock %}
