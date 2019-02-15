@@ -368,25 +368,4 @@ class Patient
      */
     private $idservice;
 
-
-
-
-
-
-    /**
-     * @return string
-     */
-    public function getNompatient(): string
-    {
-        return $this->nompatient;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPrenompatient(): string
-    {
-        return $this->prenompatient;
-    }
-
 }
