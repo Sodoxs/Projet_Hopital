@@ -4,6 +4,7 @@ namespace App\Forms;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,9 +17,8 @@ class AjoutCommande extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('produit', TextType::class, ['required' => true])
-            ->add('quantite',NumberType::class, ['required' =>true])
-            ->add('etat', ChoiceType::class,[
+            ->add('quantitecommande',IntegerType::class, ['required' =>true, 'label'=> 'name'])
+            ->add('idetat', ChoiceType::class,[
                 'choices' =>[
                     'Requete' => 0,
                     'Effectue' => 1,

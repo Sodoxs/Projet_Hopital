@@ -55,5 +55,85 @@ class Commande
      */
     private $idmedicament;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatecommande(): \DateTime
+    {
+        return $this->datecommande;
+    }
+
+    /**
+     * @param \DateTime $datecommande
+     */
+    public function setDatecommande(\DateTime $datecommande): void
+    {
+        $this->datecommande = $datecommande;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantitecommande(): int
+    {
+        return $this->quantitecommande;
+    }
+
+    /**
+     * @param int $quantitecommande
+     */
+    public function setQuantitecommande(int $quantitecommande): void
+    {
+        $this->quantitecommande = $quantitecommande;
+    }
+
+    /**
+     * @return \Etatcommande
+     */
+    public function getIdetat(): \Etatcommande
+    {
+        return $this->idetat;
+    }
+
+    /**
+     * @param \Etatcommande $idetat
+     */
+    public function setIdetat(\Etatcommande $idetat): void
+    {
+        $this->idetat = $idetat;
+    }
+
+    /**
+     * @return \Medicament
+     */
+    public function getIdmedicament(): \Medicament
+    {
+        return $this->idmedicament;
+    }
+
+    /**
+     * @param \Medicament $idmedicament
+     */
+    public function setIdmedicament(\Medicament $idmedicament): void
+    {
+        $this->idmedicament = $idmedicament;
+    }
+
 
 }
