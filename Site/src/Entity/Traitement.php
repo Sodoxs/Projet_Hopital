@@ -21,12 +21,14 @@ class Traitement
      */
     private $id;
 
+
     /**
      * @var \DateTime|null
      *
      * @ORM\Column(name="datetraitement", type="date", nullable=true)
      */
     private $datetraitement;
+
 
     /**
      * @var \DateTime|null
@@ -84,5 +86,36 @@ class Traitement
         $this->idmedicament = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idemploye = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+
+
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDatetraitement(): ?\DateTime
+    {
+        return $this->datetraitement;
+    }
+
+    /**
+     * @return \Patient
+     */
+    public function getIdpatient(): \Patient
+    {
+        return $this->idpatient;
+    }
+
+
+
 
 }

@@ -289,12 +289,15 @@ class Patient
      */
     private $nompatient;
 
+
+
     /**
      * @var string
      *
      * @ORM\Column(name="prenompatient", type="string", length=30, nullable=false)
      */
     private $prenompatient;
+
 
     /**
      * @var \DateTime
@@ -365,5 +368,25 @@ class Patient
      */
     private $idservice;
 
+
+
+
+
+
+    /**
+     * @return string
+     */
+    public function getNompatient(): string
+    {
+        return $this->nompatient;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenompatient(): string
+    {
+        return $this->prenompatient;
+    }
 
 }
