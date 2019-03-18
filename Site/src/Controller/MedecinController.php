@@ -28,32 +28,37 @@ class MedecinController extends AbstractController
     public function indexAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
+
+        $patient = new Patient();
+
         $patients = $em->getRepository('App:Patient')->findAll();
 
         $form = $this->createForm(RecherchePatient::class);
         $form
             ->add('patients', EntityType::class, [
             'class' => Patient::class,
-            'choice_label' => 'nompatient',
+            'choice_label' => 'nompatient'.'id',
         ])
             ->add('submit', SubmitType::class, array(
-            'label' => '+'
+            'label' => 'Récupérer patient'
             ));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            /*$patient->setquelquechose(new \DateTime('now'));
+            $formData = $form->getData();
+            $patient = $formData['patients'];
+
             $em->persist($patient);
             $em->flush();
-            $this->addFlash('info', "Le patient a bien été ajouté !");*/
+            $this->addFlash('info', "Le patient a bien été ajouté !");
 
             return $this->redirectToRoute('home');
         }
 
         return $this->render('Medecin/medecin.html.twig', array(
             'form' => $form->createView(),
-            /*'patient' => $patient*/
+            //'patient' => $patient
         ));
     }
 

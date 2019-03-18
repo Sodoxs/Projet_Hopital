@@ -11,26 +11,26 @@ security:
         my_provider_in_memory:
             memory:
                 users:
-                    medecin:
+                    #medecin:
                         # Mot de passe = Medecin
-                        password: $2y$13$OYi/bHJ07sQ8sFU3uGNz1uKNkyXgD5h09jGbdSj6.plEnyKKtoBx6
-                        roles: ROLE_MEDECIN
-                    infirmier:
+                        #password: $2y$13$OYi/bHJ07sQ8sFU3uGNz1uKNkyXgD5h09jGbdSj6.plEnyKKtoBx6
+                        #roles: ROLE_MEDECIN
+                    #infirmier:
                         # Mot de passe = Infirmier
-                        password: $2y$13$I/1EbZn/0.PWBgudjw/6TOGDOSh44QRM7zjzH5VPf3AQlbp3M4GRi
-                        roles: ROLE_INFIRMIER
-                    accueil:
-                        # Mot de passe = accueil.html.twig
-                        password: $2y$13$JmPUCkR2H.959Ps9z83i6.QXZ.ekmHmIQ1.Aj25tjPXWFABv2Z6ee
-                        roles: ROLE_ACCUEIL
-                    pharmacien:
+                        #password: $2y$10$Cu0sKAWyFi4Hs5e2DTLtJ.l0tZhwJy5UqXa36BmD/0SL2YJnSUWz.
+                        #roles: ROLE_INFIRMIER
+                    #accueil:
+                        # Mot de passe = accueil
+                        #password: $2y$10$VZMdkDFE4rF6dFzuin./BuqTSOKHv6wFgenI70EwCai9eZvoj2E2G
+                        #roles: ROLE_ACCUEIL
+                   # pharmacien:
                         # Mot de passe = Pharmacien
-                        password: $2y$13$3DhOv2K5r8ZtiWGmTmDTVeXX1g91RBoRWKFYF8bUhsbgWEFGmKJfu
-                        roles: ROLE_PHARMACIEN
-                    gestionnaire:
+                        #password: $2y$10$oIkcZoi2cXlUHkcfjOAKhOgOo5jIHrvUr1/brcQaidlJ7vCuILnaK
+                        #roles: ROLE_PHARMACIEN
+                   # gestionnaire:
                         # Mot de passe = gestionnaire
-                        password: $2y$13$7Tt9g5TNOr5MP7RyOtqhYOF3UVXk.zxInDXOr1H1vOdncOHVwmHsS
-                        roles: ROLE_GESTIONNAIRE
+                       # password: $2y$10$Qi4gHD8RWkreUY2V5ah27Op6pH6IqPVAM9SlYNa.YQIP6U0hHJvQ.
+                        #roles: ROLE_GESTIONNAIRE
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
