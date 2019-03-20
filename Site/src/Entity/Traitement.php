@@ -40,7 +40,7 @@ class Traitement
     /**
      * @var \Patient
      *
-     * @ORM\ManyToOne(targetEntity="Patient")
+     * @ORM\ManyToOne(targetEntity="Patient", inversedBy="id")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idpatient", referencedColumnName="id")
      * })
@@ -114,8 +114,5 @@ class Traitement
     {
         return $this->idpatient;
     }
-
-
-
 
 }
