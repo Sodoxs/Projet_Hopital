@@ -28,5 +28,21 @@ class Etatcommande
      */
     private $etat;
 
+    /**
+     * @return string|null
+     */
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string|null $etat
+     */
+    public function setEtat(?string $etat): void
+    {
+        $this->etat = $etat;
+    }
+
 
 }

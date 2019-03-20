@@ -28,5 +28,37 @@ class Disponible
      */
     private $disponible;
 
+    /**
+     * @return string|null
+     */
+    public function getDisponible(): ?string
+    {
+        return $this->disponible;
+    }
+
+    /**
+     * @param string|null $disponible
+     */
+    public function setDisponible(?string $disponible): void
+    {
+        $this->disponible = $disponible;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
 
 }

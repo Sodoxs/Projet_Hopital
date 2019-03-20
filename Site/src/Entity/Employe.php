@@ -159,4 +159,52 @@ class Employe implements UserInterface
     {
         return $this->id;
     }
+
+    /**
+     * @return string
+     */
+    public function getNomemploye(): string
+    {
+        return $this->nomemploye;
+    }
+
+    /**
+     * @param string $nomemploye
+     */
+    public function setNomemploye(string $nomemploye): void
+    {
+        $this->nomemploye = $nomemploye;
+    }
+
+    /**
+     * @return \Disponible
+     */
+    public function getIddisponible(): \Disponible
+    {
+        return $this->iddisponible;
+    }
+
+    /**
+     * @param \Disponible $iddisponible
+     */
+    public function setIddisponible(\Disponible $iddisponible): void
+    {
+        $this->iddisponible = $iddisponible;
+    }
+
+    /**
+     * @return Gerer
+     */
+    public function getGerer(): Gerer
+    {
+        return $this->gerer;
+    }
+
+    /**
+     * @param Gerer $gerer
+     */
+    public function setGerer(Gerer $gerer): void
+    {
+        $this->gerer = $gerer;
+    }
 }

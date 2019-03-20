@@ -28,5 +28,21 @@ class Service
      */
     private $service;
 
+    /**
+     * @return string|null
+     */
+    public function getService(): ?string
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param string|null $service
+     */
+    public function setService(?string $service): void
+    {
+        $this->service = $service;
+    }
+
 
 }

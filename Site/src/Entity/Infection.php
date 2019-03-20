@@ -78,4 +78,84 @@ class Infection
         $this->idemploye = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \Patient
+     */
+    public function getIdpatient(): \Patient
+    {
+        return $this->idpatient;
+    }
+
+    /**
+     * @param \Patient $idpatient
+     */
+    public function setIdpatient(\Patient $idpatient): void
+    {
+        $this->idpatient = $idpatient;
+    }
+
+    /**
+     * @return \Maladie
+     */
+    public function getIdmaladie(): \Maladie
+    {
+        return $this->idmaladie;
+    }
+
+    /**
+     * @param \Maladie $idmaladie
+     */
+    public function setIdmaladie(\Maladie $idmaladie): void
+    {
+        $this->idmaladie = $idmaladie;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDatediagnostic(): ?\DateTime
+    {
+        return $this->datediagnostic;
+    }
+
+    /**
+     * @param \DateTime|null $datediagnostic
+     */
+    public function setDatediagnostic(?\DateTime $datediagnostic): void
+    {
+        $this->datediagnostic = $datediagnostic;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDateguerison(): ?\DateTime
+    {
+        return $this->dateguerison;
+    }
+
+    /**
+     * @param \DateTime|null $dateguerison
+     */
+    public function setDateguerison(?\DateTime $dateguerison): void
+    {
+        $this->dateguerison = $dateguerison;
+    }
+
 }

@@ -78,8 +78,21 @@ class Lit
         return $this->nomaile;
     }
 
+    /**
+     * @return int|null
+     */
+    public function getNumbloc(): ?int
+    {
+        return $this->numbloc;
+    }
 
-
+    /**
+     * @param int|null $numbloc
+     */
+    public function setNumbloc(?int $numbloc): void
+    {
+        $this->numbloc = $numbloc;
+    }
 
 
 }

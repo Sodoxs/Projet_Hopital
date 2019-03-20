@@ -11,13 +11,22 @@
 {% endblock %}
 {% block body %}
 
-    <ul>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date traitement</th>
+            <th scope="col">Date fin taitment</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for traitement in traitements  %}
-        <li>
-            {{ traitement.id }},    {{ traitement.datetraitement|date('d-m-Y') }}
-
-        </li>
+            <tr>
+                <th scope="row">{{ traitement.id }}</th>
+                <td>{{ traitement.datetraitement|date('d/m/Y') }}</td>
+                <td>{{ traitement.datefintraitement|date('d/m/Y') }}</td>
+            </tr>
     {% endfor %}
-    </ul>
-
+    </tbody>
+    </table>
 {% endblock %}
