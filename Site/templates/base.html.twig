@@ -32,7 +32,7 @@
         </nav>
     </header>
     <main class="text-center mt-5">
-
+        <div class="container">
         {% block message_flash %}
             {% for msg in app.session.flashBag.get('info') %}
                 <div class="message-flash">
@@ -44,6 +44,7 @@
         {% block body %}
 
         {% endblock %}
+        </div>
     </main>
 
         <script src="{{ asset('js/base.js') }}"></script>

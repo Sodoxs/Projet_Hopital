@@ -133,7 +133,7 @@ class Patient
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -149,7 +149,7 @@ class Patient
     /**
      * @return string
      */
-    public function getNompatient(): string
+    public function getNompatient(): ?string
     {
         return $this->nompatient;
     }
@@ -165,7 +165,7 @@ class Patient
     /**
      * @return string
      */
-    public function getPrenompatient(): string
+    public function getPrenompatient(): ?string
     {
         return $this->prenompatient;
     }
@@ -213,7 +213,7 @@ class Patient
     /**
      * @return string
      */
-    public function getCivilite(): string
+    public function getCivilite(): ?string
     {
         return $this->civilite;
     }
@@ -229,7 +229,7 @@ class Patient
     /**
      * @return \DateTime
      */
-    public function getDatenaissance(): \DateTime
+    public function getDatenaissance(): ?\DateTime
     {
         return $this->datenaissance;
     }
@@ -261,7 +261,7 @@ class Patient
     /**
      * @return \DateTime
      */
-    public function getDateentree(): \DateTime
+    public function getDateentree(): ?\DateTime
     {
         return $this->dateentree;
     }
@@ -309,7 +309,7 @@ class Patient
     /**
      * @return int
      */
-    public function getNivurgence(): int
+    public function getNivurgence(): ?int
     {
         return $this->nivurgence;
     }
@@ -325,7 +325,7 @@ class Patient
     /**
      * @return string
      */
-    public function getEtaturgence(): string
+    public function getEtaturgence(): ?string
     {
         return $this->etaturgence;
     }
@@ -341,7 +341,7 @@ class Patient
     /**
      * @return Lit
      */
-    public function getIdlit(): Lit
+    public function getIdlit(): ?Lit
     {
         return $this->idlit;
     }
@@ -357,7 +357,7 @@ class Patient
     /**
      * @return Service
      */
-    public function getIdservice(): Service
+    public function getIdservice(): ?Service
     {
         return $this->idservice;
     }

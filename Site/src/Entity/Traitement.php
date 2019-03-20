@@ -115,4 +115,24 @@ class Traitement
         return $this->idpatient;
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @return \DateTime|null
+     */
+    public function getDatefintraitement(): ?\DateTime
+    {
+        return $this->datefintraitement;
+    }
+
+    /**
+     * @param \DateTime|null $datefintraitement
+     */
+    public function setDatefintraitement(?\DateTime $datefintraitement): void
+    {
+        $this->datefintraitement = $datefintraitement;
+    }
+
+
+>>>>>>> 490772fbcb7551a8f55940d148ba3096f7876617
 }

@@ -18,6 +18,7 @@
 
     <h3 class>Prendre en charge un patient</h3>
 
+    {#
     <div>
         {% include ('Forms/recherchePatient.html.twig') %}
     </div>
@@ -25,5 +26,37 @@
     <div>
         {% include ('SearchBar/SearchBar.html.twig') %}
     </div>
+    #}
 
+
+    <select id="listpatient">
+        {% for item in patients %}
+            <option value="{{ item.id }}">{{ item.nompatient }} {{ item.prenompatient }}</option>
+        {% endfor %}
+    </select>
+
+    <button id="RecupPatient">Récupérer patient</button>
+
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+
+        $( document ).ready(function() {
+            console.log( "ready!" );
+
+            $("#RecupPatient").on( "click", function() {
+
+                let patient = $("#listpatient").val();
+                window.location = "patient/" + patient;
+
+            });
+
+        });
+
+
+    </script>
 {% endblock %}

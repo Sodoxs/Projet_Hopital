@@ -5,6 +5,7 @@ use App\Entity\Patient;
 use App\Forms\RecherchePatient;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,34 +32,42 @@ class MedecinController extends AbstractController
 
         $patient = new Patient();
 
-        $patients = $em->getRepository('App:Patient')->findAll();
+        $listPatients = $em->getRepository('App:Patient')->findAll();
 
-        $form = $this->createForm(RecherchePatient::class);
-        $form
-            ->add('patients', EntityType::class, [
-            'class' => Patient::class,
-            'choice_label' => 'nompatient'.'id',
-        ])
-            ->add('submit', SubmitType::class, array(
-            'label' => 'Récupérer patient'
+
+
+        // FORMULAIRE QUI NE MARCHE PAS
+
+        /*
+        $form = $this->createForm(RecherchePatient::class)
+            ->add('id', ChoiceType::class, [
+                'choices' => $listPatients,
+                'choice_label' => function($patient, $key, $index) {
+                    return $patient->getId();
+                },
+                'placeholder' => 'Sélectionner un patient',
+                'label' => 'Patient : '
+            ])
+            ->add('send', SubmitType::class, array(
+                'label' => 'Récupérer patient'
             ));
+
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $formData = $form->getData();
-            $patient = $formData['patients'];
+            //$patient = $em->getRepository('App:Patient')->findByFirstName($form['nompatient']->getData());
+            //$patient = $em->getRepository('App:Patient')->find($form['id']->getData());
+            var_dump($patient);
 
-            $em->persist($patient);
-            $em->flush();
-            $this->addFlash('info', "Le patient a bien été ajouté !");
-
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('medecin');
         }
+        */
 
         return $this->render('Medecin/medecin.html.twig', array(
-            'form' => $form->createView(),
-            //'patient' => $patient
+            //'form' => $form->createView(),
+            'patients' => $listPatients
         ));
     }
 
@@ -80,6 +89,21 @@ class MedecinController extends AbstractController
 
         }
         return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @return Response
+     * @Route("/patient/{id}", name="pagePatient")
+     *
+     */
+    public function pagePatientAction(Request $request, $id) {
+
+        $em = $this->getDoctrine()->getManager();
+        $patient = $em->getRepository('App:Patient')->find($id);
+
+        return $this->render('Medecin/pagePatient.html.twig', array(
+            'patient' => $patient
+        ));
     }
 
 }

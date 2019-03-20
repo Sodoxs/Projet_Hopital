@@ -28,5 +28,21 @@ class Maladie
      */
     private $nommaladie;
 
+    /**
+     * @return string|null
+     */
+    public function getNommaladie(): ?string
+    {
+        return $this->nommaladie;
+    }
+
+    /**
+     * @param string|null $nommaladie
+     */
+    public function setNommaladie(?string $nommaladie): void
+    {
+        $this->nommaladie = $nommaladie;
+    }
+
 
 }

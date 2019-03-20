@@ -23,31 +23,44 @@ class AccueilController extends AbstractController
      * @Route("/", name="accueil")
      *
      */
-    public function indexAction(Request $request) {
-
+    public function indexAction(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
         $patient = new Patient();
-        $patient->setNompatient("");
-        $patient->setPrenompatient("");
         $patient->setDatenaissance(new \DateTime());
-        $patient->setCivilite("");
-        $patient->setNivurgence(0);
-        $patient->setEtaturgence(0);
-        $form = $this->createForm(AjoutPatient::class, $patient);
+
+        $form = $this->createForm(AjoutPatient::class, null, array(
+            'method' => 'POST'
+        ));
         $form->add('submit', SubmitType::class, array('label' => 'Ajouter Patient',
             'attr' => array(
-                'class' => "btn btn-contact background-color-orange-lacces waves-effect",
-                )));
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid())
+                'class' => "btn btn-contact",
+            )));
+        if ($request->isMethod('POST'))
         {
-            $patient->setDateentree(new \DateTime());
-            $em->persist($patient);
-            $em->flush();
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $data = $form->getData();
+                /*if ($data['civilite'] == 0) {
+                    $patient->setCivilite('M');
+                } else {
+                    $patient->setCivilite('F');
+                }*/
+                $patient->setPrenompatient($data['prenompatient']);
+                /*$patient->setNompatient($data['nompatient']);
+                $patient->setDatenaissance($data['datenaissance']);
+                $patient->setAdresse($data['adresse']);
+                $patient->setNumsecu($data['numsecu']);
+                $patient->setNummutuelle($data['nummutuelle']);
+                $patient->setTelephone($data['telephone']);
+                $patient->setNivurgence($data['nivurgence']);*/
+                $em->persist($patient);
+                $em->flush();
 
-            $this->addFlash('info', "Le patient a bien été ajouté !");
-            return $this->redirectToRoute('home');
+                $this->addFlash('info', "Le patient a bien été ajouté !");
+                return $this->redirectToRoute('home'); // appel ajax to refresh
+            }
         }
         return $this->render('Accueil/accueil.html.twig', array('form' => $form->createView()));
     }

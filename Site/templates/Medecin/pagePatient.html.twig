@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page patient {{ patient.nompatient }}{% endblock %}
+
+{% block navbar %}
+    <ul>
+        <li class="navbar-brand">
+            Medecin
+        </li>
+    </ul>
+{% endblock %}
+
+{% block body %}
+
+    {{ patient.nompatient }}
+
+    <button id="retour">Retour</button>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+
+            $("#retour").on( "click", function() {
+                window.location = "{{ path("medecin") }}";
+            });
+
+        });
+
+
+    </script>
+{% endblock %}

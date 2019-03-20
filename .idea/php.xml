@@ -82,6 +82,30 @@
       <path value="$PROJECT_DIR$/Site/vendor/ocramius/proxy-manager" />
       <path value="$PROJECT_DIR$/Site/vendor/zendframework/zend-code" />
       <path value="$PROJECT_DIR$/Site/vendor/zendframework/zend-eventmanager" />
+      <path value="$PROJECT_DIR$/Site/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/Site/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/Site/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/Site/vendor/facebook/webdriver" />
+      <path value="$PROJECT_DIR$/Site/vendor/easycorp/easy-log-handler" />
+      <path value="$PROJECT_DIR$/Site/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/debug-pack" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/panther" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/serializer-pack" />
+      <path value="$PROJECT_DIR$/Site/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/Site/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/Site/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/Site/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/Site/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/Site/vendor/fig/link-util" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

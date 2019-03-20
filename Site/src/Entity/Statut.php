@@ -28,5 +28,21 @@ class Statut
      */
     private $statut;
 
+    /**
+     * @return string|null
+     */
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    /**
+     * @param string|null $statut
+     */
+    public function setStatut(?string $statut): void
+    {
+        $this->statut = $statut;
+    }
+
 
 }
