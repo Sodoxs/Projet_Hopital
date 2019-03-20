@@ -58,19 +58,10 @@ class Traitement
     private $idstatut;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Medicament", inversedBy="idtraitement")
-     * @ORM\JoinTable(name="composer",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="idtraitement", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idmedicament", referencedColumnName="id")
-     *   }
-     * )
+     * @var Composer
+     * @ORM\ManyToOne(targetEntity="Li\AdminBundle\Entity\Composer", inversedBy="traitements")
      */
-    private $idmedicament;
+    private $composer;
 
     /**
      * @var Gerer
@@ -83,7 +74,6 @@ class Traitement
      */
     public function __construct()
     {
-        $this->idmedicament = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idemploye = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -121,5 +111,60 @@ class Traitement
         return $this->datefintraitement;
     }
 
+    /**
+     * @param \DateTime|null $datefintraitement
+     */
+    public function setDatefintraitement(?\DateTime $datefintraitement): void
+    {
+        $this->datefintraitement = $datefintraitement;
+    }
+
+    /**
+     * @return \Statut
+     */
+    public function getIdstatut(): \Statut
+    {
+        return $this->idstatut;
+    }
+
+    /**
+     * @param \Statut $idstatut
+     */
+    public function setIdstatut(\Statut $idstatut): void
+    {
+        $this->idstatut = $idstatut;
+    }
+
+    /**
+     * @return Composer
+     */
+    public function getComposer(): Composer
+    {
+        return $this->composer;
+    }
+
+    /**
+     * @param Composer $composer
+     */
+    public function setComposer(Composer $composer): void
+    {
+        $this->composer = $composer;
+    }
+
+    /**
+     * @return Gerer
+     */
+    public function getGerer(): Gerer
+    {
+        return $this->gerer;
+    }
+
+    /**
+     * @param Gerer $gerer
+     */
+    public function setGerer(Gerer $gerer): void
+    {
+        $this->gerer = $gerer;
+    }
 
 }
