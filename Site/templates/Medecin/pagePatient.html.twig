@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page patient {{ patient.nompatient }}{% endblock %}
+{% block title %}Page patient {{ patient.nompatient }} {{ patient.prenompatient }}{% endblock %}
 
 {% block navbar %}
     <ul>
@@ -12,11 +12,110 @@
 
 {% block body %}
 
-    {{ patient.nompatient }}
+    <h2>
+        Patient :
+        {% if patient.civilite|lower == "f" %}
+            Mme
+        {% else %}
+            M.
+        {% endif %}
+            {{ patient.nompatient }} {{ patient.prenompatient }}
+    </h2>
+
+    <p>
+        Statut :
+        {% if patient.idservice == null %}
+            Entrant
+        {% else %}
+            {{ patient.etaturgence }}
+        {% endif %}
+    </p>
+
+    <p>Date de naissance :
+        {% if patient.datenaissance == null %}
+            Non renseigné
+        {% else %}
+            {{ patient.datenaissance|date("d/m/Y") }}
+        {% endif %}
+    </p>
+
+    <p>
+        Adresse :
+        {% if patient.adresse == null %}
+            Non renseigné
+        {% else %}
+            {{ patient.adresse }}
+        {% endif %}{{ patient.adresse }}
+    </p>
+
+    <p>
+        Numéro de téléphone :
+        {% if patient.telephone == null %}
+            Non renseigné
+        {% else %}
+            {{ patient.telephone }}
+        {% endif %}
+    </p>
+
+    <p>
+        Date d'entrée :
+        {% if patient.dateentree == null %}
+            Non renseigné
+        {% else %}
+            {{ patient.dateentree|date("d/m/Y") }}
+        {% endif %}
+    </p>
+
+    <p>
+        Niveau d'urgence :
+        {% if patient.nivurgence == null %}
+            Non renseigné
+        {% else %}
+            {{ patient.nivurgence }}
+        {% endif %}
+    </p>
+
+    <p>
+        Etat d'urgence :
+        {% if patient.etaturgence == null %}
+            Non renseigné
+        {% else %}
+            {{ patient.etaturgence }}
+        {% endif %}
+    </p>
+
+    <p>
+        Traitement(s) :
+        {% if traitements|length == 0 %}
+            Non renseigné
+        {% else %}
+            {% for item in traitements %}
+                <ul>
+                    <li>
+                        Prescrit le : {{ item.datetraitement|date("Y/m/d") }}
+                    </li>
+                    <p>
+                        Médicaments : <br />
+                        Statut :
+                        {% if item.datefintraitement != null %}
+                            Date : {{ item.datefintraitement|date("d/m/Y") }}
+                        {% else %}
+                            En cours
+                        {% endif %}
+                    </p>
+
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </p>
+
+
 
     <button id="retour">Retour</button>
 
 {% endblock %}
+
+
 
 {% block javascripts %}
     <script>
@@ -27,7 +126,5 @@
             });
 
         });
-
-
     </script>
 {% endblock %}

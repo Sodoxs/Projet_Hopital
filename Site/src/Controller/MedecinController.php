@@ -101,8 +101,11 @@ class MedecinController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $patient = $em->getRepository('App:Patient')->find($id);
 
+        $traitements = $em->getRepository('App:Traitement')->findByIdpatient($id);
+
         return $this->render('Medecin/pagePatient.html.twig', array(
-            'patient' => $patient
+            'patient' => $patient,
+            'traitements' => $traitements
         ));
     }
 

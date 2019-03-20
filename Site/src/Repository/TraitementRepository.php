@@ -35,6 +35,16 @@ class TraitementRepository extends ServiceEntityRepository
        return $query->getResult();
     }
 
+    public function findByIdpatient($idpatient) {
+        return $this->createQueryBuilder('c')
+            ->select('c.idpatient')
+            ->where('c.idpatient LIKE :idpatient')
+            ->setParameter('idpatient', $idpatient)
+            ->orderBy('c.datetraitement','ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Gerer::class);
