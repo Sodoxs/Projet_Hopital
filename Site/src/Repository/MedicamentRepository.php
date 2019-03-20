@@ -20,4 +20,14 @@ class MedicamentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Gerer::class);
     }
+
+    public function findByIdComposer($idComposer) {
+        return $this->createQueryBuilder('c')
+            ->select('c.id')
+            ->where('c.id LIKE :id')
+            ->setParameter('composer.id', $idComposer)
+            ->getQuery()
+            ->getResult();
+    }
+
 }

@@ -30,6 +30,22 @@ class Composer
     private $medicaments;
 
     /**
+     * @return PersistentCollection
+     */
+    public function getMedicaments(): PersistentCollection
+    {
+        return $this->medicaments;
+    }
+
+    /**
+     * @param PersistentCollection $medicaments
+     */
+    public function setMedicaments(PersistentCollection $medicaments): void
+    {
+        $this->medicaments = $medicaments;
+    }
+
+    /**
      * @var PersistentCollection
      * @ORM\OneToMany(targetEntity="Traitement", mappedBy="composer",
      *     cascade={"persist", "remove"})
