@@ -59,7 +59,7 @@ class Traitement
 
     /**
      * @var Composer
-     * @ORM\ManyToOne(targetEntity="Li\Entity\Composer", inversedBy="traitements")
+     * @ORM\ManyToOne(targetEntity="Composer", inversedBy="traitements")
      */
     private $composer;
 
