@@ -60,7 +60,7 @@ class Medicament
 
     /**
      * @var Composer
-     * @ORM\ManyToOne(targetEntity="Li\AdminBundle\Entity\Composer", inversedBy="medicaments")
+     * @ORM\ManyToOne(targetEntity="Li\Entity\Composer", inversedBy="medicaments")
      */
     private $composer;
 
