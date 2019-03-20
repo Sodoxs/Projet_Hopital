@@ -59,19 +59,10 @@ class Medicament
     private $stock;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Traitement", mappedBy="idmedicament")
+     * @var Composer
+     * @ORM\ManyToOne(targetEntity="Composer", inversedBy="medicaments")
      */
-    private $idtraitement;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idtraitement = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $composer;
 
     /**
      * @return int
@@ -122,20 +113,18 @@ class Medicament
     }
 
     /**
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Composer
      */
-    public function getIdtraitement(): \Doctrine\Common\Collections\Collection
+    public function getComposer(): Composer
     {
-        return $this->idtraitement;
+        return $this->composer;
     }
 
     /**
-     * @param \Doctrine\Common\Collections\Collection $idtraitement
+     * @param Composer $composer
      */
-    public function setIdtraitement(\Doctrine\Common\Collections\Collection $idtraitement): void
+    public function setComposer(Composer $composer): void
     {
-        $this->idtraitement = $idtraitement;
+        $this->composer = $composer;
     }
-
-
 }

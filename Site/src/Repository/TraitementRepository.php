@@ -16,18 +16,16 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class TraitementRepository extends ServiceEntityRepository
 {
-    public function findAll()
+    /**
+     * @return array
+     */
+    public function findByIdpatient($troll)
     {
-       $query = $this->_em->createQueryBuilder('t')
-           ->select('t.id','t.datetraitement')
-           ->where('t.datefintraitement = :my_date')
-           ->setParameter('my_date',null)
-
-           ->leftJoin('t.idpatient','p')
-           ->addSelect('p.nompatient','p.prenompatient')
-
-           ->leftJoin('p.idlit','l')
-           ->addSelect('l.chambre','l.etage','l.aile')
+        $query = $this->_em->createQueryBuilder('t');
+        $query
+            ->select('t.id','t.datetraitement','p.nom','l.chambre')
+            ->leftJoin('t.idpatient','p')
+            ->leftJoin('p.idlit','l')
 
            ->addOrderBy('t.datetraitement','DESC')
            ->setMaxResults(5);
