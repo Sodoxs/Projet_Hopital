@@ -21,18 +21,11 @@
     </thead>
     <tbody>
     {% for traitement in traitements  %}
-<<<<<<< HEAD
-        <li>
-            {{ traitement.id }},    {{ traitement.datetraitement|date('d-m-Y') }},
-
-        </li>
-=======
             <tr>
                 <th scope="row">{{ traitement.id }}</th>
                 <td>{{ traitement.datetraitement|date('d/m/Y') }}</td>
                 <td>{{ traitement.datefintraitement|date('d/m/Y') }}</td>
             </tr>
->>>>>>> 490772fbcb7551a8f55940d148ba3096f7876617
     {% endfor %}
     </tbody>
     </table>

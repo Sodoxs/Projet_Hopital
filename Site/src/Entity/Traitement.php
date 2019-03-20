@@ -88,8 +88,6 @@ class Traitement
     }
 
 
-
-
     /**
      * @return int
      */
@@ -115,8 +113,6 @@ class Traitement
         return $this->idpatient;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * @return \DateTime|null
      */
@@ -125,14 +121,5 @@ class Traitement
         return $this->datefintraitement;
     }
 
-    /**
-     * @param \DateTime|null $datefintraitement
-     */
-    public function setDatefintraitement(?\DateTime $datefintraitement): void
-    {
-        $this->datefintraitement = $datefintraitement;
-    }
 
-
->>>>>>> 490772fbcb7551a8f55940d148ba3096f7876617
 }

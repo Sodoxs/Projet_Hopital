@@ -19,7 +19,7 @@ class TraitementRepository extends ServiceEntityRepository
     /**
      * @return array
      */
-    public function findAll()
+    public function findByIdpatient($troll)
     {
         $query = $this->_em->createQueryBuilder('t');
         $query
