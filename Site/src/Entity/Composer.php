@@ -24,14 +24,14 @@ class Composer
 
     /**
      * @var PersistentCollection
-     * @ORM\OneToMany(targetEntity="Li\AdminBundle\Entity\Medicament", mappedBy="composer",
+     * @ORM\OneToMany(targetEntity="Medicament", mappedBy="composer",
      *     cascade={"persist", "remove"})
      */
     private $medicaments;
 
     /**
      * @var PersistentCollection
-     * @ORM\OneToMany(targetEntity="Li\AdminBundle\Entity\Traitement", mappedBy="composer",
+     * @ORM\OneToMany(targetEntity="Traitement", mappedBy="composer",
      *     cascade={"persist", "remove"})
      */
     private $traitements;
