@@ -38,11 +38,11 @@ class Traitement
     private $datefintraitement;
 
     /**
-     * @var \Patient
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Patient", inversedBy="id")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idpatient", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })
      */
     private $idpatient;

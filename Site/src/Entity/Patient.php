@@ -18,8 +18,8 @@ class Patient
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\OneToMany(targetEntity="Traitement", mappedBy="idpatient")
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Traitement", mappedBy="idpatient")
      */
     private $id;
 
