@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * Statut
@@ -27,6 +28,12 @@ class Statut
      * @ORM\Column(name="statut", type="string", length=15, nullable=true)
      */
     private $statut;
+
+    /**
+     * @var PersistentCollection
+     * @ORM\OneToMany(targetEntity="Traitement", mappedBy="statut")
+     */
+    private $traitements;
 
     /**
      * @return string|null

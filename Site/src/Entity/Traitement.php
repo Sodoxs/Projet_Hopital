@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Traitement
  *
- * @ORM\Table(name="TRAITEMENT", indexes={@ORM\Index(name="fkTraitementStatut", columns={"idstatut"})})
+ * @ORM\Table(name="TRAITEMENT")
  * @ORM\Entity
  */
 class Traitement
@@ -45,14 +45,28 @@ class Traitement
     private $patient;
 
     /**
-     * @var \Statut
+     * @var Statut
      *
-     * @ORM\ManyToOne(targetEntity="Statut")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idstatut", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Statut", inversedBy="traitements")
+     *
      */
-    private $idstatut;
+    private $statut;
+
+    /**
+     * @return Statut
+     */
+    public function getStatut(): Statut
+    {
+        return $this->statut;
+    }
+
+    /**
+     * @param Statut $statut
+     */
+    public function setStatut(Statut $statut): void
+    {
+        $this->statut = $statut;
+    }
 
     /**
      * @var Composer
@@ -106,22 +120,6 @@ class Traitement
     public function setDatefintraitement(?\DateTime $datefintraitement): void
     {
         $this->datefintraitement = $datefintraitement;
-    }
-
-    /**
-     * @return \Statut
-     */
-    public function getIdstatut(): \Statut
-    {
-        return $this->idstatut;
-    }
-
-    /**
-     * @param \Statut $idstatut
-     */
-    public function setIdstatut(\Statut $idstatut): void
-    {
-        $this->idstatut = $idstatut;
     }
 
     /**

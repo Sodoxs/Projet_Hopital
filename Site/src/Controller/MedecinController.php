@@ -90,7 +90,11 @@ class MedecinController extends AbstractController
         $encoders = [new XmlEncoder(), new JsonEncoder()];
         $normalizer = [new ObjectNormalizer()];
         $serializer = new Serializer($normalizer, $encoders);
-        $jsonContent = $serializer->serialize($patients,'json');
+        $jsonContent = $serializer->serialize($patients,'json', [
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }
+        ]);
 
         return new JsonResponse($jsonContent);
     }

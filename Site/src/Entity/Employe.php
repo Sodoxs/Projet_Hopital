@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Employe
  *
- * @ORM\Table(name="EMPLOYE", uniqueConstraints={@ORM\UniqueConstraint(name="username", columns={"username"})}, indexes={@ORM\Index(name="fkEmployeDisponible", columns={"iddisponible"})})
+ * @ORM\Table(name="EMPLOYE", uniqueConstraints={@ORM\UniqueConstraint(name="username", columns={"username"})})
  * @ORM\Entity
  */
 class Employe implements UserInterface
@@ -59,14 +59,12 @@ class Employe implements UserInterface
     private $roles;
 
     /**
-     * @var \Disponible
+     * @var Disponible
      *
-     * @ORM\ManyToOne(targetEntity="Disponible")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="iddisponible", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Disponible", inversedBy="employe")
+     *
      */
-    private $iddisponible;
+    private $disponible;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -177,22 +175,6 @@ class Employe implements UserInterface
     }
 
     /**
-     * @return \Disponible
-     */
-    public function getIddisponible(): \Disponible
-    {
-        return $this->iddisponible;
-    }
-
-    /**
-     * @param \Disponible $iddisponible
-     */
-    public function setIddisponible(\Disponible $iddisponible): void
-    {
-        $this->iddisponible = $iddisponible;
-    }
-
-    /**
      * @return Gerer
      */
     public function getGerer(): Gerer
@@ -206,5 +188,21 @@ class Employe implements UserInterface
     public function setGerer(Gerer $gerer): void
     {
         $this->gerer = $gerer;
+    }
+
+    /**
+     * @return Disponible
+     */
+    public function getDisponible(): Disponible
+    {
+        return $this->disponible;
+    }
+
+    /**
+     * @param Disponible $disponible
+     */
+    public function setDisponible(Disponible $disponible): void
+    {
+        $this->disponible = $disponible;
     }
 }
