@@ -16,10 +16,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  * @package App\Controller
  *
  * @Route("/accueil")
- * @IsGranted("ROLE_ACCUEIL")
  */
 class AccueilController extends AbstractController
 {
+    //@IsGranted("ROLE_ACCUEIL")à rajouter au dessus
+
     /**
      * @return Response
      * @Route("/", name="accueil")
@@ -46,8 +47,6 @@ class AccueilController extends AbstractController
             )));
         if ($request->isMethod('POST'))
         {
-            $civ = $patient->getCivilite();
-            dump($civ);
             if ($patient->getCivilite()=="0"){
                 $patient->setCivilite('H');
             } else {
@@ -64,7 +63,8 @@ class AccueilController extends AbstractController
                 return $this->redirectToRoute('accueil'); // appel ajax to refresh
             }
         }
-        return $this->render('Accueil/accueil.html.twig', array('form' => $form->createView(), $patients));
+        return $this->render('Accueil/accueil.html.twig', array('form' => $form->createView(),
+            'patients' => $patients));
     }
 
 }
