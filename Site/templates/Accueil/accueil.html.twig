@@ -15,11 +15,12 @@
 {% endblock %}
 {% block body %}
 
-    <div id="ajout-patient">
-        <br/>
-        {{ form(form) }}
-    </div>
-
+    {% if bool %}
+        <div id="ajout-patient">
+            <br/>
+            {{ form(form) }}
+        </div>
+    {% endif %}
     <table class="table-bordered mytab">
         <thead>
             <tr>
