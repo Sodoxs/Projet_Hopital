@@ -43,7 +43,7 @@ class TraitementRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findBycomposer() {
+    public function findcomposer() {
         return $this->createQueryBuilder('t')
             ->leftJoin('t.composer', 'c')
             ->leftJoin('c.medicaments', 'm')
@@ -56,6 +56,6 @@ class TraitementRepository extends ServiceEntityRepository
 
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Gerer::class);
+        parent::__construct($registry, Traitement::class);
     }
 }
