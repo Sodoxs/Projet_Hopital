@@ -19,4 +19,38 @@
         {{ form(form) }}
     </div>
 
+    <table class="table-bordered mytab">
+        <thead>
+            <tr>
+                <th>Civilité</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Securité social</th>
+                <th>Mutuelle</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Niveau d'urgence</th>
+                <th>Date de naissance</th>
+                <th>Date d'entrée</th>
+            </tr>
+        </thead>
+        {% for item in patients %}
+            <tbody>
+                <tr>
+                    <th>{{ item.civilite }}</th>
+                    <th>{{ item.nompatient }}</th>
+                    <th>{{ item.prenompatient }}</th>
+                    <th>{{ item.numsecu }}</th>
+                    <th>{{ item.nummutuelle }}</th>
+                    <th>{{ item.telephone }}</th>
+                    <th>{{ item.adresse }}</th>
+                    <th>{{ item.nivurgence }}</th>
+                    <th>{{ item.datenaissance|date('d/m/Y') }}</th>
+                    <th>{{ item.dateentree|date('d/m/Y') }}</th>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+
 {% endblock %}
+
