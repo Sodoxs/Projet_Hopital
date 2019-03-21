@@ -15,17 +15,57 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Medicaments</th>
             <th scope="col">Date traitement</th>
+            <th scope="col">Etat</th>
         </tr>
         </thead>
         <tbody>
         {% for traitement in traitements  %}
             <tr>
                 <th scope="row">{{ traitement.id }}</th>
+                <td>
+                    {% for medicament in traitement.composer.medicaments %}
+                        {{ medicament.nommedicament }} ;
+                    {% endfor %}
+                </td>
                 <td>{{ traitement.datetraitement|date('d/m/Y') }}</td>
+                <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    {% for statut in statutAll %}
+                        {% if traitement.statut.statut == statut.statut %}
+                            <label class="btn btn-secondary active" onclick="update(this.firstChild)">
+                                <input type="radio" name="options" id="option1" autocomplete="off" num="{{ statut.id }}" trait="{{ traitement.id }}" checked> {{ statut.statut }}</input>
+                            </label>
+                        {% else %}
+                            <label class="btn btn-secondary" onclick="update(this.firstChild)">
+                                <input type="radio" name="options" id="option1" autocomplete="off" num="{{ statut.id }}" trait="{{ traitement.id }}"> {{ statut.statut }}</input>
+                            </label>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function update(v){
+            $.ajax({
+                url: "{{ path('updateStatut') }}",
+                type: 'POST',
+                cache: false,
+                data: {'id': $(v).attr('num'), 'trait': $(v).attr('trait')},
+                success: function (response) {
+                },
+                error: function (err) {
+                }
+            })
+        }
+    </script>
 
 {% endblock %}

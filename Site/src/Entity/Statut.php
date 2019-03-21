@@ -51,5 +51,37 @@ class Statut
         $this->statut = $statut;
     }
 
+    /**
+     * @return PersistentCollection
+     */
+    public function getTraitements(): PersistentCollection
+    {
+        return $this->traitements;
+    }
+
+    /**
+     * @param PersistentCollection $traitements
+     */
+    public function setTraitements(PersistentCollection $traitements): void
+    {
+        $this->traitements = $traitements;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
 
 }

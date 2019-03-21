@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-use APP\Entity\Gerer;
 use App\Entity\Traitement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -49,6 +48,7 @@ class TraitementRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('t')
             ->leftJoin('t.composer', 'c')
             ->leftJoin('c.medicaments', 'm')
+            ->leftJoin('c.statut', 's')
             ->getQuery()
             ->getResult();
     }
