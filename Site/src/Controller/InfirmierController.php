@@ -23,7 +23,7 @@ class InfirmierController extends AbstractController
      */
     public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $traitements = $em-> getRepository('App:Traitement')->findByIdpatient(8);
+        $traitements = $em-> getRepository('App:Traitement')->findByPatient(8);
 
         return $this->render('Infirmier/infirmier.html.twig',['traitements' => $traitements]);
 

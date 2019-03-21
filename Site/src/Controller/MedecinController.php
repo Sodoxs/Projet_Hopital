@@ -101,7 +101,7 @@ class MedecinController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $patient = $em->getRepository('App:Patient')->find($id);
 
-        $traitements = $em->getRepository('App:Traitement')->findByIdpatient($id);
+        $traitements = $em->getRepository('App:Traitement')->findByPatient($id);
 
         //$traitement = $em->getRepository('App:Traitement')->findById(1);
         $medicaments = $em->getRepository('App:Medicament')->findAll();

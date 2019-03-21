@@ -18,7 +18,7 @@ class MedicamentRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Gerer::class);
+        parent::__construct($registry, Medicament::class);
     }
 
     public function findByIdComposer($idComposer) {
