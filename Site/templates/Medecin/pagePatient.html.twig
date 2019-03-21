@@ -2,6 +2,10 @@
 
 {% block title %}Page patient {{ patient.nompatient }} {{ patient.prenompatient }}{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/medecin.css') }}">
+{% endblock %}
+
 {% block navbar %}
     <ul>
         <li class="navbar-brand">
@@ -22,106 +26,109 @@
             {{ patient.nompatient }} {{ patient.prenompatient }}
     </h2>
 
-    <p>
-        Statut :
-        {% if patient.idservice == null %}
-            Entrant
-        {% else %}
-            {{ patient.etaturgence }}
-        {% endif %}
-    </p>
+    <div class="infopatient">
+        <p>
+            Statut :
+            {% if patient.idservice == null %}
+                Entrant
+            {% else %}
+                {{ patient.etaturgence }}
+            {% endif %}
+        </p>
 
-    <p>Date de naissance :
-        {% if patient.datenaissance == null %}
-            Non renseigné
-        {% else %}
-            {{ patient.datenaissance|date("d/m/Y") }}
-        {% endif %}
-    </p>
+        <p>Date de naissance :
+            {% if patient.datenaissance == null %}
+                Non renseigné
+            {% else %}
+                {{ patient.datenaissance|date("d/m/Y") }}
+            {% endif %}
+        </p>
 
-    <p>
-        Adresse :
-        {% if patient.adresse == null %}
-            Non renseigné
-        {% else %}
-            {{ patient.adresse }}
-        {% endif %}{{ patient.adresse }}
-    </p>
+        <p>
+            Adresse :
+            {% if patient.adresse == null %}
+                Non renseigné
+            {% else %}
+                {{ patient.adresse }}
+            {% endif %}{{ patient.adresse }}
+        </p>
 
-    <p>
-        Numéro de téléphone :
-        {% if patient.telephone == null %}
-            Non renseigné
-        {% else %}
-            {{ patient.telephone }}
-        {% endif %}
-    </p>
+        <p>
+            Numéro de téléphone :
+            {% if patient.telephone == null %}
+                Non renseigné
+            {% else %}
+                {{ patient.telephone }}
+            {% endif %}
+        </p>
 
-    <p>
-        Date d'entrée :
-        {% if patient.dateentree == null %}
-            Non renseigné
-        {% else %}
-            {{ patient.dateentree|date("d/m/Y") }}
-        {% endif %}
-    </p>
+        <p>
+            Date d'entrée :
+            {% if patient.dateentree == null %}
+                Non renseigné
+            {% else %}
+                {{ patient.dateentree|date("d/m/Y") }}
+            {% endif %}
+        </p>
 
-    <p>
-        Niveau d'urgence :
-        {% if patient.nivurgence == null %}
-            Non renseigné
-        {% else %}
-            {{ patient.nivurgence }}
-        {% endif %}
-    </p>
+        <p>
+            Niveau d'urgence :
+            {% if patient.nivurgence == null %}
+                Non renseigné
+            {% else %}
+                {{ patient.nivurgence }}
+            {% endif %}
+        </p>
 
-    <p>
-        Etat d'urgence :
-        {% if patient.etaturgence == null %}
-            Non renseigné
-        {% else %}
-            {{ patient.etaturgence }}
-        {% endif %}
-    </p>
+        <p>
+            Etat d'urgence :
+            {% if patient.etaturgence == null %}
+                Non renseigné
+            {% else %}
+                {{ patient.etaturgence }}
+            {% endif %}
+        </p>
 
-    <p>
-        Traitement(s) :
-        {% if traitements|length == 0 %}
-            Non renseigné
-        {% else %}
-            {% for item in traitements %}
-                <ul>
-                    <li>
-                        Prescrit le : {{ item.datetraitement|date("d/m/Y") }}
-                    </li>
-                    <p>
-                        Médicaments :
-                    {% for item in item.composer.medicaments %}
-                            {{ item.nommedicament }}
-                        {% if not loop.last %}
-                            /
-                        {% endif %}
-                    {% endfor %}
-
-
-                    <br />
-                        Statut :
-                        {% if item.datefintraitement != null %}
-                            Date : {{ item.datefintraitement|date("d/m/Y") }}
-                        {% else %}
-                            En cours
-                        {% endif %}
-                    </p>
-
-                </ul>
-            {% endfor %}
-        {% endif %}
-    </p>
+        <p>
+            Traitement(s) :
+            {% if traitements|length == 0 %}
+                Non renseigné
+            {% else %}
+                {% for item in traitements %}
+                    <ul>
+                        <li>
+                            Prescrit le : {{ item.datetraitement|date("d/m/Y") }}
+                        </li>
+                        <p>
+                            Médicaments :
+                        {% for item in item.composer.medicaments %}
+                                {{ item.nommedicament }}
+                            {% if not loop.last %}
+                                /
+                            {% endif %}
+                        {% endfor %}
 
 
+                        <br />
+                            Statut :
+                            {% if item.datefintraitement != null %}
+                                Date : {{ item.datefintraitement|date("d/m/Y") }}
+                            {% else %}
+                                En cours
+                            {% endif %}
+                        </p>
+
+                    </ul>
+                {% endfor %}
+            {% endif %}
+        </p>
 
 
-    <button id="retour">Retour</button>
+
+
+        <button id="retour" class="btn btn-info">Retour</button>
+
+    </div>
 
 {% endblock %}
 

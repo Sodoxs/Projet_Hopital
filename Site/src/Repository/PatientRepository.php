@@ -20,8 +20,7 @@ class PatientRepository extends ServiceEntityRepository
 
     public function findByFirstName($prenompatient) {
         return $this->createQueryBuilder('c')
-            ->select('c.prenompatient')
-            ->where('c.prenompatient LIKE :prenompatient')
+            ->where('c.prenompatient LIKE :prenompatient OR c.nompatient LIKE :prenompatient')
             ->setParameter('prenompatient', $prenompatient)
             ->getQuery()
             ->setMaxResults(12)

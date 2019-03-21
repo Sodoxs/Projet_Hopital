@@ -11,6 +11,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 /**
@@ -73,22 +77,20 @@ class MedecinController extends AbstractController
 
     /**
      * @return Response
-     * @Route("/", name="auto_complete")
+     * @Route("/recherche", name="auto_complete")
      *
      */
     public function autoCompleteAction(Request $request){
-        if ($request -> isXmlHttpRequest()) {
 
-            $em = $this->getDoctrine()->getManager();
-            $word = $request->request->get('word');
-            $words = $em->getRepository('App:Patient')->findByFirstName($word . "%");
+        $em = $this->getDoctrine()->getManager();
+        $word = $request->get('word');
+        $patients = $em->getRepository('App:Patient')->findByFirstName("%" . $word . "%");
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizer = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizer, $encoders);
+        $jsonContent = $serializer->serialize($patients,'json');
 
-
-            return new JsonResponse(array('words' => $words));
-            //return new JsonResponse(array('wordsFr'=>$wordsFr, 'wordsEn'=>$wordsEn));
-
-        }
-        return $this->redirectToRoute('home');
+        return new JsonResponse($jsonContent);
     }
 
     /**
