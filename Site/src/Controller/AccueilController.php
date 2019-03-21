@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  * Class AccueilController
  * @package App\Controller
  *
+ * @IsGranted("ROLE_ACCUEIL")
  * @Route("/accueil")
  */
 class AccueilController extends AbstractController
