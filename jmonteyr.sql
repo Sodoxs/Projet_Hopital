@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Jeu 21 Mars 2019 à 15:43
+-- Généré le :  Jeu 21 Mars 2019 à 16:06
 -- Version du serveur :  5.5.58-0+deb8u1
 -- Version de PHP :  5.6.33-0+deb8u1
 
@@ -177,7 +177,8 @@ CREATE TABLE `LIT` (
 
 INSERT INTO `LIT` (`id`, `numbloc`, `numchambre`, `numetage`, `nomaile`, `patient_id`) VALUES
 (1, NULL, 1, 1, 'ouest', 1),
-(2, NULL, 2, 4, 'est', 2);
+(2, NULL, 2, 4, 'est', NULL),
+(3, 5, 145, 1, '8', NULL);
 
 -- --------------------------------------------------------
 
@@ -462,7 +463,7 @@ ALTER TABLE `INFECTION`
 -- AUTO_INCREMENT pour la table `LIT`
 --
 ALTER TABLE `LIT`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `MALADIE`
 --
