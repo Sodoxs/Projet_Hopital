@@ -52,7 +52,7 @@ class Lit
     /**
      * @var Patient
      * @ORM\OneToOne(targetEntity="Patient", inversedBy="lit")
-     * @JoinColumn(name="patient_id", referencedColumnName="id")
+     * @JoinColumn(name="patient_id", referencedColumnName="id", nullable=true)
      */
     private $patient;
 
