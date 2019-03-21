@@ -16,27 +16,36 @@
 
 {% block body %}
 
-    <h3>Prendre en charge un patient</h3>
+    <div id="containerMedecin">
+        <h3>Prendre en charge un patient</h3>
 
-    {#
-    <div>
-        {% include ('Forms/recherchePatient.html.twig') %}
+        <div style="position: relative">
+            {% include ('SearchBar/SearchBar.html.twig') %}
+
+            <ul id="listpatients" class="autocomplet"></ul>
+        </div>
+
+
+
+{#
+        <div class="row">
+            <div class="col-sm-12">
+                <select id="listpatient">
+                    {% for item in patients %}
+                        <option value="{{ item.id }}">{{ item.nompatient }} {{ item.prenompatient }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <hr />
+
+            <div id="btnRecupPatient" class="col-sm-12">
+                <button id="RecupPatient" class="btn btn-success">Récupérer patient</button>
+            </div>
+        </div>
+
+        #}
     </div>
-
-    <div>
-        {% include ('SearchBar/SearchBar.html.twig') %}
-    </div>
-    #}
-
-
-    <select id="listpatient">
-        {% for item in patients %}
-            <option value="{{ item.id }}">{{ item.nompatient }} {{ item.prenompatient }}</option>
-        {% endfor %}
-    </select>
-
-    <button id="RecupPatient">Récupérer patient</button>
-
 
 
 {% endblock %}

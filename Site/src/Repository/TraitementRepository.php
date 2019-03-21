@@ -33,17 +33,19 @@ class TraitementRepository extends ServiceEntityRepository
        return $query->getResult();
     }
 
-    public function findByIdpatient($idpatient) {
+    public function findByPatient($idpatient) {
         return $this->createQueryBuilder('c')
-            ->select('c.idpatient')
-            ->where('c.idpatient LIKE :idpatient')
+            ->select('c')
+            ->leftJoin('Patient::class','p')
+            ->addSelect('p')
+            ->where('p.id = :idpatient')
             ->setParameter('idpatient', $idpatient)
             ->orderBy('c.datetraitement','ASC')
             ->getQuery()
             ->getResult();
     }
 
-    public function findBycomposer() {
+    public function findcomposer() {
         return $this->createQueryBuilder('t')
             ->leftJoin('t.composer', 'c')
             ->leftJoin('c.medicaments', 'm')
@@ -56,6 +58,6 @@ class TraitementRepository extends ServiceEntityRepository
 
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Gerer::class);
+        parent::__construct($registry, Traitement::class);
     }
 }
