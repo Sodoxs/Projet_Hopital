@@ -2,8 +2,8 @@
 namespace App\Controller;
 
 use App\Entity\Patient;
+use App\Entity\Lit;
 use App\Forms\AjoutPatient;
-use App\Repository\LitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,10 +27,16 @@ class AccueilController extends AbstractController
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $patients = $em->getRepository('App:Patient')->findBy(array(),array('nompatient' => 'desc'));
+
         $patient = new Patient();
         $patient->setDateentree(new \DateTime());
+        $patient->setEtaturgence('F');
 
-        /*$form = $this->createForm(AjoutPatient::class, null, array(
+        $lit = $em->getRepository('App:Lit')->findOneBy(['patient' => null]);
+        $patient->setLit($lit);
+
+        $form = $this->createForm(AjoutPatient::class, $patient, array(
             'method' => 'POST'
         ));
         $form->add('submit', SubmitType::class, array('label' => 'Ajouter Patient',
@@ -39,48 +45,25 @@ class AccueilController extends AbstractController
             )));
         if ($request->isMethod('POST'))
         {
+            $civ = $patient->getCivilite();
+            dump($civ);
+            if ($patient->getCivilite()=="0"){
+                $patient->setCivilite('H');
+            } else {
+                $patient->setCivilite('F');
+            }
+
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid())
             {
-                //$data = $form->getData();
-                //dump($data[1]);
-                if ($data['civilite'] == 0) {
-                    $patient->setCivilite('M');
-                } else {
-                    $patient->setCivilite('F');
-                }
-                $patient->setPrenompatient($data['prenompatient']);
-                $patient->setNompatient($data['nompatient']);
-                $patient->setDatenaissance($data['datenaissance']);
-                $patient->setAdresse($data['adresse']);
-                $patient->setNumsecu($data['numsecu']);
-                $patient->setNummutuelle($data['nummutuelle']);
-                $patient->setTelephone($data['telephone']);
-                $patient->setNivurgence($data['nivurgence']);*/
+                $em->persist($patient);
+                $em->flush();
 
-        $patient->setCivilite('F');
-        $patient->setPrenompatient('test');
-        $patient->setNompatient('test');
-        $patient->setDatenaissance(new \DateTime());
-        $patient->setAdresse('adresse');
-        $patient->setNumsecu(658728);
-        $patient->setNummutuelle(19811);
-        $patient->setTelephone('69877');
-        $patient->setNivurgence(5);
-        $patient->setEtaturgence('false');
-
-        $lit = $em->getRepository(LitRepository::class)->findAll();
-        dump($lit);
-        //$patient->setIdlit($lit);
-
-        /*$em->persist($patient);
-        $em->flush();*/
-
-        $this->addFlash('info', "Le patient a bien été ajouté !");
-        return $this->redirectToRoute('home'); // appel ajax to refresh
-        //}
-        //}
-        return $this->render('Accueil/accueil.html.twig', array('form' => $form->createView()));
+                $this->addFlash('info', "Le patient a bien été ajouté !");
+                return $this->redirectToRoute('accueil'); // appel ajax to refresh
+            }
+        }
+        return $this->render('Accueil/accueil.html.twig', array('form' => $form->createView(), $patients));
     }
 
 }

@@ -20,4 +20,13 @@ class LitRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Lit::class);
     }
+
+    /*public function findOneByDispo()
+    {
+        return $this->createQueryBuilder('l')
+            ->where('l.patient := disp')
+            ->setParameter('disp', null )
+            ->getQuery()
+            ->getResult();
+    }*/
 }

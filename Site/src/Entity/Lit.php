@@ -3,12 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
 
 /**
  * Lit
- *
+ * @ORM\Entity(repositoryClass="App\Repository\LitRepository")
  * @ORM\Table(name="LIT")
- * @ORM\Entity
  */
 class Lit
 {
@@ -49,9 +49,12 @@ class Lit
      */
     private $nomaile;
 
-
-
-
+    /**
+     * @var Patient
+     * @ORM\OneToOne(targetEntity="Patient", inversedBy="lit")
+     * @JoinColumn(name="patient_id", referencedColumnName="id")
+     */
+    private $patient;
 
 
     /**
@@ -94,5 +97,36 @@ class Lit
         $this->numbloc = $numbloc;
     }
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return Patient
+     */
+    public function getPatient(): Patient
+    {
+        return $this->patient;
+    }
+
+    /**
+     * @param Patient $patient
+     */
+    public function setPatient(Patient $patient): void
+    {
+        $this->patient = $patient;
+    }
 
 }

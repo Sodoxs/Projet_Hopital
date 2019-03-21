@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Patient
  *
- * @ORM\Table(name="PATIENT", uniqueConstraints={@ORM\UniqueConstraint(name="numsecu", columns={"numsecu"})}, indexes={@ORM\Index(name="fkPatientService", columns={"idservice"}), @ORM\Index(name="fkPatientLit", columns={"idlit"})})
  * @ORM\Entity(repositoryClass="App\Repository\PatientRepository")
+ * @ORM\Table(name="PATIENT", uniqueConstraints={@ORM\UniqueConstraint(name="numsecu", columns={"numsecu"})}, indexes={@ORM\Index(name="fkPatientService", columns={"idservice"})})
  */
 class Patient
 {
@@ -112,13 +112,9 @@ class Patient
 
     /**
      * @var Lit
-     *
-     * @ORM\ManyToOne(targetEntity="Lit")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idlit", referencedColumnName="id")
-     * })
+     * @ORM\OneToOne(targetEntity="Patient", mappedBy="patient")
      */
-    private $idlit;
+    private $lit;
 
     /**
      * @var Service
@@ -345,22 +341,6 @@ class Patient
     }
 
     /**
-     * @return Lit
-     */
-    public function getIdlit(): ?Lit
-    {
-        return $this->idlit;
-    }
-
-    /**
-     * @param Lit $idlit
-     */
-    public function setIdlit(Lit $idlit): void
-    {
-        $this->idlit = $idlit;
-    }
-
-    /**
      * @return Service
      */
     public function getIdservice(): ?Service
@@ -391,4 +371,21 @@ class Patient
     {
         $this->traitements = $traitements;
     }
+
+    /**
+     * @return Lit
+     */
+    public function getLit(): Lit
+    {
+        return $this->lit;
+    }
+
+    /**
+     * @param Lit $lit
+     */
+    public function setLit(Lit $lit): void
+    {
+        $this->lit = $lit;
+    }
+
 }

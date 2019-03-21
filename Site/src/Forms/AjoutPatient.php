@@ -22,8 +22,8 @@ class AjoutPatient extends AbstractType
             ->add('nummutuelle', NumberType::class, ['required' => true])
             ->add('civilite', ChoiceType::class, array(
                 'choices' => array(
-                    'M' => 0,
-                    'F' => 1,
+                    'H' => 'H',
+                    'F' => 'F',
                 )))
             ->add('nompatient', TextType::class, ['required' => true])
             ->add('prenompatient', TextType::class, ['required' => true])
