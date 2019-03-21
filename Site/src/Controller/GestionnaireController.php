@@ -28,6 +28,7 @@ class GestionnaireController extends AbstractController
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      * @Route("/", name="gestionnaire")
+     * @IsGranted("ROLE_GESTIONNAIRE")
      */
     public function indexAction(Request $request, EntityManagerInterface $em) {
 
