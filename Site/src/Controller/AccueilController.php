@@ -37,6 +37,7 @@ class AccueilController extends AbstractController
 
         $lit = $em->getRepository('App:Lit')->findOneBy(['patient' => null]);
         $patient->setLit($lit);
+        $lit->setPatient($patient);
 
         $form = $this->createForm(AjoutPatient::class, $patient, array(
             'method' => 'POST'
