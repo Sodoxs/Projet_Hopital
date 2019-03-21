@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * Patient
@@ -110,7 +111,7 @@ class Patient
 
     /**
      * @var Lit
-     * @ORM\OneToOne(targetEntity="Patient", mappedBy="patient")
+     * @ORM\OneToOne(targetEntity="Lit", mappedBy="patient")
      */
     private $lit;
 
