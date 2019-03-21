@@ -43,15 +43,12 @@ class TraitementRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findBycomposer($idTraitement) {
+    public function findBycomposer() {
         return $this->createQueryBuilder('t')
-            ->where('t.id :=id')
-            ->setParameter('id', $idTraitement)
             ->leftJoin('t.composer', 'c')
             ->leftJoin('c.medicaments', 'm')
             ->getQuery()
-            ->getOneOrNullResult()
-            ;
+            ->getResult();
     }
 
 

@@ -131,6 +131,12 @@ class Patient
     private $idservice;
 
     /**
+     * @var PersistentCollection
+     * @ORM\OneToMany(targetEntity="Traitement", mappedBy="patient", cascade={"persist", "remove"})
+     */
+    private $traitements;
+
+    /**
      * @return int
      */
     public function getId(): ?int
@@ -368,5 +374,21 @@ class Patient
     public function setIdservice(Service $idservice): void
     {
         $this->idservice = $idservice;
+    }
+
+    /**
+     * @return PersistentCollection
+     */
+    public function getTraitements(): PersistentCollection
+    {
+        return $this->traitements;
+    }
+
+    /**
+     * @param PersistentCollection $traitements
+     */
+    public function setTraitements(PersistentCollection $traitements): void
+    {
+        $this->traitements = $traitements;
     }
 }

@@ -22,7 +22,10 @@ class PharmacienController extends AbstractController
      */
     public function indexAction(Request $request) {
 
-        return $this->render('Pharmacien/pharmacien.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $traitements = $em->getRepository('App:Traitement')->findBycomposer();
+
+        return $this->render('Pharmacien/pharmacien.html.twig',['traitements' => $traitements]);
 
     }
 
