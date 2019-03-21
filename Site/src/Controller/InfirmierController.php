@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use Doctrine\ORM\EntityManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller
  *
  * @Route("/infirmier")
+ * @IsGranted("ROLE_INFIRMIER")
  */
 class InfirmierController extends AbstractController
 {

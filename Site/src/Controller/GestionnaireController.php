@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller
  *
  * @Route("/gestionnaire")
+ * @IsGranted("ROLE_GESTIONNAIRE")
  */
 class GestionnaireController extends AbstractController
 {

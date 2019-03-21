@@ -22,6 +22,7 @@ use Symfony\Component\Serializer\Serializer;
  * @package App\Controller
  *
  * @Route("/medecin")
+ * @IsGranted("ROLE_MEDECIN")
  */
 class MedecinController extends AbstractController
 {

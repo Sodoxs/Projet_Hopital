@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller
  *
  * @Route("/pharmacien")
+ * @IsGranted("ROLE_PHARMACIEN")
  */
 class PharmacienController extends AbstractController
 {

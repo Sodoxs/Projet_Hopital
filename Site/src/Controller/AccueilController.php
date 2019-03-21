@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller
  *
  * @Route("/accueil")
+ * @IsGranted("ROLE_ACCUEIL")
  */
 class AccueilController extends AbstractController
 {
