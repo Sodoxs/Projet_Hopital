@@ -16,30 +16,19 @@
                 cache: false,
                 data: {'word':$('#search-barre').val()},
                 success: function (response) {
-                    var mots = response['words'];
-                    if (!mots || !mots.length) return;
-                    var words = mots.map(function (item) {
-                        return "\"" + item['word'] + "\": null";
-                    });
-                    words = "{" + words + "}";
-                    submitSearch();
-                    $('#search-barre').autocomplete({
-                        data: JSON.parse(words)
-                    });
+
+                    var response  = JSON.parse(response);
+                    console.log(response);
+                    var newHtml = ""
+                    for(var i=0;i<response.length; i++){
+                        newHtml += "<a href=patient/"+response[i].id+"><li class=lignePatient>"+response[i].prenompatient + " " + response[i].nompatient + "</li></a>"
+                    }
+                    console.log(newHtml);
+                    $("#listpatients").html(newHtml);
                 },
                 error: function (err) {
                 }
             });
         });
     });
-
-    function submitSearch(){
-        var word = $('#search-barre').val();
-
-        if(word){
-
-        }else{
-
-        }
-    }
 </script>

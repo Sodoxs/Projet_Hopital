@@ -5,12 +5,14 @@
 
         <title>{% block title %}Bienvenue!{% endblock %}</title>
 
-        {% block stylesheets %}{% endblock %}
-        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+
+
         <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
         <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+        {% block stylesheets %}{% endblock %}
 
     </head>
 
