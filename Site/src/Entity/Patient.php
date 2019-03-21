@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Patient
  *
  * @ORM\Table(name="PATIENT", uniqueConstraints={@ORM\UniqueConstraint(name="numsecu", columns={"numsecu"})}, indexes={@ORM\Index(name="fkPatientService", columns={"idservice"}), @ORM\Index(name="fkPatientLit", columns={"idlit"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\PatientRepository")
  */
 class Patient
 {
