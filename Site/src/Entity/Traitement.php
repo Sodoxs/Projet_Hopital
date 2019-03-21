@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Traitement
  *
- * @ORM\Table(name="TRAITEMENT", indexes={@ORM\Index(name="fkTraitementStatut", columns={"idstatut"}), @ORM\Index(name="fkTraitementPatient", columns={"idpatient"})})
+ * @ORM\Table(name="TRAITEMENT", indexes={@ORM\Index(name="fkTraitementStatut", columns={"idstatut"})})
  * @ORM\Entity
  */
 class Traitement
@@ -38,14 +38,11 @@ class Traitement
     private $datefintraitement;
 
     /**
-     * @var int
+     * @var Patient
      *
-     * @ORM\ManyToOne(targetEntity="Patient", inversedBy="id")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="Patient", inversedBy="traitements")
      */
-    private $idpatient;
+    private $patient;
 
     /**
      * @var \Statut
@@ -93,14 +90,6 @@ class Traitement
     public function getDatetraitement(): ?\DateTime
     {
         return $this->datetraitement;
-    }
-
-    /**
-     * @return \Patient
-     */
-    public function getIdpatient(): \Patient
-    {
-        return $this->idpatient;
     }
 
     /**
@@ -165,6 +154,22 @@ class Traitement
     public function setGerer(Gerer $gerer): void
     {
         $this->gerer = $gerer;
+    }
+
+    /**
+     * @return Patient
+     */
+    public function getPatient(): Patient
+    {
+        return $this->patient;
+    }
+
+    /**
+     * @param Patient $patient
+     */
+    public function setPatient(Patient $patient): void
+    {
+        $this->patient = $patient;
     }
 
 }
